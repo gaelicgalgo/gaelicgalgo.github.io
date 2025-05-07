@@ -213,16 +213,29 @@
             padding: 15px;
         }
     }
-    .buchreihe {
+ .buchreihe {
   display: flex;
-  justify-content: space-between;
-  gap: 1rem;
   flex-wrap: wrap;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
 .buch {
+  flex: 1 1 200px;
+  max-width: 220px;
   text-align: center;
-  flex: 1 1 30%;
+  color: #fff;
+}
+
+.buch img {
+  width: 100%;
+  height: auto;
+  border: 2px solid #fff;
+  border-radius: 8px;
+  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
+}
+
 }
 
 .buch img {
