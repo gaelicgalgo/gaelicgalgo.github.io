@@ -3,116 +3,122 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaelic Galgo – Karl Ramspott</title>
+  <title>Gaelic Galgo</title>
   <style>
     body {
+      margin: 0;
       font-family: Georgia, serif;
       background-color: #f4f4f4;
       color: #222;
-      margin: 0;
     }
+
     header {
       background-color: #003320;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem;
       position: relative;
     }
-    header img {
+
+    header img.portrait {
       position: absolute;
       top: 1rem;
       right: 1rem;
       width: 100px;
+      height: 100px;
       border-radius: 50%;
       border: 2px solid white;
+      object-fit: cover;
     }
+
     nav {
       background-color: #075632;
       display: flex;
       justify-content: center;
       gap: 2rem;
       padding: 0.5rem;
-      <nav>
-  <a href="#irland">Irland</a>
-  <a href="#schottland">Schottland</a>
-  <a href="#buecher">Meine Bücher</a>
-  <a href="#irland-bilder">Bilder Irland</a>
-  <a href="#schottland-bilder">Bilder Schottland</a>
-</nav>
-
     }
+
     nav a {
       color: white;
-      font-weight: bold;
       text-decoration: none;
+      font-weight: bold;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     main {
       padding: 2rem;
     }
+
     section {
-      margin-bottom: 4rem;
+      margin-bottom: 3rem;
     }
+
     img.full {
       max-width: 100%;
       height: auto;
       border-radius: 8px;
     }
+
+    h2 {
+      color: #003320;
+    }
+
+    h3 {
+      color: #075632;
+    }
   </style>
 </head>
 <body>
 
-<header>
-  <h1>Gaelic Galgo</h1>
-  <p>Irland – Schottland – Bücher – Geschichten</p>
-  <p><strong>Karl Ramspott</strong></p>
-  <img src="karl_portrait_round.png" alt="Karl Ramspott">
-</header>
+  <header>
+    <h1>Gaelic Galgo</h1>
+    <p>Irland – Schottland – Bücher – Geschichten</p>
+    <p><strong>Karl Ramspott</strong></p>
+    <img src="karl_portrait_round.png" alt="Karl Ramspott" class="portrait" />
+  </header>
 
-<nav>
-  <a href="#irland">Irland</a>
-  <a href="#schottland">Schottland</a>
-  <a href="#buecher">Meine Bücher</a>
-</nav>
+  <nav>
+    <a href="#irland">Irland</a>
+    <a href="#schottland">Schottland</a>
+    <a href="#buecher">Meine Bücher</a>
+    <a href="#irland-bilder">Bilder Irland</a>
+    <a href="#schottland-bilder">Bilder Schottland</a>
+  </nav>
 
-<main>
-  <section id="irland">
-    <h2>Irland</h2>
-    <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
-    <img src="irland.jpg" alt="Irland" class="full">
-  </section>
+  <main>
+    <section id="irland">
+      <h2>Irland</h2>
+      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+      <img src="irland.jpg" alt="Irland" class="full" />
+    </section>
 
-  <section id="schottland">
-    <h2>Schottland</h2>
-    <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
-    <img src="schottland.jpg" alt="Schottland" class="full">
-  </section>
+    <section id="schottland">
+      <h2>Schottland</h2>
+      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+      <img src="schottland.jpg" alt="Schottland" class="full" />
+    </section>
 
-  <section id="buecher">
-    <h2>Meine Bücher</h2>
-    <p>In Arbeit …</p>
-  </section>
-</main>
+    <section id="buecher">
+      <h2>Meine Bücher</h2>
+      <p>In Arbeit …</p>
+    </section>
+
+    <section id="irland-bilder">
+      <h3>Bilder Irland</h3>
+      <img src="bilder/irland1.jpg" alt="Irland Landschaft" class="full" />
+      <img src="bilder/irland2.jpg" alt="Küste in Irland" class="full" />
+    </section>
+
+    <section id="schottland-bilder">
+      <h3>Bilder Schottland</h3>
+      <img src="bilder/schottland1.jpg" alt="Schottland Landschaft" class="full" />
+      <img src="bilder/schottland2.jpg" alt="Burgen in Schottland" class="full" />
+    </section>
+  </main>
 
 </body>
 </html>
-<section id="irland-bilder">
-  <h3>Bilder Irland</h3>
-  <img src="bilder/irland1.jpg" alt="Irland Landschaft" style="max-width: 100%; height: auto;">
-  <img src="bilder/irland2.jpg" alt="Küste in Irland" style="max-width: 100%; height: auto;">
-</section>
-
-<section id="schottland-bilder">
-  <h3>Bilder Schottland</h3>
-  <img src="bilder/schottland1.jpg" alt="Schottland Landschaft" style="max-width: 100%; height: auto;">
-  <img src="bilder/schottland2.jpg" alt="Burgen in Schottland" style="max-width: 100%; height: auto;">
-</section>
-<nav>
-  <a href="#irland">Irland</a>
-  <a href="#schottland">Schottland</a>
-  <a href="#buecher">Meine Bücher</a>
-  <a href="#irland-bilder">Bilder Irland</a>
-  <a href="#schottland-bilder">Bilder Schottland</a>
-</nav>
