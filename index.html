@@ -132,6 +132,7 @@
         margin-bottom: 30px;
         border-radius: 10px; 
         display: none; /* Initially hide all sections */
+        /* Removed background color from here to let body background show through */
     }
     section.content-section.active {
         display: block; /* Show active section */
@@ -154,24 +155,27 @@
         text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
     }
     
-    /* Book Covers Styling - Updated for vertical layout */
+    /* Book Covers Styling - RADICALLY Updated for vertical layout */
     .book-covers {
-        display: flex;
-        flex-direction: column; /* Stack items vertically */
-        align-items: center; /* Center items horizontally */
-        gap: 30px; /* Space between covers */
+        /* Removed display: flex; */
+        /* Removed flex-direction: column; */
+        /* Removed align-items: center; */
+        /* Removed gap: 30px; */
+        width: 100%; /* Ensure the container takes full width */
     }
     .book-cover-item {
-        width: 80%; /* Make covers take more width */
-        max-width: 400px; /* Max width for a cover, adjust as needed */
+        display: block; /* Ensure it's a block element */
+        width: 70%;  /* Make covers take significant width */
+        max-width: 450px; /* Max width for a cover, adjust as needed */
+        margin: 0 auto 35px auto; /* Center block element and add bottom margin */
         text-align: center;
     }
     .book-cover-item img {
         width: 100%;
         height: auto;
         border-radius: 8px; /* Slightly larger radius */
-        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
-        border: 3px solid rgba(255,255,255,0.6);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        border: 4px solid rgba(255,255,255,0.65);
     }
 
     /* Footer Styles */
@@ -211,8 +215,8 @@
             text-align: left; 
         }
         .book-cover-item {
-            width: 90%; /* Adjust for tablets */
-            max-width: 350px;
+            width: 85%; /* Adjust for tablets */
+            max-width: 400px;
         }
     }
 
@@ -236,8 +240,8 @@
             padding: 15px;
         }
         .book-cover-item {
-            width: 100%; /* Full width on mobile */
-            max-width: 300px;
+            width: 95%; /* Full width on mobile */
+            max-width: 320px;
         }
     }
     </style>
@@ -338,9 +342,16 @@
                          history.pushState(null, null, "#" + targetId);
                     }
                 } else if (!sectionFound && targetId !== "irland") {
+                    // Default to 'irland' if the target is not found and it's not already 'irland'
                     if (window.location.hash !== "#irland") {
                         history.pushState(null, null, "#irland");
                     }
+                     if(document.getElementById("irland")) { // Ensure 'irland' section exists before trying to show it
+                        document.getElementById("irland").style.display = "block";
+                        if(document.querySelector('nav ul li a[data-target="irland"]')) {
+                           document.querySelector('nav ul li a[data-target="irland"]').classList.add("active");
+                        }, 
+                     }
                 }
             }
 
@@ -349,22 +360,29 @@
                     event.preventDefault(); 
                     const targetId = this.getAttribute("data-target");
                     showSection(targetId);
-                    document.querySelector("main").scrollIntoView({ behavior: "smooth", block: "start" });
+                    // Scroll to top of the main content area or header after section change
+                    // Changed to scroll the main element into view, not the body, for better focus.
+                    const mainElement = document.querySelector("main");
+                    if (mainElement) {
+                        mainElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
                 });
             });
 
+            // Initial section display based on hash or default to 'irland'
             if (currentHash && document.getElementById(currentHash)) {
                 showSection(currentHash);
             } else {
                 showSection("irland"); 
             }
 
+            // Handle hash changes (e.g., browser back/forward buttons)
             window.addEventListener("hashchange", function() {
                 currentHash = window.location.hash.substring(1);
                 if (currentHash && document.getElementById(currentHash)) {
                     showSection(currentHash);
-                } else if (!currentHash) {
-                     showSection("irland"); 
+                } else if (!currentHash) { // If hash is empty (e.g. cleared by user or back to base URL)
+                     showSection("irland"); // Default to 'irland'
                 }
             });
         });
@@ -372,6 +390,7 @@
 
 </body>
 </html>
+
 
 
 
