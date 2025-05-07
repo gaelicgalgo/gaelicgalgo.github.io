@@ -128,7 +128,6 @@
     }
 
     section.content-section {
-        /* background-color removed */
         padding: 30px;
         margin-bottom: 30px;
         border-radius: 10px; 
@@ -153,6 +152,27 @@
         font-size: 1.15em; 
         text-align: justify; 
         text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
+    }
+    
+    /* Book Covers Styling */
+    .book-covers {
+        display: flex;
+        flex-wrap: wrap; /* Allow wrapping on smaller screens */
+        justify-content: space-around; /* Distribute space */
+        align-items: flex-start;
+        gap: 20px; /* Space between covers */
+    }
+    .book-cover-item {
+        flex-basis: calc(33.333% - 20px); /* Aim for 3 items per row, adjust for gap */
+        max-width: 250px; /* Max width for a cover */
+        text-align: center;
+    }
+    .book-cover-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 5px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+        border: 2px solid rgba(255,255,255,0.5);
     }
 
     /* Footer Styles */
@@ -191,6 +211,9 @@
         section.content-section p {
             text-align: left; 
         }
+        .book-cover-item {
+            flex-basis: calc(50% - 15px); /* 2 items per row on tablets */
+        }
     }
 
     @media (max-width: 480px) {
@@ -212,41 +235,10 @@
         main {
             padding: 15px;
         }
+        .book-cover-item {
+            flex-basis: 100%; /* 1 item per row on mobile */
+        }
     }
- .buchreihe {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 1.5rem;
-  margin-top: 1rem;
-}
-
-.buch {
-  flex: 1 1 200px;
-  max-width: 220px;
-  text-align: center;
-  color: #fff;
-}
-
-.buch img {
-  width: 100%;
-  height: auto;
-  border: 2px solid #fff;
-  border-radius: 8px;
-  box-shadow: 0 0 6px rgba(0, 0, 0, 0.4);
-}
-
-}
-
-.buch img {
-  width: 100%;
-  max-width: 200px;
-  height: auto;
-  border: 2px solid #fff;
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.3);
-}
-
     </style>
 </head>
 <body>
@@ -256,7 +248,6 @@
             <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
         </div>
         <div class="author-container">
-            <!-- Removed additional-images-placeholder div -->
             <div class="author-box">
                 <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
                 <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
@@ -266,7 +257,6 @@
 
     <nav>
         <ul>
-            <!-- Changed href to data-target -->
             <li><a data-target="irland">Irland</a></li>
             <li><a data-target="schottland">Schottland</a></li>
             <li><a data-target="buecher">Meine Bücher</a></li>
@@ -276,7 +266,6 @@
     </nav>
 
     <main>
-        <!-- Added class content-section to all sections -->
         <section id="irland" class="content-section">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
@@ -287,24 +276,20 @@
             <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
         </section>
 
-        <section id="buecher">
-  <h2>Meine Bücher</h2>
-  <div class="buchreihe">
-    <div class="buch">
-      <img src="ire-cover-1.jpg" alt="Cover 1" />
-      <p><strong>Mein Leben als Ire</strong><br>Eine autobiografische Reise</p>
-    </div>
-    <div class="buch">
-      <img src="arch-cover%202.jpg" alt="Cover 2" />
-      <p><strong>Unter den Straßen Dublins</strong><br>Fiktion mit wahrem Kern</p>
-    </div>
-    <div class="buch">
-      <img src="strasse-cover-3.jpg" alt="Cover 3" />
-      <p><strong>Grüne Inseln – Graue Tage</strong><br>Irland in Bildern & Gedanken</p>
-    </div>
-  </div>
-</section>
-
+        <section id="buecher" class="content-section">
+            <h2>Meine Bücher</h2>
+            <div class="book-covers">
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Irland">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Strasse">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Architektur">
+                </div>
+            </div>
+            <p style="margin-top: 20px;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
         </section>
 
         <section id="bilder-irland" class="content-section">
@@ -333,11 +318,11 @@
                 contentSections.forEach(section => {
                     if (section.id === targetId) {
                         section.style.display = 'block';
-                        section.classList.add('active');
+                        // section.classList.add('active'); // classList.add('active') is redundant if style.display is set directly
                         sectionFound = true;
                     } else {
                         section.style.display = 'none';
-                        section.classList.remove('active');
+                        // section.classList.remove('active');
                     }
                 });
 
@@ -349,15 +334,11 @@
                     }
                 });
                 
-                // Update hash only if the section was actually found and shown
                 if (sectionFound && document.getElementById(targetId)) {
-                    // Avoid pushing the same hash repeatedly if it's already there
                     if (window.location.hash !== '#' + targetId) {
                          history.pushState(null, null, '#' + targetId);
                     }
                 } else if (!sectionFound && targetId !== 'irland') {
-                    // If a non-default target was not found, default to 'irland'
-                    // and only update hash if 'irland' is not already the target.
                     if (window.location.hash !== '#irland') {
                         history.pushState(null, null, '#irland');
                     }
@@ -366,26 +347,28 @@
 
             navLinks.forEach(link => {
                 link.addEventListener('click', function(event) {
-                    event.preventDefault(); // Prevent default anchor jump
+                    event.preventDefault(); 
                     const targetId = this.getAttribute('data-target');
                     showSection(targetId);
+                    // Scroll to top of the main content area or header after section change
+                    document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
                 });
             });
 
-            // Show section based on URL hash on page load, or default to 'irland'
             if (currentHash && document.getElementById(currentHash)) {
                 showSection(currentHash);
             } else {
-                showSection('irland'); // Default section to show
+                showSection('irland'); 
             }
+            // Scroll to top after initial load as well
+            // setTimeout(() => { document.querySelector('body').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
 
-            // Listen for hash changes (e.g., browser back/forward buttons)
             window.addEventListener('hashchange', function() {
                 currentHash = window.location.hash.substring(1);
                 if (currentHash && document.getElementById(currentHash)) {
                     showSection(currentHash);
                 } else if (!currentHash) {
-                     showSection('irland'); // If hash is empty (e.g. cleared by user), show default
+                     showSection('irland'); 
                 }
             });
         });
@@ -393,4 +376,5 @@
 
 </body>
 </html>
+
 
