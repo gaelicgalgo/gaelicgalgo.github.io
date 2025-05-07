@@ -157,10 +157,6 @@
     
     /* Book Covers Styling - RADICALLY Updated for vertical layout */
     .book-covers {
-        /* Removed display: flex; */
-        /* Removed flex-direction: column; */
-        /* Removed align-items: center; */
-        /* Removed gap: 30px; */
         width: 100%; /* Ensure the container takes full width */
     }
     .book-cover-item {
@@ -288,7 +284,7 @@
                     <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Mein Leben als Ire">
                 </div>
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Die Straße">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Unter den Strassen Dublins">
                 </div>
                 <div class="book-cover-item">
                     <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
@@ -350,7 +346,7 @@
                         document.getElementById("irland").style.display = "block";
                         if(document.querySelector('nav ul li a[data-target="irland"]')) {
                            document.querySelector('nav ul li a[data-target="irland"]').classList.add("active");
-                        }, 
+                        } 
                      }
                 }
             }
@@ -360,8 +356,6 @@
                     event.preventDefault(); 
                     const targetId = this.getAttribute("data-target");
                     showSection(targetId);
-                    // Scroll to top of the main content area or header after section change
-                    // Changed to scroll the main element into view, not the body, for better focus.
                     const mainElement = document.querySelector("main");
                     if (mainElement) {
                         mainElement.scrollIntoView({ behavior: "smooth", block: "start" });
@@ -369,20 +363,18 @@
                 });
             });
 
-            // Initial section display based on hash or default to 'irland'
             if (currentHash && document.getElementById(currentHash)) {
                 showSection(currentHash);
             } else {
                 showSection("irland"); 
             }
 
-            // Handle hash changes (e.g., browser back/forward buttons)
             window.addEventListener("hashchange", function() {
                 currentHash = window.location.hash.substring(1);
                 if (currentHash && document.getElementById(currentHash)) {
                     showSection(currentHash);
-                } else if (!currentHash) { // If hash is empty (e.g. cleared by user or back to base URL)
-                     showSection("irland"); // Default to 'irland'
+                } else if (!currentHash) { 
+                     showSection("irland"); 
                 }
             });
         });
@@ -390,6 +382,7 @@
 
 </body>
 </html>
+
 
 
 
