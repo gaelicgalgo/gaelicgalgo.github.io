@@ -2,81 +2,68 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Gaelic Galgo</title>
   <style>
     body {
-      margin: 0;
       font-family: Georgia, serif;
-      background: url('https://upload.wikimedia.org/wikipedia/commons/7/76/Celtic-knot.svg') repeat center center fixed;
-      background-size: 80px;
+      background-color: #f4f4f4;
       color: #333;
+      margin: 0;
+      padding: 0;
     }
     header {
       background-color: #0a3b24;
       color: white;
-      padding: 1rem;
       text-align: center;
+      padding: 2rem 1rem 1rem;
+    }
+    header img {
+      width: 120px;
+      border-radius: 50%;
+      opacity: 0.85;
+      margin-top: 1rem;
     }
     nav {
       background-color: #14623b;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 0.5rem;
+      padding: 1rem;
     }
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-    nav a:hover {
-      text-decoration: underline;
-    }
-    main {
-      padding: 2rem;
-    }
     section {
-      margin-bottom: 3rem;
-    }
-    img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 10px;
+      padding: 2rem;
+      max-width: 800px;
+      margin: auto;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
+    <img src="karl.jpg" alt="Karl Ramspott">
   </header>
-
   <nav>
     <a href="#irland">Irland</a>
     <a href="#schottland">Schottland</a>
     <a href="#buecher">Meine Bücher</a>
   </nav>
-
-  <main>
-    <section id="irland">
-      <h2>Irland</h2>
-      <p>Hier kannst du deine Reiseberichte, Gedanken und Fotos zu Irland einfügen.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/1/1b/Cliffs_of_Moher%2C_County_Clare.jpg" alt="Irland">
-    </section>
-
-    <section id="schottland">
-      <h2>Schottland</h2>
-      <p>Und hier folgen die Inhalte zu Schottland.</p>
-      <img src="https://upload.wikimedia.org/wikipedia/commons/e/e6/Eilean_Donan_Castle%2C_Scotland_%28pixinn.net%29.jpg" alt="Schottland">
-    </section>
-
-    <section id="buecher">
-      <h2>Meine Bücher</h2>
-      <p>Hier kannst du deine Werke vorstellen und ggf. zu Amazon oder PDF-Downloads verlinken.</p>
-    </section>
-  </main>
-
+  <section id="irland">
+    <h2>Irland</h2>
+    <p>Reiseberichte, Landschaften und Momente voller Geschichte.</p>
+  </section>
+  <section id="schottland">
+    <h2>Schottland</h2>
+    <p>Hohe Klippen, Burgruinen, Wind und Weite. Geschichten aus dem Norden.</p>
+  </section>
+  <section id="buecher">
+    <h2>Meine Bücher</h2>
+    <p>Reiseerzählungen und persönliche Eindrücke – bald mehr dazu.</p>
+  </section>
 </body>
 </html>
