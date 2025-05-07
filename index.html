@@ -4,17 +4,221 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaelic Galgo</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+    /* General Body Styles */
+    body {
+        font-family: 'Georgia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #E8E5E0; /* Fallback */
+        background-image: url('https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/hintergrund.jpg?raw=true');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFFFFF; /* Default text color to white for better visibility on image */
+        line-height: 1.7;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: rgba(25, 50, 35, 0.85); 
+        color: #E0E0E0; 
+        padding: 25px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 3px solid #4A7C59; 
+    }
+
+    header .title-container h1 {
+        margin: 0;
+        font-size: 2.8em;
+        font-weight: normal;
+        color: #FFFFFF; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+
+    header .title-container .subtitle {
+        margin: 5px 0 0 0;
+        font-size: 1.1em;
+        font-style: italic;
+        color: #B0C4B1; 
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    .author-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+
+    .author-box {
+        display: flex;
+        align-items: center;
+        text-align: right;
+        background-color: rgba(0,0,0,0.4); /* Slightly darker author box for text contrast */
+        padding: 10px 15px;
+        border-radius: 8px;
+    }
+
+    .author-box .author-image {
+        width: 90px; 
+        height: 90px;
+        border-radius: 50%;
+        margin-left: 20px;
+        border: 3px solid #B0C4B1; 
+    }
+
+    .author-box p {
+        margin: 0;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: #E0E0E0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    }
+
+    /* Navigation Styles */
+    nav {
+        background-color: rgba(40, 70, 50, 0.9); 
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 2px solid #203828;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 18px;
+    }
+
+    nav ul li a {
+        color: #E0E0E0;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 8px 12px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        border-radius: 4px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+        color: #FFFFFF;
+        background-color: #4A7C59; 
+        text-decoration: none;
+    }
+
+    /* Main Content Sections */
+    main {
+        padding: 25px;
+        max-width: 950px;
+        margin: 30px auto;
+    }
+
+    section {
+        /* background-color removed */
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 10px; /* Keep radius for visual structure if desired, or remove */
+        /* box-shadow removed */
+        /* border removed */
+    }
+
+    section h2 {
+        margin-top: 0;
+        color: #FFFFFF; /* White text for headings */
+        border-bottom: 2px solid rgba(160, 188, 166, 0.7); /* Muted green accent, slightly transparent */
+        padding-bottom: 12px;
+        margin-bottom: 22px;
+        font-size: 2em; /* Slightly larger for impact */
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Stronger shadow for headings */
+    }
+
+    section p {
+        color: #F0F0F0; /* Very light grey/off-white for paragraph text */
+        font-size: 1.15em; /* Slightly larger for readability */
+        text-align: justify; 
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* Strong shadow for paragraphs */
+    }
+
+    /* Footer Styles */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background-color: rgba(25, 50, 35, 0.9); 
+        color: #B0C4B1;
+        font-size: 0.95em;
+        border-top: 3px solid #4A7C59;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .author-container {
+            align-items: center; 
+            margin-top: 15px;
+        }
+        .author-box {
+            text-align: center;
+            flex-direction: column;
+        }
+        .author-box .author-image {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+        section p {
+            text-align: left; 
+        }
+    }
+
+    @media (max-width: 480px) {
+        header .title-container h1 {
+            font-size: 2.2em;
+        }
+        header .title-container .subtitle {
+            font-size: 1em;
+        }
+        section h2 {
+            font-size: 1.8em;
+        }
+        section p {
+            font-size: 1.1em;
+        }
+        section {
+            padding: 20px;
+        }
+        main {
+            padding: 15px;
+        }
+    }
+    </style>
 </head>
 <body>
     <header>
         <div class="title-container">
             <h1>Gaelic Galgo</h1>
-            <p class="subtitle">Irland – Schottland – Bücher – Geschichten</p>
+            <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
         </div>
-        <div class="author-box">
-            <img src="#KARL_PORTRAIT_PLACEHOLDER#" alt="Karl Ramspott Portrait" class="author-image">
-            <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
+        <div class="author-container">
+            <!-- Removed additional-images-placeholder div -->
+            <div class="author-box">
+                <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
+                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
+            </div>
         </div>
     </header>
 
