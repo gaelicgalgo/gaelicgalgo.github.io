@@ -222,6 +222,7 @@
             <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
         </div>
         <div class="author-container">
+            <!-- Removed additional-images-placeholder div -->
             <div class="author-box">
                 <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
                 <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
@@ -231,6 +232,7 @@
 
     <nav>
         <ul>
+            <!-- Changed href to data-target -->
             <li><a data-target="irland">Irland</a></li>
             <li><a data-target="schottland">Schottland</a></li>
             <li><a data-target="buecher">Meine Bücher</a></li>
@@ -240,6 +242,7 @@
     </nav>
 
     <main>
+        <!-- Added class content-section to all sections -->
         <section id="irland" class="content-section">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
@@ -273,17 +276,22 @@
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const navLinks = document.querySelectorAll('nav ul li a');
-            const contentSections = document.querySelectorAll('.content-section');
+            const contentSections = document.querySelectorAll('main .content-section');
             let currentHash = window.location.hash.substring(1);
 
             function showSection(targetId) {
+                let sectionFound = false;
                 contentSections.forEach(section => {
                     if (section.id === targetId) {
+                        section.style.display = 'block';
                         section.classList.add('active');
+                        sectionFound = true;
                     } else {
+                        section.style.display = 'none';
                         section.classList.remove('active');
                     }
                 });
+
                 navLinks.forEach(link => {
                     if (link.getAttribute('data-target') === targetId) {
                         link.classList.add('active');
@@ -291,9 +299,19 @@
                         link.classList.remove('active');
                     }
                 });
-                // Update hash without jumping, if section exists
-                if (document.getElementById(targetId)) {
-                    history.pushState(null, null, '#' + targetId);
+                
+                // Update hash only if the section was actually found and shown
+                if (sectionFound && document.getElementById(targetId)) {
+                    // Avoid pushing the same hash repeatedly if it's already there
+                    if (window.location.hash !== '#' + targetId) {
+                         history.pushState(null, null, '#' + targetId);
+                    }
+                } else if (!sectionFound && targetId !== 'irland') {
+                    // If a non-default target was not found, default to 'irland'
+                    // and only update hash if 'irland' is not already the target.
+                    if (window.location.hash !== '#irland') {
+                        history.pushState(null, null, '#irland');
+                    }
                 }
             }
 
@@ -317,6 +335,8 @@
                 currentHash = window.location.hash.substring(1);
                 if (currentHash && document.getElementById(currentHash)) {
                     showSection(currentHash);
+                } else if (!currentHash) {
+                     showSection('irland'); // If hash is empty (e.g. cleared by user), show default
                 }
             });
         });
@@ -324,3 +344,4 @@
 
 </body>
 </html>
+
