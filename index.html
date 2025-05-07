@@ -6,8 +6,9 @@
   <title>Gaelic Galgo</title>
   <style>
     body {
-      margin: 0;
       font-family: Georgia, serif;
+      margin: 0;
+      padding: 0;
       background-color: #f4f4f4;
       color: #222;
     }
@@ -16,109 +17,108 @@
       background-color: #003320;
       color: white;
       text-align: center;
-      padding: 2rem;
+      padding: 2rem 1rem;
       position: relative;
     }
 
-    header img.portrait {
+    header img {
       position: absolute;
       top: 1rem;
       right: 1rem;
       width: 100px;
       height: 100px;
+      object-fit: cover;
       border-radius: 50%;
       border: 2px solid white;
-      object-fit: cover;
     }
 
     nav {
       background-color: #075632;
       display: flex;
       justify-content: center;
+      flex-wrap: wrap;
       gap: 2rem;
-      padding: 0.5rem;
+      padding: 1rem;
     }
 
     nav a {
       color: white;
-      text-decoration: none;
       font-weight: bold;
+      text-decoration: none;
     }
 
     nav a:hover {
       text-decoration: underline;
     }
 
-    main {
+    section {
+      display: none;
       padding: 2rem;
     }
 
-    section {
-      margin-bottom: 3rem;
+    section.active {
+      display: block;
     }
 
     img.full {
       max-width: 100%;
       height: auto;
-      border-radius: 8px;
-    }
-
-    h2 {
-      color: #003320;
-    }
-
-    h3 {
-      color: #075632;
+      margin: 1rem 0;
     }
   </style>
 </head>
 <body>
-
   <header>
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
-    <p><strong>Karl Ramspott</strong></p>
-    <img src="karl_portrait_round.png" alt="Karl Ramspott" class="portrait" />
+    <h2>Karl Ramspott</h2>
+    <img src="karl_portrait_round.png" alt="Karl Ramspott" />
   </header>
 
   <nav>
-    <a href="#irland">Irland</a>
-    <a href="#schottland">Schottland</a>
-    <a href="#buecher">Meine Bücher</a>
-    <a href="#irland-bilder">Bilder Irland</a>
-    <a href="#schottland-bilder">Bilder Schottland</a>
+    <a href="#" onclick="showSection('irland')">Irland</a>
+    <a href="#" onclick="showSection('schottland')">Schottland</a>
+    <a href="#" onclick="showSection('buecher')">Meine Bücher</a>
+    <a href="#" onclick="showSection('bilder-irland')">Bilder Irland</a>
+    <a href="#" onclick="showSection('bilder-schottland')">Bilder Schottland</a>
   </nav>
 
-  <main>
-    <section id="irland">
-      <h2>Irland</h2>
-      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
-      <img src="irland.jpg" alt="Irland" class="full" />
-    </section>
+  <section id="irland" class="active">
+    <h2>Irland</h2>
+    <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+    <img src="bilder/irland.jpg" alt="Irland" class="full" />
+  </section>
 
-    <section id="schottland">
-      <h2>Schottland</h2>
-      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
-      <img src="schottland.jpg" alt="Schottland" class="full" />
-    </section>
+  <section id="schottland">
+    <h2>Schottland</h2>
+    <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+    <img src="bilder/schottland.jpg" alt="Schottland" class="full" />
+  </section>
 
-    <section id="buecher">
-      <h2>Meine Bücher</h2>
-      <p>In Arbeit …</p>
-    </section>
+  <section id="buecher">
+    <h2>Meine Bücher</h2>
+    <p>In Arbeit …</p>
+  </section>
 
-    <section id="irland-bilder">
-      <h3>Bilder Irland</h3>
-      <img src="bilder/irland1.jpg" alt="Irland Landschaft" class="full" />
-      <img src="bilder/irland2.jpg" alt="Küste in Irland" class="full" />
-    </section>
+  <section id="bilder-irland">
+    <h2>Bilder Irland</h2>
+    <img src="bilder/irland1.jpg" alt="Irland Landschaft" class="full" />
+    <img src="bilder/irland2.jpg" alt="Küste in Irland" class="full" />
+  </section>
 
-    <section id="schottland-bilder">
-      <h3>Bilder Schottland</h3>
-      <img src="bilder/schottland1.jpg" alt="Schottland Landschaft" class="full" />
-      <img src="bilder/schottland2.jpg" alt="Burgen in Schottland" class="full" />
-    </section>
-  </main>
+  <section id="bilder-schottland">
+    <h2>Bilder Schottland</h2>
+    <img src="bilder/schottland1.jpg" alt="Schottische Landschaft" class="full" />
+    <img src="bilder/schottland2.jpg" alt="Burgen in Schottland" class="full" />
+  </section>
 
+  <script>
+    function showSection(id) {
+      document.querySelectorAll("section").forEach((sec) => {
+        sec.classList.remove("active");
+      });
+      document.getElementById(id).classList.add("active");
+    }
+  </script>
 </body>
 </html>
