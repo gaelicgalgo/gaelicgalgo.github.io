@@ -9,81 +9,113 @@
       margin: 0;
       font-family: Georgia, serif;
       background-color: #f4f4f4;
-      color: #333;
+      color: #1c1c1c;
     }
+
     header {
-      background-color: #00341c;
+      background-color: #003920;
       color: white;
-      padding: 2rem 1rem 3rem;
       text-align: center;
+      padding: 2rem 1rem;
       position: relative;
     }
-    header h1 {
-      margin: 0;
-      font-size: 3rem;
-    }
-    header p {
-      font-size: 1.2rem;
-      margin: 0.5rem 0 0;
-    }
-    .portrait {
+
+    header img {
       position: absolute;
       top: 1rem;
       right: 1rem;
       width: 80px;
       height: 80px;
-      border-radius: 50%;
       object-fit: cover;
-      border: 3px solid white;
+      border-radius: 50%;
+      border: 2px solid white;
     }
+
+    h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    p.subtitle {
+      font-size: 1.2rem;
+      margin-top: 0.5rem;
+    }
+
     nav {
-      background-color: #065b37;
+      background-color: #085c3b;
       display: flex;
       justify-content: center;
-      gap: 2rem;
-      padding: 0.8rem;
+      padding: 0.5rem 0;
     }
+
     nav a {
       color: white;
+      margin: 0 1.5rem;
       text-decoration: none;
       font-weight: bold;
+      font-size: 1.1rem;
     }
+
+    nav a:hover {
+      text-decoration: underline;
+    }
+
     main {
       padding: 2rem;
     }
+
     section {
       margin-bottom: 3rem;
     }
+
     h2 {
-      color: #065b37;
+      color: #003920;
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.9rem;
+      padding: 1rem;
+      background-color: #e8e8e8;
+      color: #555;
     }
   </style>
 </head>
 <body>
+
   <header>
-    <img src="./portrait.jpg" alt="Karl Ramspott" class="portrait">
+    <img src="deinbild.jpg" alt="Karl Ramspott">
     <h1>Gaelic Galgo</h1>
-    <p>Irland – Schottland – Bücher – Geschichten</p>
+    <p class="subtitle">Irland – Schottland – Bücher – Geschichten</p>
     <p>Karl Ramspott</p>
   </header>
+
   <nav>
     <a href="#irland">Irland</a>
     <a href="#schottland">Schottland</a>
     <a href="#buecher">Meine Bücher</a>
   </nav>
+
   <main>
     <section id="irland">
       <h2>Irland</h2>
-      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit.</p>
+      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
     </section>
+
     <section id="schottland">
       <h2>Schottland</h2>
-      <p>Nebel, Whisky, Burgen. Ein Land voller Geschichten und Seele.</p>
+      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
     </section>
+
     <section id="buecher">
       <h2>Meine Bücher</h2>
-      <p>Persönliche Eindrücke, Reisenotizen und Gedanken – veröffentlicht als Taschenbuch und eBook.</p>
+      <p>Erfahrungen, Geschichten und Bilder aus Irland und Schottland – in Worten festgehalten. Entdecke meine Reisebücher, vielleicht findest du ein Stück Heimat darin.</p>
     </section>
   </main>
+
+  <footer>
+    &copy; 2025 Karl Ramspott – Gaelic Galgo
+  </footer>
+
 </body>
 </html>
