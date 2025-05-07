@@ -3,52 +3,44 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaelic Galgo</title>
+  <title>Gaelic Galgo – Karl Ramspott</title>
   <style>
-    body {
-      font-family: Georgia, serif;
+    * {
       margin: 0;
       padding: 0;
-      background-color: #f4f4f4;
-      color: #222;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: Georgia, serif;
+      color: #fff;
+      background-image: url('hintergrund.jpg');
+      background-size: cover;
+      background-position: center;
+      background-attachment: fixed;
     }
 
     header {
-      background-color: #003320;
-      color: white;
+      background-color: rgba(0, 64, 32, 0.8);
+      padding: 2rem;
       text-align: center;
-      padding: 2rem 1rem;
-      position: relative;
     }
 
-    header .profil {
-      position: absolute;
-      top: 1rem;
-      right: 1rem;
-      text-align: right;
+    header h1 {
+      font-size: 3rem;
+      margin-bottom: 0.5rem;
     }
 
-    header .profil img {
-      width: 100px;
-      height: 100px;
-      border-radius: 50%;
-      border: 2px solid white;
-      object-fit: cover;
-    }
-
-    header .profil div {
-      font-size: 0.8rem;
-      color: white;
-      margin-top: 0.2rem;
+    header p {
+      font-size: 1.2rem;
     }
 
     nav {
-      background-color: #075632;
+      background-color: rgba(0, 80, 40, 0.95);
       display: flex;
       justify-content: center;
-      flex-wrap: wrap;
       gap: 2rem;
-      padding: 1rem;
+      padding: 1rem 0;
     }
 
     nav a {
@@ -61,85 +53,88 @@
       text-decoration: underline;
     }
 
-    section {
-      display: none;
+    main {
+      background-color: rgba(255, 255, 255, 0.85);
+      color: #222;
       padding: 2rem;
-      background-image: url('hintergrund.jpg');
-      background-size: cover;
-      background-repeat: no-repeat;
-      background-position: center;
-      min-height: 70vh;
+      max-width: 1000px;
+      margin: auto;
     }
 
-    section.active {
-      display: block;
+    section {
+      margin-bottom: 3rem;
     }
 
-    img.full {
-      max-width: 100%;
-      height: auto;
-      margin: 1rem 0;
+    h2 {
+      color: #064d2d;
+      margin-bottom: 1rem;
+    }
+
+    .portrait {
+      position: absolute;
+      top: 2rem;
+      right: 2rem;
+      text-align: center;
+    }
+
+    .portrait img {
+      width: 120px;
+      border-radius: 50%;
+      border: 3px solid white;
+    }
+
+    .portrait p {
+      margin-top: 0.5rem;
+      color: #fff;
+      font-size: 0.9rem;
     }
   </style>
 </head>
 <body>
+  <div class="portrait">
+    <img src="karl_portrait_round.png" alt="Karl Ramspott" />
+    <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
+  </div>
+
   <header>
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
-    <div class="profil">
-      <img src="karl_portrait_round.png" alt="Karl Ramspott" />
-      <div>
-        Karl Ramspott<br>
-        geb. 1951<br>
-        Irland- & Schottlandreisender
-      </div>
-    </div>
   </header>
 
   <nav>
-    <a href="#" onclick="showSection('irland')">Irland</a>
-    <a href="#" onclick="showSection('schottland')">Schottland</a>
-    <a href="#" onclick="showSection('buecher')">Meine Bücher</a>
-    <a href="#" onclick="showSection('bilder-irland')">Bilder Irland</a>
-    <a href="#" onclick="showSection('bilder-schottland')">Bilder Schottland</a>
+    <a href="#irland">Irland</a>
+    <a href="#schottland">Schottland</a>
+    <a href="#buecher">Meine Bücher</a>
+    <a href="#bilder-irland">Bilder Irland</a>
+    <a href="#bilder-schottland">Bilder Schottland</a>
   </nav>
 
-  <section id="irland" class="active">
-    <h2>Irland</h2>
-    <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
-    <img src="bilder/irland.jpg" alt="Irland" class="full" />
-  </section>
+  <main>
+    <section id="irland">
+      <h2>Irland</h2>
+      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+    </section>
 
-  <section id="schottland">
-    <h2>Schottland</h2>
-    <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
-    <img src="bilder/schottland.jpg" alt="Schottland" class="full" />
-  </section>
+    <section id="schottland">
+      <h2>Schottland</h2>
+      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+    </section>
 
-  <section id="buecher">
-    <h2>Meine Bücher</h2>
-    <p>In Arbeit …</p>
-  </section>
+    <section id="buecher">
+      <h2>Meine Bücher</h2>
+      <p>In Arbeit …</p>
+    </section>
 
-  <section id="bilder-irland">
-    <h2>Bilder Irland</h2>
-    <img src="bilder/irland1.jpg" alt="Irland Landschaft" class="full" />
-    <img src="bilder/irland2.jpg" alt="Küste in Irland" class="full" />
-  </section>
+    <section id="bilder-irland">
+      <h2>Bilder Irland</h2>
+      <p><em>Hier werden bald ausgewählte Bilder zu Irland erscheinen.</em></p>
+    </section>
 
-  <section id="bilder-schottland">
-    <h2>Bilder Schottland</h2>
-    <img src="bilder/schottland1.jpg" alt="Schottische Landschaft" class="full" />
-    <img src="bilder/schottland2.jpg" alt="Burgen in Schottland" class="full" />
-  </section>
-
-  <script>
-    function showSection(id) {
-      document.querySelectorAll("section").forEach((sec) => {
-        sec.classList.remove("active");
-      });
-      document.getElementById(id).classList.add("active");
-    }
-  </script>
+    <section id="bilder-schottland">
+      <h2>Bilder Schottland</h2>
+      <p><em>Auch Schottland bekommt bald seine Galerie …</em></p>
+    </section>
+  </main>
 </body>
 </html>
+
