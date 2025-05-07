@@ -21,15 +21,25 @@
       position: relative;
     }
 
-    header img {
+    header .profil {
       position: absolute;
       top: 1rem;
       right: 1rem;
+      text-align: right;
+    }
+
+    header .profil img {
       width: 100px;
       height: 100px;
-      object-fit: cover;
       border-radius: 50%;
       border: 2px solid white;
+      object-fit: cover;
+    }
+
+    header .profil div {
+      font-size: 0.8rem;
+      color: white;
+      margin-top: 0.2rem;
     }
 
     nav {
@@ -54,6 +64,11 @@
     section {
       display: none;
       padding: 2rem;
+      background-image: url('hintergrund.jpg');
+      background-size: cover;
+      background-repeat: no-repeat;
+      background-position: center;
+      min-height: 70vh;
     }
 
     section.active {
@@ -71,8 +86,14 @@
   <header>
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
-    <h2>Karl Ramspott</h2>
-    <img src="karl_portrait_round.png" alt="Karl Ramspott" />
+    <div class="profil">
+      <img src="karl_portrait_round.png" alt="Karl Ramspott" />
+      <div>
+        Karl Ramspott<br>
+        geb. 1951<br>
+        Irland- & Schottlandreisender
+      </div>
+    </div>
   </header>
 
   <nav>
