@@ -8,71 +8,62 @@
     body {
       margin: 0;
       font-family: Georgia, serif;
-      color: #122;
       background-color: #f4f4f4;
+      color: #222;
     }
-
     header {
       background-color: #003820;
       color: white;
-      padding: 2rem;
       text-align: center;
+      padding: 2rem 1rem 1rem 1rem;
+      position: relative;
     }
-
-    header img {
+    header img.portrait {
       position: absolute;
       top: 1rem;
-      right: 1rem;
+      right: 2rem;
       width: 120px;
       height: 120px;
       border-radius: 50%;
       border: 3px solid white;
     }
-
+    header .profil-text {
+      position: absolute;
+      top: 140px;
+      right: 2rem;
+      color: white;
+      text-align: right;
+      font-size: 0.9rem;
+    }
     nav {
-      background-color: #06532d;
+      background-color: #06512b;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 1rem 0;
+      padding: 1rem;
     }
-
     nav a {
       color: white;
       font-weight: bold;
       text-decoration: none;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     main {
-      padding: 2rem;
-    }
-
-    .block {
-      background-color: white;
-      padding: 2rem;
-      margin-bottom: 2rem;
-      border-radius: 10px;
-      box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-    }
-
-    .themenblock {
-      background-image: url("hintergrund.jpg");
+      background: url('hintergrund.jpg') no-repeat center bottom fixed;
       background-size: cover;
-      background-position: center;
-      color: white;
-      padding: 4rem 2rem;
-      text-align: center;
-    }
-
-    .themenblock .hintergrund-text {
-      background-color: rgba(0, 0, 0, 0.5);
-      display: inline-block;
       padding: 2rem;
-      border-radius: 10px;
+    }
+    section {
+      background-color: rgba(255, 255, 255, 0.9);
+      margin: 2rem auto;
+      max-width: 800px;
+      padding: 1.5rem;
+      border-radius: 8px;
+    }
+    h1, h2 {
+      color: #004d26;
     }
   </style>
 </head>
@@ -80,10 +71,13 @@
   <header>
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
-    <img src="karl_portrait_round.png" alt="Karl Ramspott">
-    <p style="margin-top: 0.5rem; font-size: 0.9rem;">Karl Ramspott<br>geb. 1951<br>Irland-&nbsp;&amp;&nbsp;Schottlandreisender</p>
+    <img src="karl_portrait_round.png" alt="Karl Ramspott" class="portrait" />
+    <div class="profil-text">
+      <strong>Karl Ramspott</strong><br />
+      geb. 1951<br />
+      Irland- & Schottlandreisender
+    </div>
   </header>
-
   <nav>
     <a href="#irland">Irland</a>
     <a href="#schottland">Schottland</a>
@@ -91,30 +85,27 @@
     <a href="#bilder-irland">Bilder Irland</a>
     <a href="#bilder-schottland">Bilder Schottland</a>
   </nav>
-
   <main>
-    <section id="irland" class="block">
+    <section id="irland">
       <h2>Irland</h2>
       <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
     </section>
-
-    <section id="schottland" class="block">
+    <section id="schottland">
       <h2>Schottland</h2>
       <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
     </section>
-
-    <section id="buecher" class="block">
+    <section id="buecher">
       <h2>Meine Bücher</h2>
       <p>In Arbeit …</p>
     </section>
-
-    <section class="themenblock">
-      <div class="hintergrund-text">
-        <h2>Irland erleben</h2>
-        <p>Wilde Küsten, alte Steine, lebendige Geschichte.</p>
-      </div>
+    <section id="bilder-irland">
+      <h2>Bilder Irland</h2>
+      <p>Demnächst folgen hier ausgewählte Fotos aus Irland.</p>
+    </section>
+    <section id="bilder-schottland">
+      <h2>Bilder Schottland</h2>
+      <p>Demnächst folgen hier ausgewählte Fotos aus Schottland.</p>
     </section>
   </main>
 </body>
 </html>
-
