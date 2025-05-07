@@ -154,25 +154,24 @@
         text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
     }
     
-    /* Book Covers Styling */
+    /* Book Covers Styling - Updated for vertical layout */
     .book-covers {
         display: flex;
-        flex-wrap: wrap; /* Allow wrapping on smaller screens */
-        justify-content: space-around; /* Distribute space */
-        align-items: flex-start;
-        gap: 20px; /* Space between covers */
+        flex-direction: column; /* Stack items vertically */
+        align-items: center; /* Center items horizontally */
+        gap: 30px; /* Space between covers */
     }
     .book-cover-item {
-        flex-basis: calc(33.333% - 20px); /* Aim for 3 items per row, adjust for gap */
-        max-width: 250px; /* Max width for a cover */
+        width: 80%; /* Make covers take more width */
+        max-width: 400px; /* Max width for a cover, adjust as needed */
         text-align: center;
     }
     .book-cover-item img {
         width: 100%;
         height: auto;
-        border-radius: 5px;
-        box-shadow: 0 4px 8px rgba(0,0,0,0.3);
-        border: 2px solid rgba(255,255,255,0.5);
+        border-radius: 8px; /* Slightly larger radius */
+        box-shadow: 0 6px 12px rgba(0,0,0,0.4);
+        border: 3px solid rgba(255,255,255,0.6);
     }
 
     /* Footer Styles */
@@ -212,7 +211,8 @@
             text-align: left; 
         }
         .book-cover-item {
-            flex-basis: calc(50% - 15px); /* 2 items per row on tablets */
+            width: 90%; /* Adjust for tablets */
+            max-width: 350px;
         }
     }
 
@@ -236,7 +236,8 @@
             padding: 15px;
         }
         .book-cover-item {
-            flex-basis: 100%; /* 1 item per row on mobile */
+            width: 100%; /* Full width on mobile */
+            max-width: 300px;
         }
     }
     </style>
@@ -280,16 +281,16 @@
             <h2>Meine Bücher</h2>
             <div class="book-covers">
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Irland">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Mein Leben als Ire">
                 </div>
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Strasse">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Die Straße">
                 </div>
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Architektur">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
                 </div>
             </div>
-            <p style="margin-top: 20px;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
+            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
         </section>
 
         <section id="bilder-irland" class="content-section">
@@ -308,67 +309,62 @@
     </footer>
 
     <script>
-        document.addEventListener('DOMContentLoaded', function() {
-            const navLinks = document.querySelectorAll('nav ul li a');
-            const contentSections = document.querySelectorAll('main .content-section');
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const contentSections = document.querySelectorAll("main .content-section");
             let currentHash = window.location.hash.substring(1);
 
             function showSection(targetId) {
                 let sectionFound = false;
                 contentSections.forEach(section => {
                     if (section.id === targetId) {
-                        section.style.display = 'block';
-                        // section.classList.add('active'); // classList.add('active') is redundant if style.display is set directly
+                        section.style.display = "block";
                         sectionFound = true;
                     } else {
-                        section.style.display = 'none';
-                        // section.classList.remove('active');
+                        section.style.display = "none";
                     }
                 });
 
                 navLinks.forEach(link => {
-                    if (link.getAttribute('data-target') === targetId) {
-                        link.classList.add('active');
+                    if (link.getAttribute("data-target") === targetId) {
+                        link.classList.add("active");
                     } else {
-                        link.classList.remove('active');
+                        link.classList.remove("active");
                     }
                 });
                 
                 if (sectionFound && document.getElementById(targetId)) {
-                    if (window.location.hash !== '#' + targetId) {
-                         history.pushState(null, null, '#' + targetId);
+                    if (window.location.hash !== "#" + targetId) {
+                         history.pushState(null, null, "#" + targetId);
                     }
-                } else if (!sectionFound && targetId !== 'irland') {
-                    if (window.location.hash !== '#irland') {
-                        history.pushState(null, null, '#irland');
+                } else if (!sectionFound && targetId !== "irland") {
+                    if (window.location.hash !== "#irland") {
+                        history.pushState(null, null, "#irland");
                     }
                 }
             }
 
             navLinks.forEach(link => {
-                link.addEventListener('click', function(event) {
+                link.addEventListener("click", function(event) {
                     event.preventDefault(); 
-                    const targetId = this.getAttribute('data-target');
+                    const targetId = this.getAttribute("data-target");
                     showSection(targetId);
-                    // Scroll to top of the main content area or header after section change
-                    document.querySelector('main').scrollIntoView({ behavior: 'smooth', block: 'start' });
+                    document.querySelector("main").scrollIntoView({ behavior: "smooth", block: "start" });
                 });
             });
 
             if (currentHash && document.getElementById(currentHash)) {
                 showSection(currentHash);
             } else {
-                showSection('irland'); 
+                showSection("irland"); 
             }
-            // Scroll to top after initial load as well
-            // setTimeout(() => { document.querySelector('body').scrollIntoView({ behavior: 'smooth', block: 'start' }); }, 100);
 
-            window.addEventListener('hashchange', function() {
+            window.addEventListener("hashchange", function() {
                 currentHash = window.location.hash.substring(1);
                 if (currentHash && document.getElementById(currentHash)) {
                     showSection(currentHash);
                 } else if (!currentHash) {
-                     showSection('irland'); 
+                     showSection("irland"); 
                 }
             });
         });
@@ -376,5 +372,6 @@
 
 </body>
 </html>
+
 
 
