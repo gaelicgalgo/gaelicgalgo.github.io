@@ -12,48 +12,52 @@
       color: #222;
       line-height: 1.6;
     }
+
     header {
       background-color: #003320;
       color: white;
+      text-align: center;
       padding: 2rem 1rem;
       position: relative;
-      text-align: center;
     }
-    header img {
+
+    .profilbild {
       position: absolute;
       top: 1rem;
       right: 1rem;
       width: 100px;
       height: 100px;
-      object-fit: cover;
       border-radius: 50%;
       border: 3px solid white;
+      object-fit: cover;
     }
+
     nav {
-      background-color: #085532;
-      text-align: center;
-      padding: 0.5rem 0;
+      background-color: #07502b;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.75rem;
     }
+
     nav a {
       color: white;
-      margin: 0 1.5rem;
       text-decoration: none;
       font-weight: bold;
-      font-size: 1.1rem;
     }
+
     nav a:hover {
       text-decoration: underline;
     }
+
     main {
       max-width: 900px;
       margin: 2rem auto;
       padding: 0 1rem;
     }
-    h1, h2 {
-      color: #003320;
-    }
-    section {
-      margin-bottom: 3rem;
+
+    h1 {
+      margin-top: 0;
     }
   </style>
 </head>
@@ -62,8 +66,7 @@
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
     <p><strong>Karl Ramspott</strong></p>
-    <img src="11ca232b-f53b-4e64-83d0-38043bf4b3f0.png" alt="Karl Ramspott" />
-
+    <img src="karl.jpg" alt="Karl Ramspott" class="profilbild" />
   </header>
 
   <nav>
@@ -75,17 +78,17 @@
   <main>
     <section id="irland">
       <h2>Irland</h2>
-      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit.</p>
     </section>
 
     <section id="schottland">
       <h2>Schottland</h2>
-      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart.</p>
     </section>
 
     <section id="buecher">
       <h2>Meine Bücher</h2>
-      <p>Persönliche Geschichten aus Irland und Schottland, gesammelt in handlichen Ausgaben. Erinnerungen, Gedanken, Bilder – festgehalten für alle, die das Fernweh verstehen.</p>
+      <p>Reiseerinnerungen, Gedanken und Bilder – gesammelt zwischen Atlantik, Moor und Hügeln.</p>
     </section>
   </main>
 </body>
