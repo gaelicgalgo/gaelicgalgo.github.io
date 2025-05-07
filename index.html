@@ -1,6 +1,92 @@
-<section id="irland">
-  <h2>Irland</h2>
-  <p>Reiseberichte, Landschaften …</p>
-  <img src="irland.jpg" alt="Irland" style="max-width: 100%; height: auto;">
-</section>
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Gaelic Galgo – Karl Ramspott</title>
+  <style>
+    body {
+      font-family: Georgia, serif;
+      background-color: #f4f4f4;
+      color: #222;
+      margin: 0;
+    }
+    header {
+      background-color: #003320;
+      color: white;
+      padding: 2rem;
+      text-align: center;
+      position: relative;
+    }
+    header img {
+      position: absolute;
+      top: 1rem;
+      right: 1rem;
+      width: 100px;
+      border-radius: 50%;
+      border: 2px solid white;
+    }
+    nav {
+      background-color: #075632;
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      padding: 0.5rem;
+    }
+    nav a {
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+    }
+    nav a:hover {
+      text-decoration: underline;
+    }
+    main {
+      padding: 2rem;
+    }
+    section {
+      margin-bottom: 4rem;
+    }
+    img.full {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
 
+<header>
+  <h1>Gaelic Galgo</h1>
+  <p>Irland – Schottland – Bücher – Geschichten</p>
+  <p><strong>Karl Ramspott</strong></p>
+  <img src="karl_portrait_round.png" alt="Karl Ramspott">
+</header>
+
+<nav>
+  <a href="#irland">Irland</a>
+  <a href="#schottland">Schottland</a>
+  <a href="#buecher">Meine Bücher</a>
+</nav>
+
+<main>
+  <section id="irland">
+    <h2>Irland</h2>
+    <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+    <img src="irland.jpg" alt="Irland" class="full">
+  </section>
+
+  <section id="schottland">
+    <h2>Schottland</h2>
+    <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+    <img src="schottland.jpg" alt="Schottland" class="full">
+  </section>
+
+  <section id="buecher">
+    <h2>Meine Bücher</h2>
+    <p>In Arbeit …</p>
+  </section>
+</main>
+
+</body>
+</html>
