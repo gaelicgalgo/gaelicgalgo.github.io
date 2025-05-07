@@ -105,6 +105,7 @@
         transition: color 0.3s ease, background-color 0.3s ease;
         border-radius: 4px;
         text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        cursor: pointer; /* Indicate clickable */
     }
 
     nav ul li a:hover,
@@ -112,6 +113,11 @@
         color: #FFFFFF;
         background-color: #4A7C59; 
         text-decoration: none;
+    }
+    nav ul li a.active {
+        color: #FFFFFF;
+        background-color: #3B6F4C; /* Slightly different active color */
+        font-weight: bold;
     }
 
     /* Main Content Sections */
@@ -121,30 +127,32 @@
         margin: 30px auto;
     }
 
-    section {
+    section.content-section {
         /* background-color removed */
         padding: 30px;
         margin-bottom: 30px;
-        border-radius: 10px; /* Keep radius for visual structure if desired, or remove */
-        /* box-shadow removed */
-        /* border removed */
+        border-radius: 10px; 
+        display: none; /* Initially hide all sections */
+    }
+    section.content-section.active {
+        display: block; /* Show active section */
     }
 
-    section h2 {
+    section.content-section h2 {
         margin-top: 0;
-        color: #FFFFFF; /* White text for headings */
-        border-bottom: 2px solid rgba(160, 188, 166, 0.7); /* Muted green accent, slightly transparent */
+        color: #FFFFFF; 
+        border-bottom: 2px solid rgba(160, 188, 166, 0.7); 
         padding-bottom: 12px;
         margin-bottom: 22px;
-        font-size: 2em; /* Slightly larger for impact */
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); /* Stronger shadow for headings */
+        font-size: 2em; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
     }
 
-    section p {
-        color: #F0F0F0; /* Very light grey/off-white for paragraph text */
-        font-size: 1.15em; /* Slightly larger for readability */
+    section.content-section p {
+        color: #F0F0F0; 
+        font-size: 1.15em; 
         text-align: justify; 
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); /* Strong shadow for paragraphs */
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
     }
 
     /* Footer Styles */
@@ -180,7 +188,7 @@
             display: block;
             margin: 10px 0;
         }
-        section p {
+        section.content-section p {
             text-align: left; 
         }
     }
@@ -192,13 +200,13 @@
         header .title-container .subtitle {
             font-size: 1em;
         }
-        section h2 {
+        section.content-section h2 {
             font-size: 1.8em;
         }
-        section p {
+        section.content-section p {
             font-size: 1.1em;
         }
-        section {
+        section.content-section {
             padding: 20px;
         }
         main {
@@ -214,7 +222,6 @@
             <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
         </div>
         <div class="author-container">
-            <!-- Removed additional-images-placeholder div -->
             <div class="author-box">
                 <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
                 <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
@@ -224,36 +231,36 @@
 
     <nav>
         <ul>
-            <li><a href="#irland">Irland</a></li>
-            <li><a href="#schottland">Schottland</a></li>
-            <li><a href="#buecher">Meine Bücher</a></li>
-            <li><a href="#bilder-irland">Bilder Irland</a></li>
-            <li><a href="#bilder-schottland">Bilder Schottland</a></li>
+            <li><a data-target="irland">Irland</a></li>
+            <li><a data-target="schottland">Schottland</a></li>
+            <li><a data-target="buecher">Meine Bücher</a></li>
+            <li><a data-target="bilder-irland">Bilder Irland</a></li>
+            <li><a data-target="bilder-schottland">Bilder Schottland</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="irland">
+        <section id="irland" class="content-section">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
         </section>
 
-        <section id="schottland">
+        <section id="schottland" class="content-section">
             <h2>Schottland</h2>
             <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
         </section>
 
-        <section id="buecher">
+        <section id="buecher" class="content-section">
             <h2>Meine Bücher</h2>
             <p>In Arbeit …</p>
         </section>
 
-        <section id="bilder-irland">
+        <section id="bilder-irland" class="content-section">
             <h2>Bilder Irland</h2>
             <p>Bildergalerie folgt …</p>
         </section>
 
-        <section id="bilder-schottland">
+        <section id="bilder-schottland" class="content-section">
             <h2>Bilder Schottland</h2>
             <p>Bildergalerie folgt …</p>
         </section>
@@ -262,6 +269,58 @@
     <footer>
         <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
     </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const navLinks = document.querySelectorAll('nav ul li a');
+            const contentSections = document.querySelectorAll('.content-section');
+            let currentHash = window.location.hash.substring(1);
+
+            function showSection(targetId) {
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.classList.add('active');
+                    } else {
+                        section.classList.remove('active');
+                    }
+                });
+                navLinks.forEach(link => {
+                    if (link.getAttribute('data-target') === targetId) {
+                        link.classList.add('active');
+                    } else {
+                        link.classList.remove('active');
+                    }
+                });
+                // Update hash without jumping, if section exists
+                if (document.getElementById(targetId)) {
+                    history.pushState(null, null, '#' + targetId);
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(event) {
+                    event.preventDefault(); // Prevent default anchor jump
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+
+            // Show section based on URL hash on page load, or default to 'irland'
+            if (currentHash && document.getElementById(currentHash)) {
+                showSection(currentHash);
+            } else {
+                showSection('irland'); // Default section to show
+            }
+
+            // Listen for hash changes (e.g., browser back/forward buttons)
+            window.addEventListener('hashchange', function() {
+                currentHash = window.location.hash.substring(1);
+                if (currentHash && document.getElementById(currentHash)) {
+                    showSection(currentHash);
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
