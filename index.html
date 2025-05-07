@@ -12,61 +12,63 @@
       color: #222;
       line-height: 1.6;
     }
-
     header {
       background-color: #003320;
       color: white;
-      text-align: center;
       padding: 2rem 1rem;
+      text-align: center;
       position: relative;
     }
-
-    .profilbild {
+    header img.profile {
       position: absolute;
       top: 1rem;
       right: 1rem;
-      width: 100px;
-      height: 100px;
+      width: 80px;
+      height: 80px;
       border-radius: 50%;
-      border: 3px solid white;
       object-fit: cover;
+      border: 3px solid white;
     }
-
     nav {
-      background-color: #07502b;
+      background-color: #095232;
       display: flex;
       justify-content: center;
       gap: 2rem;
-      padding: 0.75rem;
+      padding: 1rem 0;
     }
-
     nav a {
       color: white;
       text-decoration: none;
       font-weight: bold;
     }
-
     nav a:hover {
       text-decoration: underline;
     }
-
     main {
-      max-width: 900px;
-      margin: 2rem auto;
-      padding: 0 1rem;
+      padding: 2rem;
     }
-
+    section {
+      margin-bottom: 3rem;
+    }
+    section img {
+      max-width: 100%;
+      height: auto;
+      margin-top: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    }
     h1 {
-      margin-top: 0;
+      margin-bottom: 0.2rem;
     }
   </style>
 </head>
 <body>
+
   <header>
+    <img src="dein-bild.jpg" alt="Karl Ramspott" class="profile" />
     <h1>Gaelic Galgo</h1>
     <p>Irland – Schottland – Bücher – Geschichten</p>
-    <p><strong>Karl Ramspott</strong></p>
-    <img src="karl.jpg" alt="Karl Ramspott" class="profilbild" />
+    <strong>Karl Ramspott</strong>
   </header>
 
   <nav>
@@ -78,18 +80,21 @@
   <main>
     <section id="irland">
       <h2>Irland</h2>
-      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit.</p>
+      <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+      <img src="irland.jpg" alt="Irische Küste oder Landschaft">
     </section>
 
     <section id="schottland">
       <h2>Schottland</h2>
-      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart.</p>
+      <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+      <img src="schottland.jpg" alt="Schottische Landschaft">
     </section>
 
     <section id="buecher">
       <h2>Meine Bücher</h2>
-      <p>Reiseerinnerungen, Gedanken und Bilder – gesammelt zwischen Atlantik, Moor und Hügeln.</p>
+      <p>Hier kannst du später deine Bücher vorstellen.</p>
     </section>
   </main>
+
 </body>
 </html>
