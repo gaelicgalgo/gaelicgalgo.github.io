@@ -240,99 +240,7 @@
             max-width: 320px;
         }
     }
-    
-    /* Scotland Gallery Styles */
-    .scotland-gallery {
-        display: flex;
-        flex-wrap: wrap;
-        gap: 20px;
-        justify-content: center;
-        padding: 20px 0;
-    }
-
-    .gallery-item {
-        width: 180px;
-        text-align: center;
-        cursor: pointer;
-        border: 2px solid rgba(255,255,255,0.3);
-        border-radius: 8px;
-        padding: 10px;
-        background-color: rgba(0,0,0,0.2);
-        transition: transform 0.3s ease, box-shadow 0.3s ease;
-    }
-
-    .gallery-item:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-        border-color: rgba(255,255,255,0.7);
-    }
-
-    .gallery-item img {
-        width: 100%;
-        height: 120px;
-        object-fit: cover;
-        border-radius: 4px;
-        margin-bottom: 8px;
-    }
-
-    .gallery-item .filename {
-        font-size: 0.85em;
-        color: #E0E0E0;
-        word-wrap: break-word;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-    }
-
-    /* Modal (Lightbox) Styles */
-    .modal {
-        display: none;
-        position: fixed;
-        z-index: 1000;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgba(0,0,0,0.85);
-        padding-top: 50px;
-    }
-
-    .modal-content {
-        margin: auto;
-        display: block;
-        width: auto;
-        max-width: 90%;
-        max-height: 85vh;
-    }
-
-    .modal-caption {
-        margin: 15px auto;
-        display: block;
-        width: 80%;
-        max-width: 700px;
-        text-align: center;
-        color: #ccc;
-        padding: 10px 0;
-        font-size: 1.1em;
-    }
-
-    .modal-close {
-        position: absolute;
-        top: 20px;
-        right: 35px;
-        color: #f1f1f1;
-        font-size: 40px;
-        font-weight: bold;
-        transition: 0.3s;
-    }
-
-    .modal-close:hover,
-    .modal-close:focus {
-        color: #bbb;
-        text-decoration: none;
-        cursor: pointer;
-    }
-
-</style>
+    </style>
 </head>
 <body>
     <header>
@@ -390,120 +298,109 @@
             <p>Bildergalerie folgt …</p>
         </section>
 
-        <section id="bilder-schottland" class="content-section"> 
-            <h2>Bilder Schottland</h2>
-            <div class="scotland-gallery">
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%201.jpg?raw=true" alt="Corpach 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%201.jpg?raw=true">
-                <div class="filename">Corpach 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%202.jpg?raw=true" alt="Corpach 2" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%202.jpg?raw=true">
-                <div class="filename">Corpach 2.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%203.jpg?raw=true" alt="Corpach 3" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%203.jpg?raw=true">
-                <div class="filename">Corpach 3.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%204.jpg?raw=true" alt="Corpach 4" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%204.jpg?raw=true">
-                <div class="filename">Corpach 4.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%205.jpg?raw=true" alt="Corpach 5" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Corpach%205.jpg?raw=true">
-                <div class="filename">Corpach 5.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%201.jpg?raw=true" alt="Fort William 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%201.jpg?raw=true">
-                <div class="filename">Fort William 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%202.jpg?raw=true" alt="Fort William 2" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%202.jpg?raw=true">
-                <div class="filename">Fort William 2.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%203.jpg?raw=true" alt="Fort William 3" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%203.jpg?raw=true">
-                <div class="filename">Fort William 3.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%204.jpg?raw=true" alt="Fort William 4" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Fort%20William%204.jpg?raw=true">
-                <div class="filename">Fort William 4.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glen-Etive%201.jpg?raw=true" alt="Glen-Etive 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glen-Etive%201.jpg?raw=true">
-                <div class="filename">Glen-Etive 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%201.jpg?raw=true" alt="Glencoe 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%201.jpg?raw=true">
-                <div class="filename">Glencoe 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%202.jpg?raw=true" alt="Glencoe 2" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%202.jpg?raw=true">
-                <div class="filename">Glencoe 2.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%203.jpg?raw=true" alt="Glencoe 3" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%203.jpg?raw=true">
-                <div class="filename">Glencoe 3.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%204.jpg?raw=true" alt="Glencoe 4" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%204.jpg?raw=true">
-                <div class="filename">Glencoe 4.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%205.jpg?raw=true" alt="Glencoe 5" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%205.jpg?raw=true">
-                <div class="filename">Glencoe 5.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%206.jpg?raw=true" alt="Glencoe 6" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%206.jpg?raw=true">
-                <div class="filename">Glencoe 6.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%207.jpg?raw=true" alt="Glencoe 7" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%207.jpg?raw=true">
-                <div class="filename">Glencoe 7.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%208.jpg?raw=true" alt="Glencoe 8" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%208.jpg?raw=true">
-                <div class="filename">Glencoe 8.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%209.jpg?raw=true" alt="Glencoe 9" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%209.jpg?raw=true">
-                <div class="filename">Glencoe 9.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%201.jpg?raw=true" alt="Glencoe Monument 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%201.jpg?raw=true">
-                <div class="filename">Glencoe Monument 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%202.jpg?raw=true" alt="Glencoe Monument 2" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%202.jpg?raw=true">
-                <div class="filename">Glencoe Monument 2.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%203.jpg?raw=true" alt="Glencoe Monument 3" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%203.jpg?raw=true">
-                <div class="filename">Glencoe Monument 3.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%204.jpg?raw=true" alt="Glencoe Monument 4" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Glencoe%20Monument%204.jpg?raw=true">
-                <div class="filename">Glencoe Monument 4.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Kilchurn%20Castle%201.jpg?raw=true" alt="Kilchurn Castle 1" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Kilchurn%20Castle%201.jpg?raw=true">
-                <div class="filename">Kilchurn Castle 1.jpg</div>
-            </div>
-            <div class="gallery-item"> 
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Three%20Sisters.jpg?raw=true" alt="Three Sisters" data-fullsrc="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/Three%20Sisters.jpg?raw=true">
-                <div class="filename">Three Sisters.jpg</div>
-            </div>
-            </div>
-        </section>
+        <section id="bilder-schottland" class="content-section">
+  <h2>Bilder Schottland</h2>
+  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+    <div style="text-align: center;">
+      <img src="Fort William 1.jpg" alt="Fort William 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Fort William 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 2.jpg" alt="Fort William 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Fort William 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 3.jpg" alt="Fort William 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Fort William 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 4.jpg" alt="Fort William 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Fort William 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glen-Etive 1.jpg" alt="Glen-Etive 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glen-Etive 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glen-Etive 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 1.jpg" alt="Glencoe 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 2.jpg" alt="Glencoe 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 3.jpg" alt="Glencoe 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 4.jpg" alt="Glencoe 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 5.jpg" alt="Glencoe 5.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 5.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 5.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 6.jpg" alt="Glencoe 6.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 6.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 6.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 7.jpg" alt="Glencoe 7.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 7.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 7.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 8.jpg" alt="Glencoe 8.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 8.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe 8.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 1.jpg" alt="Glencoe Monument 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe Monument 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 2.jpg" alt="Glencoe Monument 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe Monument 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 3.jpg" alt="Glencoe Monument 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe Monument 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 4.jpg" alt="Glencoe Monument 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Glencoe Monument 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 1.jpg" alt="Corpach 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Corpach 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 2.jpg" alt="Corpach 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Corpach 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 3.jpg" alt="Corpach 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Corpach 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 4.jpg" alt="Corpach 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Corpach 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 5.jpg" alt="Corpach 5.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 5.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Corpach 5.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Kilchurn Castle 1.jpg" alt="Kilchurn Castle 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Kilchurn Castle 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Kilchurn Castle 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Three Sisters.jpg" alt="Three Sisters.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Three Sisters.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #222; margin-top: 4px;">Three Sisters.jpg</div>
+    </div>
+  </div>
+</section>
     </main>
 
-<!-- The Modal -->
-<div id="imageModal" class="modal">
-  <span class="modal-close">&times;</span>
-  <img class="modal-content" id="modalImage">
-  <div id="modalCaption" class="modal-caption"></div>
-</div>
-    
     <footer>
         <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
     </footer>
@@ -513,48 +410,12 @@
             const navLinks = document.querySelectorAll("nav ul li a");
             const contentSections = document.querySelectorAll("main .content-section");
             let currentHash = window.location.hash.substring(1);
- 
-            // Modal functionality variables
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            const captionText = document.getElementById("modalCaption");
-
-            function initializeModalEventListeners() {
-                const galleryItems = document.querySelectorAll('#bilder-schottland .gallery-item');
-                if (galleryItems.length > 0 && modal && modalImg && captionText) {
-                    galleryItems.forEach(item => {
-                        if (!item.getAttribute('data-listener-attached')) {
-                            item.addEventListener('click', function() {
-                                modal.style.display = "block";
-                                const imgSrc = this.querySelector('img').getAttribute('data-fullsrc');
-                                const filename = this.querySelector('.filename').textContent;
-                                modalImg.src = imgSrc;
-                                captionText.innerHTML = filename;
-                            });
-                            item.setAttribute('data-listener-attached', 'true');
-                        }
-                    });
-                }
-                const span = document.getElementsByClassName("modal-close")[0];
-                if (span && !span.getAttribute('data-listener-attached')) {
-                    span.onclick = function() {
-                        if (modal) modal.style.display = "none";
-                    };
-                    span.setAttribute('data-listener-attached', 'true');
-                }
-            }
-
-            window.addEventListener('click', function(event) {
-              if (event.target == modal && modal) {
-                modal.style.display = "none";
-              }
-            });
 
             function showSection(targetId) {
                 let sectionFound = false;
                 contentSections.forEach(section => {
                     if (section.id === targetId) {
-                        section.style.display = "block"; if (section.id === "bilder-schottland") { initializeModalEventListeners(); }
+                        section.style.display = "block";
                         sectionFound = true;
                     } else {
                         section.style.display = "none";
