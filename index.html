@@ -1,86 +1,494 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Gaelic Galgo</title>
-  <style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaelic Galgo</title>
+    <style>
+    /* General Body Styles */
     body {
-      margin: 0;
-      font-family: Georgia, serif;
-      background: url('hintergrund.jpg') no-repeat center center fixed;
-      background-size: cover;
-      color: #fff;
+        font-family: 'Georgia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #E8E5E0; /* Fallback */
+        background-image: url('https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/hintergrund.jpg?raw=true');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFFFFF; /* Default text color to white for better visibility on image */
+        line-height: 1.7;
     }
-    .gallery {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 1rem;
-      justify-content: center;
+
+    /* Header Styles */
+    header {
+        background-color: rgba(25, 50, 35, 0.85); 
+        color: #E0E0E0; 
+        padding: 25px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 3px solid #4A7C59; 
     }
-    .gallery img {
-      width: 180px;
-      height: auto;
-      border-radius: 8px;
-      box-shadow: 0 0 6px rgba(0,0,0,0.4);
-      transition: transform 0.3s;
-      cursor: pointer;
+
+    header .title-container h1 {
+        margin: 0;
+        font-size: 2.8em;
+        font-weight: normal;
+        color: #FFFFFF; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
     }
-    .gallery span {
-      display: block;
-      text-align: center;
-      color: white;
-      margin-top: 0.5rem;
+
+    header .title-container .subtitle {
+        margin: 5px 0 0 0;
+        font-size: 1.1em;
+        font-style: italic;
+        color: #B0C4B1; 
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
     }
-  </style>
+
+    .author-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+
+    .author-box {
+        display: flex;
+        align-items: center;
+        text-align: right;
+        background-color: rgba(0,0,0,0.4); /* Slightly darker author box for text contrast */
+        padding: 10px 15px;
+        border-radius: 8px;
+    }
+
+    .author-box .author-image {
+        width: 90px; 
+        height: 90px;
+        border-radius: 50%;
+        margin-left: 20px;
+        border: 3px solid #B0C4B1; 
+    }
+
+    .author-box p {
+        margin: 0;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: #E0E0E0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    }
+
+    /* Navigation Styles */
+    nav {
+        background-color: rgba(40, 70, 50, 0.9); 
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 2px solid #203828;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 18px;
+    }
+
+    nav ul li a {
+        color: #E0E0E0;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 8px 12px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        border-radius: 4px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        cursor: pointer; /* Indicate clickable */
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+        color: #FFFFFF;
+        background-color: #4A7C59; 
+        text-decoration: none;
+    }
+    nav ul li a.active {
+        color: #FFFFFF;
+        background-color: #3B6F4C; /* Slightly different active color */
+        font-weight: bold;
+    }
+
+    /* Main Content Sections */
+    main {
+        padding: 25px;
+        max-width: 950px;
+        margin: 30px auto;
+    }
+
+    section.content-section {
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 10px; 
+        display: none; /* Initially hide all sections */
+        /* Removed background color from here to let body background show through */
+    }
+    section.content-section.active {
+        display: block; /* Show active section */
+    }
+
+    section.content-section h2 {
+        margin-top: 0;
+        color: #FFFFFF; 
+        border-bottom: 2px solid rgba(160, 188, 166, 0.7); 
+        padding-bottom: 12px;
+        margin-bottom: 22px;
+        font-size: 2em; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+    }
+
+    section.content-section p {
+        color: #F0F0F0; 
+        font-size: 1.15em; 
+        text-align: justify; 
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
+    }
+    
+    /* Book Covers Styling - RADICALLY Updated for vertical layout */
+    .book-covers {
+        width: 100%; /* Ensure the container takes full width */
+    }
+    .book-cover-item {
+        display: block; /* Ensure it's a block element */
+        width: 70%;  /* Make covers take significant width */
+        max-width: 450px; /* Max width for a cover, adjust as needed */
+        margin: 0 auto 35px auto; /* Center block element and add bottom margin */
+        text-align: center;
+    }
+    .book-cover-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px; /* Slightly larger radius */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        border: 4px solid rgba(255,255,255,0.65);
+    }
+
+    /* Footer Styles */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background-color: rgba(25, 50, 35, 0.9); 
+        color: #B0C4B1;
+        font-size: 0.95em;
+        border-top: 3px solid #4A7C59;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .author-container {
+            align-items: center; 
+            margin-top: 15px;
+        }
+        .author-box {
+            text-align: center;
+            flex-direction: column;
+        }
+        .author-box .author-image {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+        section.content-section p {
+            text-align: left; 
+        }
+        .book-cover-item {
+            width: 85%; /* Adjust for tablets */
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header .title-container h1 {
+            font-size: 2.2em;
+        }
+        header .title-container .subtitle {
+            font-size: 1em;
+        }
+        section.content-section h2 {
+            font-size: 1.8em;
+        }
+        section.content-section p {
+            font-size: 1.1em;
+        }
+        section.content-section {
+            padding: 20px;
+        }
+        main {
+            padding: 15px;
+        }
+        .book-cover-item {
+            width: 95%; /* Full width on mobile */
+            max-width: 320px;
+        }
+    }
+    </style>
 </head>
 <body>
+    <header>
+        <div class="title-container">
+            <h1>Gaelic Galgo</h1>
+            <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
+        </div>
+        <div class="author-container">
+            <div class="author-box">
+                <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
+                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
+            </div>
+        </div>
+    </header>
 
-<section id="bilder-schottland">
+    <nav>
+        <ul>
+            <li><a data-target="irland">Irland</a></li>
+            <li><a data-target="schottland">Schottland</a></li>
+            <li><a data-target="buecher">Meine Bücher</a></li>
+            <li><a data-target="bilder-irland">Bilder Irland</a></li>
+            <li><a data-target="bilder-schottland">Bilder Schottland</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="irland" class="content-section">
+            <h2>Irland</h2>
+            <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+        </section>
+
+        <section id="schottland" class="content-section">
+            <h2>Schottland</h2>
+            <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+        </section>
+
+        <section id="buecher" class="content-section">
+            <h2>Meine Bücher</h2>
+            <div class="book-covers">
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Mein Leben als Ire">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Unter den Strassen Dublins">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
+                </div>
+            </div>
+            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
+        </section>
+
+        <section id="bilder-irland" class="content-section">
+            <h2>Bilder Irland</h2>
+            <p>Bildergalerie folgt …</p>
+        </section>
+
+        <section id="bilder-schottland" class="content-section">
   <h2>Bilder Schottland</h2>
-
-  <h3>Fort William</h3>
-  <div class="gallery">
-    <div><img src="Bilder-schottland/Fort William/Corpach 1.jpg" alt="Corpach 1"><span style="color: white;">Corpach 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Corpach 2.jpg" alt="Corpach 2"><span style="color: white;">Corpach 2.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Corpach 3.jpg" alt="Corpach 3"><span style="color: white;">Corpach 3.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Corpach 4.jpg" alt="Corpach 4"><span style="color: white;">Corpach 4.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Corpach 5.jpg" alt="Corpach 5"><span style="color: white;">Corpach 5.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Fort William 1.jpg" alt="Fort William 1"><span style="color: white;">Fort William 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Fort William 2.jpg" alt="Fort William 2"><span style="color: white;">Fort William 2.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Fort William 3.jpg" alt="Fort William 3"><span style="color: white;">Fort William 3.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Fort William 4.jpg" alt="Fort William 4"><span style="color: white;">Fort William 4.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glen-Etive 1.jpg" alt="Glen-Etive 1"><span style="color: white;">Glen-Etive 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 1.jpg" alt="Glencoe 1"><span style="color: white;">Glencoe 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 2.jpg" alt="Glencoe 2"><span style="color: white;">Glencoe 2.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 3.jpg" alt="Glencoe 3"><span style="color: white;">Glencoe 3.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 4.jpg" alt="Glencoe 4"><span style="color: white;">Glencoe 4.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 5.jpg" alt="Glencoe 5"><span style="color: white;">Glencoe 5.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 6.jpg" alt="Glencoe 6"><span style="color: white;">Glencoe 6.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 7.jpg" alt="Glencoe 7"><span style="color: white;">Glencoe 7.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe 8.jpg" alt="Glencoe 8"><span style="color: white;">Glencoe 8.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe Monument 1.jpg" alt="Glencoe Monument 1"><span style="color: white;">Glencoe Monument 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe Monument 2.jpg" alt="Glencoe Monument 2"><span style="color: white;">Glencoe Monument 2.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe Monument 3.jpg" alt="Glencoe Monument 3"><span style="color: white;">Glencoe Monument 3.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Glencoe Monument 4.jpg" alt="Glencoe Monument 4"><span style="color: white;">Glencoe Monument 4.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Kilchurn Castle 1.jpg" alt="Kilchurn Castle 1"><span style="color: white;">Kilchurn Castle 1.jpg</span></div>
-    <div><img src="Bilder-schottland/Fort William/Three Sisters.jpg" alt="Three Sisters"><span style="color: white;">Three Sisters.jpg</span></div>
+  <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
+    <div style="text-align: center;">
+      <img src="Fort William 1.jpg" alt="Fort William 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Fort William 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 2.jpg" alt="Fort William 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Fort William 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 3.jpg" alt="Fort William 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Fort William 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Fort William 4.jpg" alt="Fort William 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Fort William 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glen-Etive 1.jpg" alt="Glen-Etive 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glen-Etive 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glen-Etive 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 1.jpg" alt="Glencoe 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 2.jpg" alt="Glencoe 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 3.jpg" alt="Glencoe 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 4.jpg" alt="Glencoe 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 5.jpg" alt="Glencoe 5.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 5.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 5.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 6.jpg" alt="Glencoe 6.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 6.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 6.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 7.jpg" alt="Glencoe 7.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 7.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 7.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe 8.jpg" alt="Glencoe 8.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 8.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe 8.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 1.jpg" alt="Glencoe Monument 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe Monument 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 2.jpg" alt="Glencoe Monument 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe Monument 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 3.jpg" alt="Glencoe Monument 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe Monument 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Glencoe Monument 4.jpg" alt="Glencoe Monument 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe Monument 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Glencoe Monument 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 1.jpg" alt="Corpach 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Corpach 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 2.jpg" alt="Corpach 2.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 2.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Corpach 2.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 3.jpg" alt="Corpach 3.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 3.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Corpach 3.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 4.jpg" alt="Corpach 4.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 4.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Corpach 4.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Corpach 5.jpg" alt="Corpach 5.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 5.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Corpach 5.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Kilchurn Castle 1.jpg" alt="Kilchurn Castle 1.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Kilchurn Castle 1.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Kilchurn Castle 1.jpg</div>
+    </div>
+    <div style="text-align: center;">
+      <img src="Three Sisters.jpg" alt="Three Sisters.jpg" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Three Sisters.jpg', '_blank')">
+      <div style="font-size: 0.8rem; color: #fff; margin-top: 4px;">Three Sisters.jpg</div>
+    </div>
   </div>
-
-  <h3>Hebriden</h3>
-  <h4>Insel Harris</h4>
-  <p style="color:white">Bilder folgen …</p>
-  <h4>Insel Lewis</h4>
-  <p style="color:white">Bilder folgen …</p>
-  <h4>Insel Mull</h4>
-  <p style="color:white">Bilder folgen …</p>
-
-  <h3>Orkneys</h3>
-  <p style="color:white">Bilder folgen …</p>
 </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
+    </footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const contentSections = document.querySelectorAll("main .content-section");
+            let currentHash = window.location.hash.substring(1);
+
+            function showSection(targetId) {
+                let sectionFound = false;
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = "block";
+                        sectionFound = true;
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute("data-target") === targetId) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+                
+                if (sectionFound && document.getElementById(targetId)) {
+                    if (window.location.hash !== "#" + targetId) {
+                         history.pushState(null, null, "#" + targetId);
+                    }
+                } else if (!sectionFound && targetId !== "irland") {
+                    // Default to 'irland' if the target is not found and it's not already 'irland'
+                    if (window.location.hash !== "#irland") {
+                        history.pushState(null, null, "#irland");
+                    }
+                     if(document.getElementById("irland")) { // Ensure 'irland' section exists before trying to show it
+                        document.getElementById("irland").style.display = "block";
+                        if(document.querySelector('nav ul li a[data-target="irland"]')) {
+                           document.querySelector('nav ul li a[data-target="irland"]').classList.add("active");
+                        } 
+                     }
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+                    const targetId = this.getAttribute("data-target");
+                    showSection(targetId);
+                    const mainElement = document.querySelector("main");
+                    if (mainElement) {
+                        mainElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+
+            if (currentHash && document.getElementById(currentHash)) {
+                showSection(currentHash);
+            } else {
+                showSection("irland"); 
+            }
+
+            window.addEventListener("hashchange", function() {
+                currentHash = window.location.hash.substring(1);
+                if (currentHash && document.getElementById(currentHash)) {
+                    showSection(currentHash);
+                } else if (!currentHash) { 
+                     showSection("irland"); 
+                }
+            });
+        });
+    </script>
+
+
+  <footer style="text-align: center; padding: 1rem;">
+    <p>
+      Kontakt:
+      <a href="mailto:galgo51@gmx.de" style="color: #ffffff;">galgo51@gmx.de</a> &nbsp;|&nbsp;
+      <a href="mailto:carlowatz@gmail.com" style="color: #ffffff;">carlowatz@gmail.com</a>
+    </p>
+  </footer>
 
 </body>
 </html>
+
 
 
 
