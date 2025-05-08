@@ -1,3 +1,4 @@
+<!-- HTML-Datei: index_final_accordion.html -->
 <!DOCTYPE html>
 <html lang="de">
 <head>
@@ -5,11 +6,235 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaelic Galgo</title>
     <style>
-    /* Unveränderte CSS-Styles aus Ihrer Originaldatei */
-    body { font-family: 'Georgia', serif; margin: 0; padding: 0; background-color: #E8E5E0; background-image: url('https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/hintergrund.jpg?raw=true'); background-size: cover; background-position: center; background-attachment: fixed; color: #FFFFFF; line-height: 1.7; }
-    header { background-color: rgba(25, 50, 35, 0.85); color: #E0E0E0; padding: 25px 40px; display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; border-bottom: 3px solid #4A7C59; }
-    /* ... Restliches unverändertes CSS ... */
-    </style>
+    /* General Body Styles */
+    body {
+        font-family: 'Georgia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #E8E5E0; /* Fallback */
+        background-image: url('https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/hintergrund.jpg');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFFFFF; /* Default text color to white for better visibility on image */
+        line-height: 1.7;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: rgba(25, 50, 35, 0.85); 
+        color: #E0E0E0; 
+        padding: 25px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 3px solid #4A7C59; 
+    }
+
+    header .title-container h1 {
+        margin: 0;
+        font-size: 2.8em;
+        font-weight: normal;
+        color: #FFFFFF; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+
+    header .title-container .subtitle {
+        margin: 5px 0 0 0;
+        font-size: 1.1em;
+        font-style: italic;
+        color: #B0C4B1; 
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    .author-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+
+    .author-box {
+        display: flex;
+        align-items: center;
+        text-align: right;
+        background-color: rgba(0,0,0,0.4); /* Slightly darker author box for text contrast */
+        padding: 10px 15px;
+        border-radius: 8px;
+    }
+
+    .author-box .author-image {
+        width: 90px; 
+        height: 90px;
+        border-radius: 50%;
+        margin-left: 20px;
+        border: 3px solid #B0C4B1; 
+    }
+
+    .author-box p {
+        margin: 0;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: #E0E0E0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    }
+
+    /* Navigation Styles */
+    nav {
+        background-color: rgba(40, 70, 50, 0.9); 
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 2px solid #203828;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 18px;
+    }
+
+    nav ul li a {
+        color: #E0E0E0;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 8px 12px;
+        border-radius: 4px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+        color: #FFFFFF;
+        background-color: #4A7C59; 
+    }
+    nav ul li a.active {
+        color: #FFFFFF;
+        background-color: #3B6F4C; /* Slightly different active color */
+        font-weight: bold;
+    }
+
+    /* Main Content Styles */
+    main {
+        padding: 25px;
+        max-width: 950px;
+        margin: 30px auto;
+        background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background for content readability */
+        border-radius: 8px;
+    }
+
+    section.content-section {
+        padding: 20px;
+        margin-bottom: 20px;
+        background-color: rgba(255, 255, 255, 0.05); /* Subtle background for sections */
+        border-radius: 8px;
+    }
+
+    section.content-section h2 {
+        margin-top: 0;
+        color: #FFFFFF;
+        border-bottom: 1px solid rgba(255,255,255,0.3);
+        padding-bottom: 10px;
+        margin-bottom: 20px;
+        font-size: 1.8em;
+    }
+
+    section.content-section p {
+        color: #E0E0E0; 
+        font-size: 1.1em; 
+        line-height: 1.6;
+    }
+
+    /* Accordion Styles */
+    .accordion-item {
+        margin-bottom: 10px;
+        border: 1px solid rgba(255,255,255,0.3);
+        border-radius: 4px;
+    }
+
+    .accordion-header {
+        background-color: rgba(255,255,255,0.1);
+        color: #FFFFFF;
+        cursor: pointer;
+        padding: 15px;
+        width: 100%;
+        text-align: left;
+        border: none;
+        outline: none;
+        transition: background-color 0.3s ease;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .accordion-header:hover {
+        background-color: rgba(74, 124, 89, 0.5);
+    }
+
+    .accordion-header.active .accordion-arrow {
+        transform: rotate(180deg);
+    }
+
+    .accordion-content {
+        padding: 0 18px;
+        background-color: transparent;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    }
+
+    .accordion-content.active {
+        padding: 18px;
+        max-height: 1000px; /* Adjust as needed, should be larger than the content */
+    }
+
+    /* Image Gallery Styles */
+    .image-gallery {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px; /* Space between images */
+        justify-content: center;
+        padding: 20px 0;
+    }
+
+    .gallery-item {
+        width: 200px; /* Adjust as needed */
+        text-align: center;
+    }
+
+    .gallery-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 4px;
+        box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .gallery-item img:hover {
+        transform: scale(1.05);
+        box-shadow: 0 8px 16px rgba(0,0,0,0.3);
+    }
+
+    .gallery-item .filename {
+        margin-top: 8px;
+        font-size: 0.9em;
+        color: #CCCCCC; /* Lighter text color for filenames */
+    }
+
+    /* Footer Styles */
+    footer {
+        text-align: center;
+        padding: 20px;
+        background-color: rgba(25, 50, 35, 0.85); 
+        color: #B0C4B1;
+        font-size: 0.9em;
+        margin-top: 30px; /* Space above the footer */
+    }
+</style>
 </head>
 <body>
     <header>
@@ -18,90 +243,174 @@
             <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
         </div>
         <div class="author-container">
-            <div class="author-box">
-                <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
-            </div>
+            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/karl_portrait_round.png" alt="Karl Ramspott" class="author-image">
+            <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a data-target="irland">Irland</a></li>
-            <li><a data-target="schottland">Schottland</a></li>
-            <li><a data-target="buecher">Meine Bücher</a></li>
-            <li><a data-target="bilder-irland">Bilder Irland</a></li>
-            <li><a data-target="bilder-schottland">Bilder Schottland</a></li>
+            <li><a href="#irland" class="active">Irland</a></li>
+            <li><a href="#schottland">Schottland</a></li>
+            <li><a href="#buecher">Meine Bücher</a></li>
         </ul>
     </nav>
 
     <main>
-        <!-- Unveränderte Irland/Schottland/Bücher-Sections -->
+        <section id="irland" class="content-section">
+            <h2>Irland</h2>
+            <p>Irland, die grüne Insel, bekannt für ihre atemberaubenden Landschaften, ihre reiche Geschichte und ihre herzliche Gastfreundschaft. Von den wilden Klippen des Atlantiks bis zu den sanften Hügeln im Landesinneren bietet Irland eine Vielzahl von Erlebnissen für jeden Reisenden. Entdecken Sie alte Burgen, mystische Ruinen und lebendige Städte, in denen traditionelle Musik und moderne Kultur Hand in Hand gehen. Ob Sie die dramatische Schönheit des Wild Atlantic Way erkunden, die literarischen Spuren in Dublin verfolgen oder die Ruhe der Seen und Flüsse genießen möchten – Irland wird Sie verzaubern.</p>
+        </section>
 
-        <section id="bilder-schottland" class="content-section">
-            <h2>Bilder Schottland</h2>
+        <section id="schottland" class="content-section" style="display:none;">
+            <h2>Schottland</h2>
+            <p>Schottland, ein Land der Legenden, der majestätischen Highlands und der tiefen Lochs. Von den pulsierenden Städten Edinburgh und Glasgow bis zu den abgelegenen Inseln der Hebriden bietet Schottland eine einzigartige Mischung aus Kultur, Geschichte und Natur. Erkunden Sie historische Schlösser, wandern Sie durch atemberaubende Landschaften und lassen Sie sich von der Gastfreundschaft der Schotten verzaubern. Ob Sie nun auf den Spuren von William Wallace wandeln, die Geheimnisse von Loch Ness ergründen oder die schottische Whisky-Kultur kennenlernen möchten – Schottland ist ein unvergessliches Erlebnis.</p>
             
-            <!-- Fort William (4 Bilder im Unterordner) -->
-            <details style="margin-bottom: 20px;">
-                <summary style="color: #B0C4B1; cursor: pointer;">Fort William (4 Bilder)</summary>
-                <div style="display: flex; flex-wrap: wrap; gap: 15px; margin-top: 15px;">
-                    <div style="text-align: center;">
-                        <img src="Fort William/Fort William 1.jpg" alt="Fort William 1" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William/Fort William 1.jpg', '_blank')">
-                        <div style="font-size: 0.8rem; color: #fff;">Fort William 1</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <img src="Fort William/Fort William 2.jpg" alt="Fort William 2" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William/Fort William 2.jpg', '_blank')">
-                        <div style="font-size: 0.8rem; color: #fff;">Fort William 2</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <img src="Fort William/Fort William 3.jpg" alt="Fort William 3" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William/Fort William 3.jpg', '_blank')">
-                        <div style="font-size: 0.8rem; color: #fff;">Fort William 3</div>
-                    </div>
-                    <div style="text-align: center;">
-                        <img src="Fort William/Fort William 4.jpg" alt="Fort William 4" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Fort William/Fort William 4.jpg', '_blank')">
-                        <div style="font-size: 0.8rem; color: #fff;">Fort William 4</div>
+            <div class="accordion-item">
+                <button type="button" class="accordion-header">
+                    Fort William und Umgebung <span class="accordion-arrow">&#9660;</span>
+                </button>
+                <div class="accordion-content">
+                    <p>Fort William, das Outdoor-Hauptstadt Großbritanniens, liegt am Fuße des Ben Nevis, dem höchsten Berg Großbritanniens. Die Region bietet eine Fülle von Aktivitäten, von Wandern und Bergsteigen bis hin zu Mountainbiken und Wassersport. Die dramatische Landschaft von Glen Coe, die für ihre tragische Geschichte und ihre atemberaubende Schönheit bekannt ist, liegt nur eine kurze Autofahrt entfernt. Die Gegend ist auch ein Paradies für Naturliebhaber, mit einer vielfältigen Tierwelt und einer reichen Flora und Fauna.</p>
+                    <div class="image-gallery">
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%201.jpg" alt="Corpach 1">
+                            <div class="filename">Corpach 1.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%202.jpg" alt="Corpach 2">
+                            <div class="filename">Corpach 2.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%203.jpg" alt="Corpach 3">
+                            <div class="filename">Corpach 3.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%204.jpg" alt="Corpach 4">
+                            <div class="filename">Corpach 4.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%205.jpg" alt="Corpach 5">
+                            <div class="filename">Corpach 5.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%201.jpg" alt="Fort William 1">
+                            <div class="filename">Fort William 1.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%202.jpg" alt="Fort William 2">
+                            <div class="filename">Fort William 2.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%203.jpg" alt="Fort William 3">
+                            <div class="filename">Fort William 3.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%204.jpg" alt="Fort William 4">
+                            <div class="filename">Fort William 4.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glen-Etive%201.jpg" alt="Glen-Etive 1">
+                            <div class="filename">Glen-Etive 1.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%201.jpg" alt="Glencoe 1">
+                            <div class="filename">Glencoe 1.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%202.jpg" alt="Glencoe 2">
+                            <div class="filename">Glencoe 2.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%203.jpg" alt="Glencoe 3">
+                            <div class="filename">Glencoe 3.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%204.jpg" alt="Glencoe 4">
+                            <div class="filename">Glencoe 4.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%205.jpg" alt="Glencoe 5">
+                            <div class="filename">Glencoe 5.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%206.jpg" alt="Glencoe 6">
+                            <div class="filename">Glencoe 6.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%207.jpg" alt="Glencoe 7">
+                            <div class="filename">Glencoe 7.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%208.jpg" alt="Glencoe 8">
+                            <div class="filename">Glencoe 8.jpg</div>
+                        </div>
+                        <div class="gallery-item">
+                            <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%209.jpg" alt="Glencoe 9">
+                            <div class="filename">Glencoe 9.jpg</div>
+                        </div>
                     </div>
                 </div>
-            </details>
-
-            <!-- Originale Bilder (Direkt sichtbar) -->
-            <div style="display: flex; flex-wrap: wrap; gap: 15px; justify-content: center;">
-                <!-- Corpach -->
-                <div style="text-align: center;">
-                    <img src="Corpach 1.jpg" alt="Corpach 1" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Corpach 1.jpg', '_blank')">
-                    <div style="font-size: 0.8rem; color: #fff;">Corpach 1</div>
-                </div>
-                <!-- Glencoe -->
-                <div style="text-align: center;">
-                    <img src="Glencoe 1.jpg" alt="Glencoe 1" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Glencoe 1.jpg', '_blank')">
-                    <div style="font-size: 0.8rem; color: #fff;">Glencoe 1</div>
-                </div>
-                <!-- Three Sisters -->
-                <div style="text-align: center;">
-                    <img src="Three Sisters.jpg" alt="Three Sisters" style="height: 120px; cursor: pointer; border-radius: 6px;" onclick="window.open('Three Sisters.jpg', '_blank')">
-                    <div style="font-size: 0.8rem; color: #fff;">Three Sisters</div>
-                </div>
-                <!-- ... Füge hier die restlichen Bilder aus Ihrer Liste analog ein ... -->
             </div>
+        </section>
+
+        <section id="buecher" class="content-section" style="display:none;">
+            <h2>Meine Bücher</h2>
+            <p>Hier finden Sie eine Auswahl meiner Bücher, die von meinen Reisen und Erlebnissen inspiriert sind. Jedes Buch ist eine Einladung, die Schönheit und die Geheimnisse Irlands und Schottlands zu entdecken.</p>
+            <!-- Hier könnten die Buchcover und Beschreibungen eingefügt werden -->
         </section>
     </main>
 
     <footer>
-        <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
-        <p>Kontakt: 
-            <a href="mailto:galgo51@gmx.de" style="color: #B0C4B1;">galgo51@gmx.de</a> | 
-            <a href="mailto:carlowatz@gmail.com" style="color: #B0C4B1;">carlowatz@gmail.com</a>
-        </p>
+        <p>&copy; 2025 Gaelic Galgo. Alle Rechte vorbehalten.</p>
     </footer>
 
-    <!-- Unverändertes JavaScript -->
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            // Originaler JavaScript-Code unverändert
+        document.addEventListener('DOMContentLoaded', function () {
+            const navLinks = document.querySelectorAll('nav a');
+            const contentSections = document.querySelectorAll('.content-section');
+            const accordionHeaders = document.querySelectorAll('.accordion-header');
+
+            function showSection(targetId) {
+                contentSections.forEach(section => {
+                    section.style.display = section.id === targetId ? 'block' : 'none';
+                });
+                navLinks.forEach(link => {
+                    link.classList.toggle('active', link.getAttribute('data-target') === targetId);
+                });
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener('click', function (event) {
+                    event.preventDefault();
+                    const targetId = this.getAttribute('data-target');
+                    showSection(targetId);
+                });
+            });
+
+            accordionHeaders.forEach(header => {
+                header.addEventListener('click', function () {
+                    this.classList.toggle('active');
+                    const content = this.nextElementSibling;
+                    if (content.style.maxHeight) {
+                        content.style.maxHeight = null;
+                        content.style.padding = "0px 18px";
+                    } else {
+                        content.style.maxHeight = content.scrollHeight + "px";
+                        content.style.padding = "18px";
+                    }
+                });
+            });
+
+            // Initialize the first section to be visible
+            if (navLinks.length > 0) {
+                showSection(navLinks[0].getAttribute('data-target'));
+            }
         });
     </script>
 </body>
 </html>
+
 
 
 
