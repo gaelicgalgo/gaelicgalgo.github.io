@@ -1,0 +1,947 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaelic Galgo – Irland & Schottland in Bildern und Geschichten</title>
+    <meta name="description" content="Reiseimpressionen, Fotos und Bücher aus Irland & Schottland. Gaelic Galgo – Natur, Kultur und persönliche Eindrücke einer besonderen Reise.">
+    <style>
+    /* General Body Styles */
+    body {
+        font-family: 'Georgia', serif;
+        margin: 0;
+        padding: 0;
+        background-color: #E8E5E0; /* Fallback */
+        background-image: url('https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/hintergrund.jpg?raw=true');
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #FFFFFF; /* Default text color to white for better visibility on image */
+        line-height: 1.7;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: rgba(25, 50, 35, 0.85); 
+        color: #E0E0E0; 
+        padding: 25px 40px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        border-bottom: 3px solid #4A7C59; 
+    }
+
+    header .title-container h1 {
+        margin: 0;
+        font-size: 2.8em;
+        font-weight: normal;
+        color: #FFFFFF; 
+        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    }
+
+    header .title-container .subtitle {
+        margin: 5px 0 0 0;
+        font-size: 1.1em;
+        font-style: italic;
+        color: #B0C4B1; 
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    .author-container {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end; 
+    }
+
+    .author-box {
+        display: flex;
+        align-items: center;
+        text-align: right;
+        background-color: rgba(0,0,0,0.4); /* Slightly darker author box for text contrast */
+        padding: 10px 15px;
+        border-radius: 8px;
+    }
+
+    .author-box .author-image {
+        width: 90px; 
+        height: 90px;
+        border-radius: 50%;
+        margin-left: 20px;
+        border: 3px solid #B0C4B1; 
+    }
+
+    .author-box p {
+        margin: 0;
+        font-size: 0.95em;
+        line-height: 1.5;
+        color: #E0E0E0;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+    }
+
+    /* Navigation Styles */
+    nav {
+        background-color: rgba(40, 70, 50, 0.9); 
+        padding: 12px 0;
+        text-align: center;
+        border-bottom: 2px solid #203828;
+    }
+
+    nav ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+    }
+
+    nav ul li {
+        display: inline-block;
+        margin: 0 18px;
+    }
+
+    nav ul li a {
+        color: #E0E0E0;
+        text-decoration: none;
+        font-size: 1.2em;
+        padding: 8px 12px;
+        transition: color 0.3s ease, background-color 0.3s ease;
+        border-radius: 4px;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+        cursor: pointer; /* Indicate clickable */
+    }
+
+    nav ul li a:hover,
+    nav ul li a:focus {
+        color: #FFFFFF;
+        background-color: #4A7C59; 
+        text-decoration: none;
+    }
+    nav ul li a.active {
+        color: #FFFFFF;
+        background-color: #3B6F4C; /* Slightly different active color */
+        font-weight: bold;
+    }
+
+    /* Main Content Sections */
+    main {
+        padding: 25px;
+        max-width: 950px;
+        margin: 30px auto;
+    }
+
+    section.content-section {
+        padding: 30px;
+        margin-bottom: 30px;
+        border-radius: 10px; 
+        display: none; /* Initially hide all sections */
+        /* Removed background color from here to let body background show through */
+    }
+    section.content-section.active {
+        display: block; /* Show active section */
+    }
+
+    section.content-section h2 {
+        margin-top: 0;
+        color: #FFFFFF; 
+        border-bottom: 2px solid rgba(160, 188, 166, 0.7); 
+        padding-bottom: 12px;
+        margin-bottom: 22px;
+        font-size: 2em; 
+        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
+    }
+
+    section.content-section p {
+        color: #F0F0F0; 
+        font-size: 1.15em; 
+        text-align: justify; 
+        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
+    }
+    
+    /* Book Covers Styling - RADICALLY Updated for vertical layout */
+    .book-covers {
+        width: 100%; /* Ensure the container takes full width */
+    }
+    .book-cover-item {
+        display: block; /* Ensure it's a block element */
+        width: 70%;  /* Make covers take significant width */
+        max-width: 450px; /* Max width for a cover, adjust as needed */
+        margin: 0 auto 35px auto; /* Center block element and add bottom margin */
+        text-align: center;
+    }
+    .book-cover-item img {
+        width: 100%;
+        height: auto;
+        border-radius: 8px; /* Slightly larger radius */
+        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
+        border: 4px solid rgba(255,255,255,0.65);
+    }
+
+    /* Footer Styles */
+    footer {
+        text-align: center;
+        padding: 25px;
+        background-color: rgba(25, 50, 35, 0.9); 
+        color: #B0C4B1;
+        font-size: 0.95em;
+        border-top: 3px solid #4A7C59;
+        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
+    }
+
+    /* Responsive adjustments */
+    @media (max-width: 768px) {
+        header {
+            flex-direction: column;
+            text-align: center;
+        }
+        .author-container {
+            align-items: center; 
+            margin-top: 15px;
+        }
+        .author-box {
+            text-align: center;
+            flex-direction: column;
+        }
+        .author-box .author-image {
+            margin-left: 0;
+            margin-bottom: 10px;
+        }
+        nav ul li {
+            display: block;
+            margin: 10px 0;
+        }
+        section.content-section p {
+            text-align: left; 
+        }
+        .book-cover-item {
+            width: 85%; /* Adjust for tablets */
+            max-width: 400px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        header .title-container h1 {
+            font-size: 2.2em;
+        }
+        header .title-container .subtitle {
+            font-size: 1em;
+        }
+        section.content-section h2 {
+            font-size: 1.8em;
+        }
+        section.content-section p {
+            font-size: 1.1em;
+        }
+        section.content-section {
+            padding: 20px;
+        }
+        main {
+            padding: 15px;
+        }
+        .book-cover-item {
+            width: 95%; /* Full width on mobile */
+            max-width: 320px;
+        }
+    }
+    
+.scotland-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    padding: 20px 0;
+}
+
+.gallery-item {
+    width: 180px;
+    text-align: center;
+    cursor: pointer;
+    border: 2px solid rgba(255,255,255,0.3);
+    border-radius: 8px;
+    padding: 10px;
+    background-color: rgba(0,0,0,0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+    border-color: rgba(255,255,255,0.7);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 4px;
+    margin-bottom: 8px;
+}
+
+.gallery-item .filename {
+    font-size: 0.85em;
+    color: #E0E0E0;
+    word-wrap: break-word;
+    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0,0,0,0.85);
+    padding-top: 50px;
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    width: auto;
+    max-width: 90%;
+    max-height: 85vh;
+}
+
+.modal-caption {
+    margin: 15px auto;
+    display: block;
+    width: 80%;
+    max-width: 700px;
+    text-align: center;
+    color: #ccc;
+    padding: 10px 0;
+    font-size: 1.1em;
+}
+
+.modal-close {
+    position: absolute;
+    top: 20px;
+    right: 35px;
+    color: #f1f1f1;
+    font-size: 40px;
+    font-weight: bold;
+    transition: 0.3s;
+}
+
+.modal-close:hover,
+.modal-close:focus {
+    color: #bbb;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+
+.accordion-item {
+    margin-top: 20px;
+    border-top: 1px solid rgba(160, 188, 166, 0.5);
+    padding-top: 15px;
+}
+.accordion-header {
+    background-color: transparent; /* Match surrounding style */
+    color: #FFFFFF;
+    cursor: pointer;
+    padding: 15px 5px;
+    width: 100%;
+    text-align: left;
+    border: none;
+    outline: none;
+    font-size: 1.5em; /* Make it look like a sub-heading */
+    font-family: 'Georgia', serif;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
+    transition: background-color 0.3s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.accordion-header:hover {
+    background-color: rgba(74, 124, 89, 0.3); /* Subtle hover */
+}
+
+.accordion-header.active .accordion-arrow {
+    transform: rotate(180deg);
+}
+
+.accordion-arrow {
+    font-size: 0.8em;
+    transition: transform 0.3s ease;
+}
+
+.accordion-content {
+    padding: 0 18px 18px 18px;
+    background-color: transparent; /* Content area background */
+    overflow: hidden;
+    /* display: none; is set inline for initial state */
+}
+</style>
+</head>
+<body>
+    <header>
+        <div class="title-container">
+            <h1>Gaelic Galgo</h1>
+            <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
+        </div>
+        <div class="author-container">
+            <div class="author-box">
+                <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
+                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
+            </div>
+        </div>
+    </header>
+
+    <nav>
+        <ul>
+            <li><a data-target="irland">Irland</a></li>
+            <li><a data-target="schottland">Schottland</a></li>
+            <li><a data-target="buecher">Meine Bücher</a></li>
+            <li><a data-target="bilder-irland">Bilder Irland</a></li>
+            <li><a data-target="bilder-schottland">Bilder Schottland</a></li>
+        </ul>
+    </nav>
+
+    <main>
+        <section id="irland" class="content-section">
+            <h2>Irland</h2>
+            <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+        </section>
+
+        <section id="schottland" class="content-section">
+            <h2>Schottland</h2>
+            <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+        </section>
+
+        <section id="buecher" class="content-section">
+            <h2>Meine Bücher</h2>
+            <div class="book-covers">
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Mein Leben als Ire">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Unter den Strassen Dublins">
+                </div>
+                <div class="book-cover-item">
+                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover%202.jpg?raw=true" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
+                </div>
+            </div>
+            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
+        </section>
+
+        <section id="bilder-irland" class="content-section">
+            <h2>Bilder Irland</h2>
+            <p>Bildergalerie folgt …</p>
+        </section>
+
+        <section id="bilder-schottland" class="content-section"><h2>Bilder Schottland</h2>
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="fortWilliamAccordionToggle">
+        Fort William <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="fortWilliamAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="fortWilliamSubGalleryContainer">
+            <div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%201.jpg" alt="Corpach 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%201.jpg">
+                <div class="filename">Corpach 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%202.jpg" alt="Corpach 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%202.jpg">
+                <div class="filename">Corpach 2.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%203.jpg" alt="Corpach 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%203.jpg">
+                <div class="filename">Corpach 3.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%204.jpg" alt="Corpach 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%204.jpg">
+                <div class="filename">Corpach 4.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%205.jpg" alt="Corpach 5" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%205.jpg">
+                <div class="filename">Corpach 5.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%201.jpg" alt="Fort William 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%201.jpg">
+                <div class="filename">Fort William 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%202.jpg" alt="Fort William 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%202.jpg">
+                <div class="filename">Fort William 2.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%203.jpg" alt="Fort William 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%203.jpg">
+                <div class="filename">Fort William 3.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%204.jpg" alt="Fort William 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%204.jpg">
+                <div class="filename">Fort William 4.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glen-Etive%201.jpg" alt="Glen-Etive 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glen-Etive%201.jpg">
+                <div class="filename">Glen-Etive 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%201.jpg" alt="Glencoe 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%201.jpg">
+                <div class="filename">Glencoe 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%202.jpg" alt="Glencoe 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%202.jpg">
+                <div class="filename">Glencoe 2.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%203.jpg" alt="Glencoe 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%203.jpg">
+                <div class="filename">Glencoe 3.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%204.jpg" alt="Glencoe 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%204.jpg">
+                <div class="filename">Glencoe 4.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%205.jpg" alt="Glencoe 5" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%205.jpg">
+                <div class="filename">Glencoe 5.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%206.jpg" alt="Glencoe 6" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%206.jpg">
+                <div class="filename">Glencoe 6.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%207.jpg" alt="Glencoe 7" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%207.jpg">
+                <div class="filename">Glencoe 7.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%208.jpg" alt="Glencoe 8" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%208.jpg">
+                <div class="filename">Glencoe 8.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%209.jpg" alt="Glencoe 9" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%209.jpg">
+                <div class="filename">Glencoe 9.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%201.jpg" alt="Glencoe Monument 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%201.jpg">
+                <div class="filename">Glencoe Monument 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%202.jpg" alt="Glencoe Monument 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%202.jpg">
+                <div class="filename">Glencoe Monument 2.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%203.jpg" alt="Glencoe Monument 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%203.jpg">
+                <div class="filename">Glencoe Monument 3.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%204.jpg" alt="Glencoe Monument 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%204.jpg">
+                <div class="filename">Glencoe Monument 4.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Kilchurn%20Castle%201.jpg" alt="Kilchurn Castle 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Kilchurn%20Castle%201.jpg">
+                <div class="filename">Kilchurn Castle 1.jpg</div>
+            </div>
+<div class="gallery-item">
+                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Three%20Sisters.jpg" alt="Three Sisters" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Three%20Sisters.jpg">
+                <div class="filename">Three Sisters.jpg</div>
+            </div>
+
+        </div>
+    </div>
+</div>
+
+<!-- The Modal for Fort William Sub-Gallery -->
+            <div id="imageModalFortWilliamSub" class="modal">
+              <span class="modal-close" id="closeFortWilliamSubModal">&times;</span>
+              <img class="modal-content" id="modalImageFortWilliamSub">
+              <div id="modalCaptionFortWilliamSub" class="modal-caption"></div>
+            </div>
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="hebridenAccordionToggle">
+        Hebriden <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="hebridenAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="hebridenAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="isleoflewisAccordionToggle">
+        Isle of Lewis <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="isleoflewisAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="isleoflewisAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="isleofharrisAccordionToggle">
+        Isle of Harris <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="isleofharrisAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="isleofharrisAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="orkneysAccordionToggle">
+        Orkneys <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="orkneysAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="orkneysAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="shetlandsAccordionToggle">
+        Shetlands <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="shetlandsAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="shetlandsAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="edinburghAccordionToggle">
+        Edinburgh <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="edinburghAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="edinburghAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="invernessAccordionToggle">
+        Inverness <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="invernessAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="invernessAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+</section>
+
+        </main>
+
+    <footer>
+        <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
+    
+        <p>
+            Kontakt: 
+            <a href="mailto:galgo51@gmx.de" style="color: #B0C4B1;">galgo51@gmx.de</a> &nbsp;|&nbsp; 
+            <a href="mailto:carlowatz@gmail.com" style="color: #B0C4B1;">carlowatz@gmail.com</a>
+        </p>
+
+    </footer>
+
+    <script>
+document.addEventListener("DOMContentLoaded", function() {
+            const navLinks = document.querySelectorAll("nav ul li a");
+            const contentSections = document.querySelectorAll("main .content-section");
+            let currentHash = window.location.hash.substring(1);
+
+            function showSection(targetId) {
+                let sectionFound = false;
+                contentSections.forEach(section => {
+                    if (section.id === targetId) {
+                        section.style.display = "block";
+                        sectionFound = true;
+                        // Initialize gallery if it's the Scotland or Fort William gallery section
+                        if (section.id === 'bilder-schottland') {
+                            initializeBilderSchottlandGalleryModal(); 
+                            initializeFortWilliamAccordion();
+                            initializeFortWilliamSubGalleryModal();
+                            initializeHebridenAccordion();
+                            initializeIsleofLewisAccordion();
+                            initializeIsleofHarrisAccordion();
+                            initializeOrkneysAccordion();
+                            initializeShetlandsAccordion();
+                            initializeEdinburghAccordion();
+                            initializeInvernessAccordion();
+                        }
+                        if (section.id === 'fort-william-bilder') {
+                            initializeFortWilliamGalleryModal();
+                        }
+                    } else {
+                        section.style.display = "none";
+                    }
+                });
+
+                navLinks.forEach(link => {
+                    if (link.getAttribute("data-target") === targetId) {
+                        link.classList.add("active");
+                    } else {
+                        link.classList.remove("active");
+                    }
+                });
+                
+                // Update URL hash without jumping if section is found
+                if (sectionFound && window.location.hash !== "#" + targetId) {
+                     history.pushState(null, null, "#" + targetId);
+                }
+            }
+
+            navLinks.forEach(link => {
+                link.addEventListener("click", function(event) {
+                    event.preventDefault(); 
+                    const targetId = this.getAttribute("data-target");
+                    showSection(targetId);
+                    // Scroll to the top of the main content area smoothly
+                    const mainElement = document.querySelector("main");
+                    if (mainElement) {
+                        mainElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                    }
+                });
+            });
+
+            // Handle initial page load based on hash
+            if (currentHash && document.getElementById(currentHash)) {
+                showSection(currentHash);
+            } else {
+                showSection("irland"); // Default to 'irland' section
+            }
+
+            // Handle hash changes (e.g., browser back/forward buttons)
+            window.addEventListener("hashchange", function() {
+                currentHash = window.location.hash.substring(1);
+                if (currentHash && document.getElementById(currentHash)) {
+                    showSection(currentHash);
+                } else if (!currentHash) { // If hash is empty (e.g. base URL)
+                     showSection("irland"); 
+                }
+            });
+        });
+
+function initializeBilderSchottlandGalleryModal() {
+    const modal = document.getElementById("imageModalBilderSchottland");
+    const modalImg = document.getElementById("modalImageBilderSchottland");
+    const captionText = document.getElementById("modalCaptionBilderSchottland");
+    const galleryItems = document.querySelectorAll("#bilderSchottlandGalleryContainer .gallery-item");
+    const closeModalSpan = document.getElementById("closeBilderSchottlandModal");
+
+    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
+        // console.error("Bilder Schottland gallery modal elements not found or no items.");
+        return;
+    }
+
+    galleryItems.forEach(item => {
+        if (!item.dataset.listenerAttached) {
+            item.addEventListener("click", function() {
+                modal.style.display = "block";
+                const imgElement = this.querySelector("img");
+                modalImg.src = imgElement.getAttribute("data-fullsrc");
+                captionText.innerHTML = this.querySelector(".filename").textContent;
+            });
+            item.dataset.listenerAttached = "true";
+        }
+    });
+
+    if (!closeModalSpan.dataset.listenerAttached) {
+        closeModalSpan.onclick = function() {
+            modal.style.display = "none";
+        }
+        closeModalSpan.dataset.listenerAttached = "true";
+    }
+
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+
+
+
+function initializeFortWilliamSubGalleryModal() {
+    const modal = document.getElementById("imageModalFortWilliamSub");
+    const modalImg = document.getElementById("modalImageFortWilliamSub");
+    const captionText = document.getElementById("modalCaptionFortWilliamSub");
+    const galleryItems = document.querySelectorAll("#fortWilliamSubGalleryContainer .gallery-item");
+    const closeModalSpan = document.getElementById("closeFortWilliamSubModal");
+
+    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
+        // console.error("Fort William Sub-Gallery modal elements not found or no items.");
+        return;
+    }
+
+    galleryItems.forEach(item => {
+        if (!item.dataset.fwSubListenerAttached) { 
+            item.addEventListener("click", function() {
+                modal.style.display = "block";
+                const imgElement = this.querySelector("img");
+                modalImg.src = imgElement.getAttribute("data-fullsrc");
+                captionText.innerHTML = this.querySelector(".filename").textContent;
+            });
+            item.dataset.fwSubListenerAttached = "true";
+        }
+    });
+
+    if (!closeModalSpan.dataset.fwSubListenerAttached) { 
+        closeModalSpan.onclick = function() {
+            modal.style.display = "none";
+        }
+        closeModalSpan.dataset.fwSubListenerAttached = "true";
+    }
+    
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+
+
+
+function initializeFortWilliamSubGalleryModal() {
+    const modal = document.getElementById("imageModalFortWilliamSub");
+    const modalImg = document.getElementById("modalImageFortWilliamSub");
+    const captionText = document.getElementById("modalCaptionFortWilliamSub");
+    const galleryItems = document.querySelectorAll("#fortWilliamSubGalleryContainer .gallery-item");
+    const closeModalSpan = document.getElementById("closeFortWilliamSubModal");
+
+    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
+        return;
+    }
+
+    galleryItems.forEach(item => {
+        if (!item.dataset.fwSubListenerAttached) { 
+            item.addEventListener("click", function() {
+                modal.style.display = "block";
+                const imgElement = this.querySelector("img");
+                modalImg.src = imgElement.getAttribute("data-fullsrc");
+                captionText.innerHTML = this.querySelector(".filename").textContent;
+            });
+            item.dataset.fwSubListenerAttached = "true";
+        }
+    });
+
+    if (!closeModalSpan.dataset.fwSubListenerAttached) { 
+        closeModalSpan.onclick = function() {
+            modal.style.display = "none";
+        }
+        closeModalSpan.dataset.fwSubListenerAttached = "true";
+    }
+    
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+}
+
+
+
+function initializeFortWilliamAccordion() {
+    const toggleButton = document.getElementById("fortWilliamAccordionToggle");
+    const contentDiv = document.getElementById("fortWilliamAccordionContent");
+
+    if (!toggleButton || !contentDiv) {
+        // console.error("Accordion elements for Fort William not found.");
+        return;
+    }
+
+    toggleButton.addEventListener("click", function() {
+        this.classList.toggle("active");
+        if (contentDiv.style.display === "block" || contentDiv.style.display === "flex") {
+            contentDiv.style.display = "none";
+        } else {
+            contentDiv.style.display = "block"; // Or "flex" if your gallery uses flex directly
+            // Initialize or re-initialize gallery modal if needed when content becomes visible
+            // This ensures listeners are attached if they weren't or if content was re-rendered.
+        }
+    });
+}
+
+
+function initializeHebridenAccordion() {
+    const toggle = document.getElementById("hebridenAccordionToggle");
+    const content = document.getElementById("hebridenAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeIsleofLewisAccordion() {
+    const toggle = document.getElementById("isleoflewisAccordionToggle");
+    const content = document.getElementById("isleoflewisAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeIsleofHarrisAccordion() {
+    const toggle = document.getElementById("isleofharrisAccordionToggle");
+    const content = document.getElementById("isleofharrisAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeOrkneysAccordion() {
+    const toggle = document.getElementById("orkneysAccordionToggle");
+    const content = document.getElementById("orkneysAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeShetlandsAccordion() {
+    const toggle = document.getElementById("shetlandsAccordionToggle");
+    const content = document.getElementById("shetlandsAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeEdinburghAccordion() {
+    const toggle = document.getElementById("edinburghAccordionToggle");
+    const content = document.getElementById("edinburghAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeInvernessAccordion() {
+    const toggle = document.getElementById("invernessAccordionToggle");
+    const content = document.getElementById("invernessAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+</script>
+
+</body>
+</html>
+
