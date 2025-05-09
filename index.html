@@ -550,6 +550,90 @@
               <img class="modal-content" id="modalImageFortWilliamSub">
               <div id="modalCaptionFortWilliamSub" class="modal-caption"></div>
             </div>
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="hebridenAccordionToggle">
+        Hebriden <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="hebridenAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="hebridenAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="isleoflewisAccordionToggle">
+        Isle of Lewis <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="isleoflewisAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="isleoflewisAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="isleofharrisAccordionToggle">
+        Isle of Harris <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="isleofharrisAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="isleofharrisAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="orkneysAccordionToggle">
+        Orkneys <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="orkneysAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="orkneysAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="shetlandsAccordionToggle">
+        Shetlands <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="shetlandsAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="shetlandsAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="edinburghAccordionToggle">
+        Edinburgh <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="edinburghAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="edinburghAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="invernessAccordionToggle">
+        Inverness <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="invernessAccordionContent" style="display: none;">
+        <div class="scotland-gallery" id="invernessAccordionGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
+        </div>
+    </div>
+</div>
+
 </section>
 
         </main>
@@ -582,6 +666,13 @@ document.addEventListener("DOMContentLoaded", function() {
                             initializeBilderSchottlandGalleryModal(); 
                             initializeFortWilliamAccordion();
                             initializeFortWilliamSubGalleryModal();
+                            initializeHebridenAccordion();
+                            initializeIsleofLewisAccordion();
+                            initializeIsleofHarrisAccordion();
+                            initializeOrkneysAccordion();
+                            initializeShetlandsAccordion();
+                            initializeEdinburghAccordion();
+                            initializeInvernessAccordion();
                         }
                         if (section.id === 'fort-william-bilder') {
                             initializeFortWilliamGalleryModal();
@@ -778,6 +869,76 @@ function initializeFortWilliamAccordion() {
     });
 }
 
+
+function initializeHebridenAccordion() {
+    const toggle = document.getElementById("hebridenAccordionToggle");
+    const content = document.getElementById("hebridenAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeIsleofLewisAccordion() {
+    const toggle = document.getElementById("isleoflewisAccordionToggle");
+    const content = document.getElementById("isleoflewisAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeIsleofHarrisAccordion() {
+    const toggle = document.getElementById("isleofharrisAccordionToggle");
+    const content = document.getElementById("isleofharrisAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeOrkneysAccordion() {
+    const toggle = document.getElementById("orkneysAccordionToggle");
+    const content = document.getElementById("orkneysAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeShetlandsAccordion() {
+    const toggle = document.getElementById("shetlandsAccordionToggle");
+    const content = document.getElementById("shetlandsAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeEdinburghAccordion() {
+    const toggle = document.getElementById("edinburghAccordionToggle");
+    const content = document.getElementById("edinburghAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
+
+function initializeInvernessAccordion() {
+    const toggle = document.getElementById("invernessAccordionToggle");
+    const content = document.getElementById("invernessAccordionContent");
+    if (!toggle || !content) return;
+    toggle.addEventListener("click", function() {
+        this.classList.toggle("active");
+        content.style.display = (content.style.display === "block") ? "none" : "block";
+    });
+}
 </script>
 
 </body>
