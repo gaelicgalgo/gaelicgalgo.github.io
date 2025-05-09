@@ -430,7 +430,66 @@
         <section id="bilder-irland" class="content-section">
             <h2>Bilder Irland</h2>
             <p>Bildergalerie folgt …</p>
-        </section>
+        
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="irlandcountiesToggle" onclick="toggleAccordion('irlandcountiesContent', this)">
+        Irland Counties <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="irlandcountiesContent" style="display: none;">
+        <div class="scotland-gallery" id="irlandcountiesGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="irlandinselnToggle" onclick="toggleAccordion('irlandinselnContent', this)">
+        Irland Inseln <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="irlandinselnContent" style="display: none;">
+        <div class="scotland-gallery" id="irlandinselnGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="irlandsehenswuerdigkeitenToggle" onclick="toggleAccordion('irlandsehenswuerdigkeitenContent', this)">
+        Irland Sehenswürdigkeiten <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="irlandsehenswuerdigkeitenContent" style="display: none;">
+        <div class="scotland-gallery" id="irlandsehenswuerdigkeitenGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="dublinToggle" onclick="toggleAccordion('dublinContent', this)">
+        Dublin <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="dublinContent" style="display: none;">
+        <div class="scotland-gallery" id="dublinGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+        </div>
+    </div>
+</div>
+
+
+<div class="accordion-item">
+    <button type="button" class="accordion-header" id="dublinsehenswuerdigkeitenToggle" onclick="toggleAccordion('dublinsehenswuerdigkeitenContent', this)">
+        Dublin Sehenswürdigkeiten <span class="accordion-arrow">&#9660;</span>
+    </button>
+    <div class="accordion-content" id="dublinsehenswuerdigkeitenContent" style="display: none;">
+        <div class="scotland-gallery" id="dublinsehenswuerdigkeitenGalleryContainer">
+            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+        </div>
+    </div>
+</div>
+</section>
 
         <section id="bilder-schottland" class="content-section"><h2>Bilder Schottland</h2>
 
@@ -940,6 +999,15 @@ function initializeInvernessAccordion() {
         content.style.display = (content.style.display === "block") ? "none" : "block";
     });
 }
+
+function toggleAccordion(contentId, headerElement) {
+    const content = document.getElementById(contentId);
+    if (!content) return;
+    const isVisible = content.style.display === "block";
+    content.style.display = isVisible ? "none" : "block";
+    headerElement.classList.toggle("active", !isVisible);
+}
+
 </script>
 
 </body>
