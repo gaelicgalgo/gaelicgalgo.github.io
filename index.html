@@ -896,6 +896,60 @@
     </footer>
 
     <script>
+function initializeGlobalModalWithDelegation() {
+    const modal = document.getElementById("imageModal");
+    const modalImg = document.getElementById("modalImage");
+    const captionText = document.getElementById("modalCaption");
+    // Assuming the generic modal's close button is the first with class "modal-close"
+    // or has a specific ID like "closeModal". The original script used getElementsByClassName("modal-close")[0].
+    // Let's assume the HTML for the generic modal has <span class="modal-close" id="closeModal"> or similar.
+    // If there are multiple modals, this selector for closeModalSpan might need to be more specific
+    // or ensure it's the one associated with "imageModal".
+    const closeModalSpan = modal ? modal.querySelector(".modal-close") : null; 
+
+    if (!modal || !modalImg || !captionText || !closeModalSpan) {
+        console.error("Generic modal elements (imageModal, modalImage, modalCaption, or its close button) not found. Lightbox for generic galleries may not work.");
+        return;
+    }
+
+    document.body.addEventListener("click", function(event) {
+        const galleryItemTarget = event.target.closest(".gallery-item");
+
+        if (galleryItemTarget) {
+            // Check if the clicked item belongs to a gallery with specific modal handling
+            if (galleryItemTarget.closest("#fortWilliamSubGalleryContainer")) {
+                // This item is handled by initializeFortWilliamSubGalleryModal, so skip.
+                return;
+            }
+            // Add similar checks for other specific gallery containers if they exist
+            // For example: if (galleryItemTarget.closest("#anotherSpecificGalleryContainer")) return;
+
+            // If it's a generic gallery item, use the generic modal
+            modal.style.display = "block";
+            const imgElement = galleryItemTarget.querySelector("img");
+            if (imgElement) {
+                modalImg.src = imgElement.getAttribute("data-fullsrc") || imgElement.src;
+                captionText.innerHTML = imgElement.alt || (galleryItemTarget.querySelector(".filename") ? galleryItemTarget.querySelector(".filename").textContent : "");
+            } else {
+                console.error("Image element not found within clicked gallery item.");
+            }
+        }
+    });
+
+    closeModalSpan.onclick = function() {
+        modal.style.display = "none";
+    };
+
+    window.addEventListener("click", function(event) {
+        if (event.target == modal) {
+            modal.style.display = "none";
+        }
+    });
+    console.log("Generic modal with event delegation initialized.");
+}
+
+
+
 document.addEventListener("DOMContentLoaded", function() {
             const navLinks = document.querySelectorAll("nav ul li a");
             const contentSections = document.querySelectorAll("main .content-section");
