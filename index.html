@@ -642,8 +642,8 @@
                 "corpachGallery": {
                     basePath: "",
                     files: [
-                        "Corpach 01.jpg", "Corpach 02.jpg", "Corpach 03.jpg", "Corpach 04.jpg", "Corpach 05.jpg",
-                        "Corpach 06.jpg", "Corpach 07.jpg", "Corpach 08.jpg", "Corpach 09.jpg", "Corpach 10.jpg",
+                        "Corpach 1.jpg", "Corpach 2.jpg", "Corpach 3.jpg", "Corpach 4.jpg", "Corpach 5.jpg",
+                        "Corpach 6.jpg", "Corpach 7.jpg", "Corpach 8.jpg", "Corpach 9.jpg", "Corpach 10.jpg",
                         "Corpach 11.jpg", "Corpach 12.jpg", "Corpach 13.jpg", "Corpach 14.jpg", "Corpach 15.jpg",
                         "Corpach 16.jpg", "Corpach 17.jpg", "Corpach 18.jpg", "Corpach 19.jpg", "Corpach 20.jpg",
                         "Corpach 21.jpg", "Corpach 22.jpg", "Corpach 23.jpg", "Corpach 24.jpg", "Corpach 25.jpg",
@@ -667,8 +667,8 @@
                 "fortWilliamGallery": {
                     basePath: "",
                     files: [
-                        "Fort William 01.jpg", "Fort William 02.jpg", "Fort William 03.jpg", "Fort William 04.jpg", "Fort William 05.jpg",
-                        "Fort William 06.jpg", "Fort William 07.jpg", "Fort William 08.jpg", "Fort William 09.jpg", "Fort William 10.jpg",
+                        "Fort William 1.jpg", "Fort William 2.jpg", "Fort William 3.jpg", "Fort William 4.jpg", "Fort William 5.jpg",
+                        "Fort William 6.jpg", "Fort William 7.jpg", "Fort William 8.jpg", "Fort William 9.jpg", "Fort William 10.jpg",
                         "Fort William 11.jpg", "Fort William 12.jpg", "Fort William 13.jpg", "Fort William 14.jpg", "Fort William 15.jpg",
                         "Fort William 16.jpg", "Fort William 17.jpg", "Fort William 18.jpg", "Fort William 19.jpg", "Fort William 20.jpg",
                         "Fort William 21.jpg", "Fort William 22.jpg", "Fort William 23.jpg", "Fort William 24.jpg", "Fort William 25.jpg",
@@ -738,16 +738,6 @@
                     const content = this.nextElementSibling;
                     const arrow = this.querySelector(".accordion-arrow");
                     const isActive = this.classList.contains("active");
-
-                    // Optional: Close other open accordions in the same section
-                    // this.closest(".content-section").querySelectorAll(".accordion-content.open").forEach(openContent => {
-                    //     if (openContent !== content) {
-                    //         openContent.classList.remove("open");
-                    //         openContent.previousElementSibling.classList.remove("active");
-                    //         const otherArrow = openContent.previousElementSibling.querySelector(".accordion-arrow");
-                    //         if(otherArrow) otherArrow.style.transform = "rotate(0deg)";
-                    //     }
-                    // });
 
                     content.classList.toggle("open");
                     this.classList.toggle("active");
