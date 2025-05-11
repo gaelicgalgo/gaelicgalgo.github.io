@@ -3,1012 +3,835 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gaelic Galgo – Irland & Schottland in Bildern und Geschichten</title>
-    <meta name="description" content="Reiseimpressionen, Fotos und Bücher aus Irland & Schottland. Gaelic Galgo – Natur, Kultur und persönliche Eindrücke einer besonderen Reise.">
+    <title>Gaelic Galgo - Irland & Schottland in Bildern und Geschichten</title>
+    <meta name="description" content="Reiseimpressionen, Fotos und Bücher aus Irland & Schottland. Gaelic Galgo - Natur, Kultur und persönliche Eindrücke einer besonderen Reise.">
     <style>
-    /* General Body Styles */
-    body {
-        font-family: 'Georgia', serif;
-        margin: 0;
-        padding: 0;
-        background-color: #E8E5E0; /* Fallback */
-        background-image: url('https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/hintergrund.jpg?raw=true');
-        background-size: cover;
-        background-position: center;
-        background-attachment: fixed;
-        color: #FFFFFF; /* Default text color to white for better visibility on image */
-        line-height: 1.7;
-    }
+        /* General Body Styles */
+        body {
+            font-family: 'Georgia', serif;
+            margin: 0;
+            padding: 0;
+            background-color: #E8E5E0; /* Fallback */
+            background-image: url('hintergrund.jpg'); /* Assuming hintergrund.jpg is in the root */
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: #FFFFFF; /* Default text color to white for better visibility on image */
+            line-height: 1.7;
+        }
 
-    /* Header Styles */
-    header {
-        background-color: rgba(25, 50, 35, 0.85); 
-        color: #E0E0E0; 
-        padding: 25px 40px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        flex-wrap: wrap;
-        border-bottom: 3px solid #4A7C59; 
-    }
-
-    header .title-container h1 {
-        margin: 0;
-        font-size: 2.8em;
-        font-weight: normal;
-        color: #FFFFFF; 
-        text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    }
-
-    header .title-container .subtitle {
-        margin: 5px 0 0 0;
-        font-size: 1.1em;
-        font-style: italic;
-        color: #B0C4B1; 
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-    }
-
-    .author-container {
-        display: flex;
-        flex-direction: column;
-        align-items: flex-end; 
-    }
-
-    .author-box {
-        display: flex;
-        align-items: center;
-        text-align: right;
-        background-color: rgba(0,0,0,0.4); /* Slightly darker author box for text contrast */
-        padding: 10px 15px;
-        border-radius: 8px;
-    }
-
-    .author-box .author-image {
-        width: 90px; 
-        height: 90px;
-        border-radius: 50%;
-        margin-left: 20px;
-        border: 3px solid #B0C4B1; 
-    }
-
-    .author-box p {
-        margin: 0;
-        font-size: 0.95em;
-        line-height: 1.5;
-        color: #E0E0E0;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-    }
-
-    /* Navigation Styles */
-    nav {
-        background-color: rgba(40, 70, 50, 0.9); 
-        padding: 12px 0;
-        text-align: center;
-        border-bottom: 2px solid #203828;
-    }
-
-    nav ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-    }
-
-    nav ul li {
-        display: inline-block;
-        margin: 0 18px;
-    }
-
-    nav ul li a {
-        color: #E0E0E0;
-        text-decoration: none;
-        font-size: 1.2em;
-        padding: 8px 12px;
-        transition: color 0.3s ease, background-color 0.3s ease;
-        border-radius: 4px;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-        cursor: pointer; /* Indicate clickable */
-    }
-
-    nav ul li a:hover,
-    nav ul li a:focus {
-        color: #FFFFFF;
-        background-color: #4A7C59; 
-        text-decoration: none;
-    }
-    nav ul li a.active {
-        color: #FFFFFF;
-        background-color: #3B6F4C; /* Slightly different active color */
-        font-weight: bold;
-    }
-
-    /* Main Content Sections */
-    main {
-        padding: 25px;
-        max-width: 950px;
-        margin: 30px auto;
-    }
-
-    section.content-section {
-        padding: 30px;
-        margin-bottom: 30px;
-        border-radius: 10px; 
-        display: none; /* Initially hide all sections */
-        /* Removed background color from here to let body background show through */
-    }
-    section.content-section.active {
-        display: block; /* Show active section */
-    }
-
-    section.content-section h2 {
-        margin-top: 0;
-        color: #FFFFFF; 
-        border-bottom: 2px solid rgba(160, 188, 166, 0.7); 
-        padding-bottom: 12px;
-        margin-bottom: 22px;
-        font-size: 2em; 
-        text-shadow: 2px 2px 4px rgba(0,0,0,0.8); 
-    }
-
-    section.content-section p {
-        color: #F0F0F0; 
-        font-size: 1.15em; 
-        text-align: justify; 
-        text-shadow: 1px 1px 3px rgba(0,0,0,0.9); 
-    }
-    
-    /* Book Covers Styling - RADICALLY Updated for vertical layout */
-    .book-covers {
-        width: 100%; /* Ensure the container takes full width */
-    }
-    .book-cover-item {
-        display: block; /* Ensure it's a block element */
-        width: 70%;  /* Make covers take significant width */
-        max-width: 450px; /* Max width for a cover, adjust as needed */
-        margin: 0 auto 35px auto; /* Center block element and add bottom margin */
-        text-align: center;
-    }
-    .book-cover-item img {
-        width: 100%;
-        height: auto;
-        border-radius: 8px; /* Slightly larger radius */
-        box-shadow: 0 8px 16px rgba(0,0,0,0.5);
-        border: 4px solid rgba(255,255,255,0.65);
-    }
-
-    /* Footer Styles */
-    footer {
-        text-align: center;
-        padding: 25px;
-        background-color: rgba(25, 50, 35, 0.9); 
-        color: #B0C4B1;
-        font-size: 0.95em;
-        border-top: 3px solid #4A7C59;
-        text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
-    }
-
-    /* Responsive adjustments */
-    @media (max-width: 768px) {
+        /* Header Styles */
         header {
-            flex-direction: column;
-            text-align: center;
+            background-color: rgba(25, 50, 35, 0.85);
+            color: #E0E0E0;
+            padding: 25px 40px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 3px solid #4A7C59;
         }
-        .author-container {
-            align-items: center; 
-            margin-top: 15px;
-        }
-        .author-box {
-            text-align: center;
-            flex-direction: column;
-        }
-        .author-box .author-image {
-            margin-left: 0;
-            margin-bottom: 10px;
-        }
-        nav ul li {
-            display: block;
-            margin: 10px 0;
-        }
-        section.content-section p {
-            text-align: left; 
-        }
-        .book-cover-item {
-            width: 85%; /* Adjust for tablets */
-            max-width: 400px;
-        }
-    }
 
-    @media (max-width: 480px) {
         header .title-container h1 {
-            font-size: 2.2em;
+            margin: 0;
+            font-size: 2.8em;
+            font-weight: normal;
+            color: #FFFFFF;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
         }
+
         header .title-container .subtitle {
-            font-size: 1em;
-        }
-        section.content-section h2 {
-            font-size: 1.8em;
-        }
-        section.content-section p {
+            margin: 5px 0 0 0;
             font-size: 1.1em;
+            font-style: italic;
+            color: #B0C4B1;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
         }
-        section.content-section {
+        
+        .author-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-end;
+        }
+
+        .author-box {
+            display: flex;
+            align-items: center;
+            text-align: right;
+            background-color: rgba(0,0,0,0.3);
+            padding: 10px 15px;
+            border-radius: 8px;
+            color: #E0E0E0;
+            font-size: 0.9em;
+        }
+
+        .author-box p {
+            margin: 0 15px 0 0; /* Abstand rechts vom Text zum Bild */
+        }
+
+        .author-image {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid #B0C4B1;
+        }
+
+        /* Navigation Styles */
+        nav {
+            background-color: rgba(0,0,0,0.6);
+            padding: 12px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 999;
+            border-bottom: 1px solid rgba(255,255,255,0.2);
+        }
+
+        nav ul {
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        nav ul li {
+            display: inline;
+            margin: 0 12px;
+        }
+
+        nav ul li a {
+            color: #E0E0E0;
+            text-decoration: none;
+            font-size: 1.1em;
+            padding: 10px 18px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        nav ul li a:hover,
+        nav ul li a.active-nav-link {
+            background-color: #4A7C59;
+            color: #FFFFFF;
+        }
+
+        /* Main Content Styles */
+        main {
+            padding: 25px;
+            max-width: 1300px;
+            margin: 30px auto;
+            background-color: rgba(255, 255, 255, 0.95); /* Leicht transparenter weißer Hintergrund */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            border-radius: 10px;
+            color: #333333; /* Dunklerer Text für besseren Kontrast auf hellem Grund */
+        }
+
+        .content-section {
+            display: none;
+            padding: 25px;
+            border-top: 1px solid #DDDDDD;
+            animation: fadeIn 0.6s ease-in-out;
+        }
+
+        .content-section:first-of-type {
+            border-top: none;
+        }
+
+        .content-section.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(15px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        h2 {
+            color: #2F4F4F; /* Dunkles Schiefergrau */
+            border-bottom: 2px solid #4A7C59;
+            padding-bottom: 12px;
+            margin-top: 0;
+            font-size: 2em;
+        }
+        
+        h3 {
+            color: #2F4F4F; 
+            margin-top: 20px;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+
+        /* Accordion Styles */
+        .accordion-item {
+            margin-bottom: 18px;
+            border: 1px solid #CCCCCC;
+            border-radius: 6px;
+            overflow: hidden;
+            background-color: #F8F8F8;
+        }
+
+        .accordion-header {
+            background-color: #E0E0E0;
+            color: #2F4F4F;
+            cursor: pointer;
+            padding: 18px 22px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            font-size: 1.3em;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-header:hover {
+            background-color: #D0D0D0;
+        }
+
+        .accordion-header.active {
+            background-color: #C0C0C0;
+        }
+
+        .accordion-arrow {
+            font-size: 0.9em;
+            transition: transform 0.35s ease;
+        }
+
+        .accordion-header.active .accordion-arrow {
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 0; 
+            background-color: #FFFFFF;
+            border-top: 1px solid #CCCCCC;
+            max-height: 0;
+            opacity: 0;
+            overflow: hidden;
+            transition: max-height 0.45s ease-out, opacity 0.3s ease-out 0.1s, padding-top 0.45s ease-out, padding-bottom 0.45s ease-out;
+        }
+
+        .accordion-content.open {
+            padding: 20px;
+            max-height: 5000px; /* Adjust if content is larger */
+            opacity: 1;
+        }
+
+        /* Gallery Styles */
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 12px;
+            justify-content: flex-start; /* Align items to the start */
+        }
+
+        .gallery-item {
+            width: calc(20% - 10px); /* 5 items per row, considering gap */
+            border: 1px solid #D0D0D0;
+            padding: 6px;
+            background-color: #FDFDFD;
+            text-align: center;
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+            border-radius: 5px;
+            transition: transform 0.25s ease, box-shadow 0.25s ease;
+            overflow: hidden; 
+        }
+
+        .gallery-item:hover {
+            transform: translateY(-3px) scale(1.03);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.12);
+        }
+
+        .gallery-item img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin-bottom: 6px;
+            cursor: pointer;
+            border-radius: 3px;
+            aspect-ratio: 4 / 3; 
+            object-fit: cover; 
+        }
+
+        .gallery-item .filename {
+            font-size: 0.85em;
+            color: #505050;
+            word-wrap: break-word;
+            padding: 0 3px;
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1001;
+            padding-top: 40px;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgba(10, 20, 15, 0.92); 
+            animation: fadeInModal 0.3s ease-out;
+        }
+        
+        @keyframes fadeInModal {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        .modal-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            min-height: calc(100vh - 80px); 
             padding: 20px;
         }
-        main {
-            padding: 15px;
+
+        .modal-content {
+            display: block;
+            max-width: 90%;
+            max-height: 80vh;
+            border-radius: 5px;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.4);
+            animation: zoomInModal 0.35s cubic-bezier(0.175, 0.885, 0.320, 1.275); 
         }
+
+        @keyframes zoomInModal {
+            from {transform: scale(0.8); opacity: 0;}
+            to {transform: scale(1); opacity: 1;}
+        }
+
+        #caption {
+            margin-top: 15px;
+            display: block;
+            width: 85%;
+            max-width: 750px;
+            text-align: center;
+            color: #D0D0D0;
+            padding: 12px 0;
+            font-size: 1.15em;
+            font-weight: bold;
+        }
+
+        .close-modal-button {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            color: #E0E0E0;
+            font-size: 45px;
+            font-weight: bold;
+            transition: 0.3s;
+            line-height: 1;
+            cursor: pointer;
+        }
+
+        .close-modal-button:hover,
+        .close-modal-button:focus {
+            color: #FFFFFF;
+            text-decoration: none;
+            transform: scale(1.1);
+        }
+
+        /* Book Cover Styles */
+        .book-covers {
+            display: flex;
+            justify-content: space-around;
+            flex-wrap: wrap;
+            gap: 25px;
+            margin-top: 25px;
+        }
+
         .book-cover-item {
-            width: 95%; /* Full width on mobile */
-            max-width: 320px;
+            width: calc(33.333% - 25px);
+            max-width: 280px;
+            text-align: center;
         }
-    }
-    
-.scotland-gallery {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 20px;
-    justify-content: center;
-    padding: 20px 0;
-}
 
-.gallery-item {
-    width: 180px;
-    text-align: center;
-    cursor: pointer;
-    border: 2px solid rgba(255,255,255,0.3);
-    border-radius: 8px;
-    padding: 10px;
-    background-color: rgba(0,0,0,0.2);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-}
+        .book-cover-item img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #C0C0C0;
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.18);
+            border-radius: 5px;
+            transition: transform 0.3s ease;
+        }
 
-.gallery-item:hover {
-    transform: scale(1.05);
-    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
-    border-color: rgba(255,255,255,0.7);
-}
+        .book-cover-item img:hover {
+            transform: scale(1.05);
+        }
 
-.gallery-item img {
-    width: 100%;
-    height: 120px;
-    object-fit: cover;
-    border-radius: 4px;
-    margin-bottom: 8px;
-}
+        /* Responsive Design */
+        @media (max-width: 1200px) {
+            .gallery-item {
+                width: calc(25% - 10px); /* 4 items */
+            }
+        }
+        
+        @media (max-width: 992px) {
+            header {
+                padding: 20px;
+            }
+            nav ul li {
+                margin: 0 8px;
+            }
+            nav ul li a {
+                padding: 8px 12px;
+                font-size: 1em;
+            }
+            .gallery-item {
+                width: calc(33.333% - 9px); /* 3 items */
+            }
+            .book-cover-item {
+                width: calc(50% - 15px);
+                max-width: 240px;
+            }
+        }
 
-.gallery-item .filename {
-    font-size: 0.85em;
-    color: #E0E0E0;
-    word-wrap: break-word;
-    text-shadow: 1px 1px 1px rgba(0,0,0,0.6);
-}
+        @media (max-width: 768px) {
+            body {
+                /* background-image: none; Consider removing for performance on mobile */
+            }
+            header {
+                flex-direction: column;
+                text-align: center;
+            }
+            header .title-container h1 {
+                font-size: 2.4em;
+            }
+            header .title-container .subtitle {
+                font-size: 1em;
+            }
+            .author-container {
+                align-items: center;
+                margin-top: 15px;
+            }
+            .author-box {
+                flex-direction: column;
+                text-align: center;
+            }
+            .author-box p {
+                margin: 0 0 10px 0;
+            }
+            nav ul li {
+                display: block;
+                margin: 8px 0;
+            }
+            nav ul li a {
+                display: block;
+            }
+            main {
+                padding: 15px;
+                margin: 20px auto;
+            }
+            h2 {
+                font-size: 1.8em;
+            }
+            .accordion-header {
+                font-size: 1.15em;
+                padding: 15px;
+            }
+            .gallery-item {
+                width: calc(50% - 7px); /* 2 items */
+            }
+            .modal-content {
+                max-width: 95%;
+                max-height: 75vh;
+            }
+            #caption {
+                font-size: 1em;
+            }
+            .book-cover-item {
+                width: calc(50% - 12px);
+                max-width: 200px;
+            }
+        }
 
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 1000;
-    left: 0;
-    top: 0;
-    width: 100%;
-    height: 100%;
-    overflow: auto;
-    background-color: rgba(0,0,0,0.85);
-    padding-top: 50px;
-}
-
-.modal-content {
-    margin: auto;
-    display: block;
-    width: auto;
-    max-width: 90%;
-    max-height: 85vh;
-}
-
-.modal-caption {
-    margin: 15px auto;
-    display: block;
-    width: 80%;
-    max-width: 700px;
-    text-align: center;
-    color: #ccc;
-    padding: 10px 0;
-    font-size: 1.1em;
-}
-
-.modal-close {
-    position: absolute;
-    top: 20px;
-    right: 35px;
-    color: #f1f1f1;
-    font-size: 40px;
-    font-weight: bold;
-    transition: 0.3s;
-}
-
-.modal-close:hover,
-.modal-close:focus {
-    color: #bbb;
-    text-decoration: none;
-    cursor: pointer;
-}
-
-
-.accordion-item {
-    margin-top: 20px;
-    border-top: 1px solid rgba(160, 188, 166, 0.5);
-    padding-top: 15px;
-}
-.accordion-header {
-    background-color: transparent; /* Match surrounding style */
-    color: #FFFFFF;
-    cursor: pointer;
-    padding: 15px 5px;
-    width: 100%;
-    text-align: left;
-    border: none;
-    outline: none;
-    font-size: 1.5em; /* Make it look like a sub-heading */
-    font-family: 'Georgia', serif;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.7);
-    transition: background-color 0.3s ease;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-
-.accordion-header:hover {
-    background-color: rgba(74, 124, 89, 0.3); /* Subtle hover */
-}
-
-.accordion-header.active .accordion-arrow {
-    transform: rotate(180deg);
-}
-
-.accordion-arrow {
-    font-size: 0.8em;
-    transition: transform 0.3s ease;
-}
-
-.accordion-content {
-    padding: 0 18px 18px 18px;
-    background-color: transparent; /* Content area background */
-    overflow: hidden;
-    /* display: none; is set inline for initial state */
-}
-</style>
+        @media (max-width: 480px) {
+            header {
+                padding: 15px;
+            }
+            header .title-container h1 {
+                font-size: 2em;
+            }
+            main {
+                margin: 15px auto;
+                border-radius: 0;
+            }
+            .gallery-item {
+                width: 100%; /* 1 item */
+            }
+            .book-cover-item {
+                width: 80%;
+                max-width: 220px; 
+                margin-left: auto;
+                margin-right: auto;
+            }
+            .close-modal-button {
+                font-size: 35px;
+                top: 10px;
+                right: 20px;
+            }
+        }
+    </style>
 </head>
 <body>
+
     <header>
         <div class="title-container">
             <h1>Gaelic Galgo</h1>
-            <p class="subtitle">Irland – Schottland – Bücher – Geschichten – Bilder</p>
+            <p class="subtitle">Irland – Schottland – Bilder – Geschichten</p>
         </div>
         <div class="author-container">
             <div class="author-box">
                 <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
-                <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/karl_portrait_round.png?raw=true" alt="Karl Ramspott Portrait" class="author-image">
+                <!-- Assuming karl_portrait_round.png is in the root -->
+                <img src="karl_portrait_round.png" alt="Karl Ramspott" class="author-image">
             </div>
         </div>
     </header>
 
     <nav>
         <ul>
-            <li><a data-target="irland">Irland</a></li>
-            <li><a data-target="schottland">Schottland</a></li>
-            <li><a data-target="buecher">Meine Bücher</a></li>
-            <li><a data-target="bilder-irland">Bilder Irland</a></li>
-            <li><a data-target="bilder-schottland">Bilder Schottland</a></li>
+            <li><a href="#irland">Irland</a></li>
+            <li><a href="#schottland">Schottland</a></li>
+            <li><a href="#buecher">Meine Bücher</a></li>
+            <li><a href="#bilder-irland">Bilder Irland</a></li>
+            <li><a href="#bilder-schottland">Bilder Schottland</a></li>
         </ul>
     </nav>
 
     <main>
-        <section id="irland" class="content-section">
+        <!-- Irland Section -->
+        <section class="content-section" id="irland">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
+            <p>Hier finden Sie Eindrücke von der grünen Insel, von den majestätischen Cliffs of Moher bis zu den stillen Seen Connemaras, von den lebhaften Straßen Dublins bis zu den verborgenen Schätzen des Ring of Kerry. Jedes Bild und jede Geschichte erzählt von der tiefen Verbundenheit mit diesem Land, seiner reichen Kultur und den warmherzigen Menschen.</p>
         </section>
 
-        <section id="schottland" class="content-section">
+        <!-- Schottland Section -->
+        <section class="content-section" id="schottland">
             <h2>Schottland</h2>
             <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
+            <p>Entdecken Sie die raue Schönheit der schottischen Highlands, die mystischen Lochs und die historischen Städte wie Edinburgh und Glasgow. Die Bildergalerien fangen die einzigartige Atmosphäre dieses Landes ein, von den einsamen Weiten der Isle of Skye bis zu den geschichtsträchtigen Schlachtfeldern.</p>
         </section>
 
-        <section id="buecher" class="content-section">
+        <!-- Bücher Section -->
+        <section class="content-section" id="buecher">
             <h2>Meine Bücher</h2>
             <div class="book-covers">
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/ire-cover-1.jpg?raw=true" alt="Buchcover Mein Leben als Ire">
+                    <!-- Assuming book cover images are in the root -->
+                    <img src="ire-cover-1.jpg" alt="Buchcover Mein Leben als Ire">
                 </div>
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/strasse-cover-3.jpg?raw=true" alt="Buchcover Unter den Strassen Dublins">
+                    <img src="strasse-cover-3.jpg" alt="Buchcover Unter den Strassen Dublins">
                 </div>
                 <div class="book-cover-item">
-                    <img src="https://github.com/gaelicgalgo/gaelicgalgo.github.io/blob/main/arch-cover-2.jpg?raw=true" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
+                    <img src="arch-cover-2.jpg" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
                 </div>
             </div>
-            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern folgen in Kürze...</p>
+            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern und Bestellmöglichkeiten folgen in Kürze...</p>
         </section>
 
-        <section id="bilder-irland" class="content-section">
+        <!-- Bilder Irland Section -->
+        <section class="content-section" id="bilder-irland">
             <h2>Bilder Irland</h2>
-            <p>Bildergalerie folgt …</p>
-        
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="irlandcountiesToggle" onclick="toggleAccordion('irlandcountiesContent', this)">
-        Irland Counties <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="irlandcountiesContent" style="display: none;">
-        <div class="scotland-gallery" id="irlandcountiesGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
+            <p>Eine Auswahl meiner schönsten Irland-Fotografien, unterteilt in Galerien.</p>
+
+            <!-- Skellig Gallery -->
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    Skellig Michael & Little Skellig
+                    <span class="accordion-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="gallery" id="skelligGallery">
+                        <!-- Images will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Irland Counties Gallery -->
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    Irland Counties
+                    <span class="accordion-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="gallery" id="irlandCountiesGallery">
+                         <p style="color: #777; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Irland Inseln Gallery -->
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    Irland Inseln (außer Skellig)
+                    <span class="accordion-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="gallery" id="irlandInselnGallery">
+                        <p style="color: #777; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
+                    </div>
+                </div>
+            </div>
+
+        </section>
+
+        <!-- Bilder Schottland Section -->
+        <section class="content-section" id="bilder-schottland">
+            <h2>Bilder Schottland</h2>
+            <p>Eine Auswahl meiner schönsten Schottland-Fotografien, unterteilt in Galerien.</p>
+
+            <!-- Corpach Gallery -->
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    Corpach Wreck & Ben Nevis
+                    <span class="accordion-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="gallery" id="corpachGallery">
+                        <!-- Images will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Fort William Gallery -->
+            <div class="accordion-item">
+                <button class="accordion-header" type="button">
+                    Fort William & Umgebung
+                    <span class="accordion-arrow">▼</span>
+                </button>
+                <div class="accordion-content">
+                    <div class="gallery" id="fortWilliamGallery">
+                        <!-- Images will be populated by JavaScript -->
+                    </div>
+                </div>
+            </div>
+
+        </section>
+    </main>
+
+    <!-- The Modal -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal-button">&times;</span>
+        <div class="modal-content-wrapper">
+            <img class="modal-content" id="modalImage" src="#" alt="Großansicht Bild">
+            <div id="caption"></div>
         </div>
     </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="irlandinselnToggle" onclick="toggleAccordion('irlandinselnContent', this)">
-        Irland Inseln <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="irlandinselnContent" style="display: none;">
-        <div class="scotland-gallery" id="irlandinselnGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="irlandsehenswuerdigkeitenToggle" onclick="toggleAccordion('irlandsehenswuerdigkeitenContent', this)">
-        Irland Sehenswürdigkeiten <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="irlandsehenswuerdigkeitenContent" style="display: none;">
-        <div class="scotland-gallery" id="irlandsehenswuerdigkeitenGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="dublinToggle" onclick="toggleAccordion('dublinContent', this)">
-        Dublin <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="dublinContent" style="display: none;">
-        <div class="scotland-gallery" id="dublinGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="dublinsehenswuerdigkeitenToggle" onclick="toggleAccordion('dublinsehenswuerdigkeitenContent', this)">
-        Dublin Sehenswürdigkeiten <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="dublinsehenswuerdigkeitenContent" style="display: none;">
-        <div class="scotland-gallery" id="dublinsehenswuerdigkeitenGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Fotos folgen …</p>
-        </div>
-    </div>
-</div>
-</section>
-
-        <section id="bilder-schottland" class="content-section"><h2>Bilder Schottland</h2>
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="fortWilliamAccordionToggle">
-        Fort William <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="fortWilliamAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="fortWilliamSubGalleryContainer">
-            <div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%201.jpg" alt="Corpach 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%201.jpg">
-                <div class="filename">Corpach 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%202.jpg" alt="Corpach 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%202.jpg">
-                <div class="filename">Corpach 2.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%203.jpg" alt="Corpach 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%203.jpg">
-                <div class="filename">Corpach 3.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%204.jpg" alt="Corpach 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%204.jpg">
-                <div class="filename">Corpach 4.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%205.jpg" alt="Corpach 5" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Corpach%205.jpg">
-                <div class="filename">Corpach 5.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%201.jpg" alt="Fort William 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%201.jpg">
-                <div class="filename">Fort William 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%202.jpg" alt="Fort William 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%202.jpg">
-                <div class="filename">Fort William 2.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%203.jpg" alt="Fort William 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%203.jpg">
-                <div class="filename">Fort William 3.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%204.jpg" alt="Fort William 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Fort%20William%204.jpg">
-                <div class="filename">Fort William 4.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glen-Etive%201.jpg" alt="Glen-Etive 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glen-Etive%201.jpg">
-                <div class="filename">Glen-Etive 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%201.jpg" alt="Glencoe 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%201.jpg">
-                <div class="filename">Glencoe 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%202.jpg" alt="Glencoe 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%202.jpg">
-                <div class="filename">Glencoe 2.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%203.jpg" alt="Glencoe 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%203.jpg">
-                <div class="filename">Glencoe 3.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%204.jpg" alt="Glencoe 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%204.jpg">
-                <div class="filename">Glencoe 4.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%205.jpg" alt="Glencoe 5" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%205.jpg">
-                <div class="filename">Glencoe 5.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%206.jpg" alt="Glencoe 6" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%206.jpg">
-                <div class="filename">Glencoe 6.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%207.jpg" alt="Glencoe 7" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%207.jpg">
-                <div class="filename">Glencoe 7.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%208.jpg" alt="Glencoe 8" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%208.jpg">
-                <div class="filename">Glencoe 8.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%209.jpg" alt="Glencoe 9" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%209.jpg">
-                <div class="filename">Glencoe 9.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%201.jpg" alt="Glencoe Monument 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%201.jpg">
-                <div class="filename">Glencoe Monument 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%202.jpg" alt="Glencoe Monument 2" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%202.jpg">
-                <div class="filename">Glencoe Monument 2.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%203.jpg" alt="Glencoe Monument 3" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%203.jpg">
-                <div class="filename">Glencoe Monument 3.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%204.jpg" alt="Glencoe Monument 4" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Glencoe%20Monument%204.jpg">
-                <div class="filename">Glencoe Monument 4.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Kilchurn%20Castle%201.jpg" alt="Kilchurn Castle 1" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Kilchurn%20Castle%201.jpg">
-                <div class="filename">Kilchurn Castle 1.jpg</div>
-            </div>
-<div class="gallery-item">
-                <img src="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Three%20Sisters.jpg" alt="Three Sisters" data-fullsrc="https://raw.githubusercontent.com/gaelicgalgo/gaelicgalgo.github.io/main/Three%20Sisters.jpg">
-                <div class="filename">Three Sisters.jpg</div>
-            </div>
-
-        </div>
-    </div>
-</div>
-
-<!-- The Modal for Fort William Sub-Gallery -->
-            <div id="imageModalFortWilliamSub" class="modal">
-              <span class="modal-close" id="closeFortWilliamSubModal">&times;</span>
-              <img class="modal-content" id="modalImageFortWilliamSub">
-              <div id="modalCaptionFortWilliamSub" class="modal-caption"></div>
-            </div>
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="hebridenAccordionToggle">
-        Hebriden <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="hebridenAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="hebridenAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="isleoflewisAccordionToggle">
-        Isle of Lewis <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="isleoflewisAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="isleoflewisAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="isleofharrisAccordionToggle">
-        Isle of Harris <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="isleofharrisAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="isleofharrisAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="orkneysAccordionToggle">
-        Orkneys <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="orkneysAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="orkneysAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="shetlandsAccordionToggle">
-        Shetlands <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="shetlandsAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="shetlandsAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="edinburghAccordionToggle">
-        Edinburgh <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="edinburghAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="edinburghAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-
-<div class="accordion-item">
-    <button type="button" class="accordion-header" id="invernessAccordionToggle">
-        Inverness <span class="accordion-arrow">&#9660;</span>
-    </button>
-    <div class="accordion-content" id="invernessAccordionContent" style="display: none;">
-        <div class="scotland-gallery" id="invernessAccordionGalleryContainer">
-            <p style='color: #ccc; text-align: center;'>Text / Bilder folgen...</p>
-        </div>
-    </div>
-</div>
-
-</section>
-
-        </main>
-
-    <footer>
-        <p>&copy; 2025 Karl Ramspott - Gaelic Galgo</p>
-    
-        <p>
-            Kontakt: 
-            <a href="mailto:galgo51@gmx.de" style="color: #B0C4B1;">galgo51@gmx.de</a> &nbsp;|&nbsp; 
-            <a href="mailto:carlowatz@gmail.com" style="color: #B0C4B1;">carlowatz@gmail.com</a>
-        </p>
-
-    </footer>
 
     <script>
-document.addEventListener("DOMContentLoaded", function() {
+        document.addEventListener("DOMContentLoaded", function() {
+            // --- CONFIGURATION FOR GALLERIES ---
+            const galleriesConfig = {
+                "skelligGallery": {
+                    basePath: "", // Assuming images are in the root
+                    files: [
+                        "Skellig 01.jpg", "Skellig 02.jpg", "Skellig 03.jpg", "Skellig 04.jpg", "Skellig 05.jpg",
+                        "Skellig 06.jpg", "Skellig 07.jpg", "Skellig 08.jpg", "Skellig 09.jpg", "Skellig 10.jpg",
+                        "Skellig 11.jpg", "Skellig 12.jpg", "Skellig 13.jpg", "Skellig 14.jpg", "Skellig 15.jpg",
+                        "Skellig 16.jpg", "Skellig 17.jpg", "Skellig 18.jpg", "Skellig 19.jpg", "Skellig 20.jpg",
+                        "Skellig 21.jpg", "Skellig 22.jpg"
+                    ]
+                },
+                "corpachGallery": {
+                    basePath: "",
+                    files: [
+                        "Corpach 01.jpg", "Corpach 02.jpg", "Corpach 03.jpg", "Corpach 04.jpg", "Corpach 05.jpg",
+                        "Corpach 06.jpg", "Corpach 07.jpg", "Corpach 08.jpg", "Corpach 09.jpg", "Corpach 10.jpg",
+                        "Corpach 11.jpg", "Corpach 12.jpg", "Corpach 13.jpg", "Corpach 14.jpg", "Corpach 15.jpg",
+                        "Corpach 16.jpg", "Corpach 17.jpg", "Corpach 18.jpg", "Corpach 19.jpg", "Corpach 20.jpg",
+                        "Corpach 21.jpg", "Corpach 22.jpg", "Corpach 23.jpg", "Corpach 24.jpg", "Corpach 25.jpg",
+                        "Corpach 26.jpg", "Corpach 27.jpg", "Corpach 28.jpg", "Corpach 29.jpg", "Corpach 30.jpg",
+                        "Corpach 31.jpg", "Corpach 32.jpg", "Corpach 33.jpg", "Corpach 34.jpg", "Corpach 35.jpg",
+                        "Corpach 36.jpg", "Corpach 37.jpg", "Corpach 38.jpg", "Corpach 39.jpg", "Corpach 40.jpg",
+                        "Corpach 41.jpg", "Corpach 42.jpg", "Corpach 43.jpg", "Corpach 44.jpg", "Corpach 45.jpg",
+                        "Corpach 46.jpg", "Corpach 47.jpg", "Corpach 48.jpg", "Corpach 49.jpg", "Corpach 50.jpg",
+                        "Corpach 51.jpg", "Corpach 52.jpg", "Corpach 53.jpg", "Corpach 54.jpg", "Corpach 55.jpg",
+                        "Corpach 56.jpg", "Corpach 57.jpg", "Corpach 58.jpg", "Corpach 59.jpg", "Corpach 60.jpg",
+                        "Corpach 61.jpg", "Corpach 62.jpg", "Corpach 63.jpg", "Corpach 64.jpg", "Corpach 65.jpg",
+                        "Corpach 66.jpg", "Corpach 67.jpg", "Corpach 68.jpg", "Corpach 69.jpg", "Corpach 70.jpg",
+                        "Corpach 71.jpg", "Corpach 72.jpg", "Corpach 73.jpg", "Corpach 74.jpg", "Corpach 75.jpg",
+                        "Corpach 76.jpg", "Corpach 77.jpg", "Corpach 78.jpg", "Corpach 79.jpg", "Corpach 80.jpg",
+                        "Corpach 81.jpg", "Corpach 82.jpg", "Corpach 83.jpg", "Corpach 84.jpg", "Corpach 85.jpg",
+                        "Corpach 86.jpg", "Corpach 87.jpg", "Corpach 88.jpg", "Corpach 89.jpg", "Corpach 90.jpg",
+                        "Corpach 91.jpg", "Corpach 92.jpg", "Corpach 93.jpg", "Corpach 94.jpg", "Corpach 95.jpg",
+                        "Corpach 96.jpg", "Corpach 97.jpg", "Corpach 98.jpg", "Corpach 99.jpg"
+                    ]
+                },
+                "fortWilliamGallery": {
+                    basePath: "",
+                    files: [
+                        "Fort William 01.jpg", "Fort William 02.jpg", "Fort William 03.jpg", "Fort William 04.jpg", "Fort William 05.jpg",
+                        "Fort William 06.jpg", "Fort William 07.jpg", "Fort William 08.jpg", "Fort William 09.jpg", "Fort William 10.jpg",
+                        "Fort William 11.jpg", "Fort William 12.jpg", "Fort William 13.jpg", "Fort William 14.jpg", "Fort William 15.jpg",
+                        "Fort William 16.jpg", "Fort William 17.jpg", "Fort William 18.jpg", "Fort William 19.jpg", "Fort William 20.jpg",
+                        "Fort William 21.jpg", "Fort William 22.jpg", "Fort William 23.jpg", "Fort William 24.jpg", "Fort William 25.jpg",
+                        "Fort William 26.jpg", "Fort William 27.jpg", "Fort William 28.jpg", "Fort William 29.jpg", "Fort William 30.jpg",
+                        "Fort William 31.jpg", "Fort William 32.jpg", "Fort William 33.jpg", "Fort William 34.jpg", "Fort William 35.jpg",
+                        "Fort William 36.jpg", "Fort William 37.jpg", "Fort William 38.jpg", "Fort William 39.jpg", "Fort William 40.jpg",
+                        "Fort William 41.jpg", "Fort William 42.jpg", "Fort William 43.jpg", "Fort William 44.jpg", "Fort William 45.jpg",
+                        "Fort William 46.jpg", "Fort William 47.jpg", "Fort William 48.jpg", "Fort William 49.jpg", "Fort William 50.jpg",
+                        "Fort William 51.jpg", "Fort William 52.jpg", "Fort William 53.jpg", "Fort William 54.jpg", "Fort William 55.jpg",
+                        "Fort William 56.jpg", "Fort William 57.jpg", "Fort William 58.jpg", "Fort William 59.jpg", "Fort William 60.jpg",
+                        "Fort William 61.jpg", "Fort William 62.jpg", "Fort William 63.jpg", "Fort William 64.jpg", "Fort William 65.jpg",
+                        "Fort William 66.jpg", "Fort William 67.jpg", "Fort William 68.jpg", "Fort William 69.jpg", "Fort William 70.jpg",
+                        "Fort William 71.jpg", "Fort William 72.jpg", "Fort William 73.jpg", "Fort William 74.jpg", "Fort William 75.jpg",
+                        "Fort William 76.jpg", "Fort William 77.jpg", "Fort William 78.jpg", "Fort William 79.jpg", "Fort William 80.jpg",
+                        "Fort William 81.jpg", "Fort William 82.jpg", "Fort William 83.jpg", "Fort William 84.jpg", "Fort William 85.jpg",
+                        "Fort William 86.jpg", "Fort William 87.jpg", "Fort William 88.jpg", "Fort William 89.jpg", "Fort William 90.jpg",
+                        "Fort William 91.jpg", "Fort William 92.jpg", "Fort William 93.jpg", "Fort William 94.jpg", "Fort William 95.jpg",
+                        "Fort William 96.jpg", "Fort William 97.jpg", "Fort William 98.jpg", "Fort William 99.jpg"
+                    ]
+                }
+            };
+
+            // --- NAVIGATION --- 
             const navLinks = document.querySelectorAll("nav ul li a");
-            const contentSections = document.querySelectorAll("main .content-section");
-            let currentHash = window.location.hash.substring(1);
+            const sections = document.querySelectorAll(".content-section");
+            const mainElement = document.querySelector("main");
+            const navElement = document.querySelector("nav");
 
-            function showSection(targetId) {
-                let sectionFound = false;
-                contentSections.forEach(section => {
-                    if (section.id === targetId) {
-                        section.style.display = "block";
-                        sectionFound = true;
-                        // Initialize gallery if it's the Scotland or Fort William gallery section
-                        if (section.id === 'bilder-schottland') {
-                            initializeBilderSchottlandGalleryModal(); 
-                            initializeFortWilliamAccordion();
-                            initializeFortWilliamSubGalleryModal();
-                            initializeHebridenAccordion();
-                            initializeIsleofLewisAccordion();
-                            initializeIsleofHarrisAccordion();
-                            initializeOrkneysAccordion();
-                            initializeShetlandsAccordion();
-                            initializeEdinburghAccordion();
-                            initializeInvernessAccordion();
-                        }
-                        if (section.id === 'fort-william-bilder') {
-                            initializeFortWilliamGalleryModal();
-                        }
-                    } else {
-                        section.style.display = "none";
-                    }
+            function showSection(sectionId, setActiveLink = true) {
+                sections.forEach(section => {
+                    section.classList.remove("active");
                 });
+                const activeSection = document.getElementById(sectionId);
+                if (activeSection) {
+                    activeSection.classList.add("active");
+                }
 
-                navLinks.forEach(link => {
-                    if (link.getAttribute("data-target") === targetId) {
-                        link.classList.add("active");
-                    } else {
-                        link.classList.remove("active");
-                    }
-                });
-                
-                // Update URL hash without jumping if section is found
-                if (sectionFound && window.location.hash !== "#" + targetId) {
-                     history.pushState(null, null, "#" + targetId);
+                if (setActiveLink) {
+                    navLinks.forEach(link => {
+                        link.classList.remove("active-nav-link");
+                        if (link.getAttribute("href") === "#" + sectionId) {
+                            link.classList.add("active-nav-link");
+                        }
+                    });
+                }
+                if (mainElement && navElement) {
+                     window.scrollTo({
+                        top: mainElement.offsetTop - navElement.offsetHeight - 10, 
+                        behavior: "smooth"
+                    });
                 }
             }
 
             navLinks.forEach(link => {
                 link.addEventListener("click", function(event) {
-                    event.preventDefault(); 
-                    const targetId = this.getAttribute("data-target");
-                    showSection(targetId);
-                    // Scroll to the top of the main content area smoothly
-                    const mainElement = document.querySelector("main");
-                    if (mainElement) {
-                        mainElement.scrollIntoView({ behavior: "smooth", block: "start" });
+                    event.preventDefault();
+                    const sectionId = this.getAttribute("href").substring(1);
+                    showSection(sectionId);
+                    window.location.hash = sectionId; // Update URL hash
+                });
+            });
+
+            // --- ACCORDION --- 
+            const accordionHeaders = document.querySelectorAll(".accordion-header");
+            accordionHeaders.forEach(header => {
+                header.addEventListener("click", function() {
+                    const content = this.nextElementSibling;
+                    const arrow = this.querySelector(".accordion-arrow");
+                    const isActive = this.classList.contains("active");
+
+                    // Optional: Close other open accordions in the same section
+                    // this.closest(".content-section").querySelectorAll(".accordion-content.open").forEach(openContent => {
+                    //     if (openContent !== content) {
+                    //         openContent.classList.remove("open");
+                    //         openContent.previousElementSibling.classList.remove("active");
+                    //         const otherArrow = openContent.previousElementSibling.querySelector(".accordion-arrow");
+                    //         if(otherArrow) otherArrow.style.transform = "rotate(0deg)";
+                    //     }
+                    // });
+
+                    content.classList.toggle("open");
+                    this.classList.toggle("active");
+
+                    if (arrow) {
+                         arrow.style.transform = content.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
                     }
                 });
             });
 
-            // Handle initial page load based on hash
-            if (currentHash && document.getElementById(currentHash)) {
-                showSection(currentHash);
-            } else {
-                showSection("irland"); // Default to 'irland' section
+            // --- MODAL --- 
+            const modal = document.getElementById("imageModal");
+            const modalImg = document.getElementById("modalImage");
+            const captionText = document.getElementById("caption");
+            const closeModalButton = document.querySelector(".close-modal-button");
+
+            function openImageModal(imgElement) {
+                if (modal && modalImg && captionText) {
+                    modal.style.display = "block";
+                    modalImg.src = imgElement.dataset.fullsrc || imgElement.src;
+                    captionText.innerHTML = imgElement.alt;
+                }
             }
 
-            // Handle hash changes (e.g., browser back/forward buttons)
-            window.addEventListener("hashchange", function() {
-                currentHash = window.location.hash.substring(1);
-                if (currentHash && document.getElementById(currentHash)) {
-                    showSection(currentHash);
-                } else if (!currentHash) { // If hash is empty (e.g. base URL)
-                     showSection("irland"); 
+            if (closeModalButton) {
+                closeModalButton.onclick = function() {
+                    if (modal) modal.style.display = "none";
+                }
+            }
+
+            if (modal) {
+                modal.onclick = function(event) { // Click on background to close
+                    if (event.target === modal || event.target === document.querySelector(".modal-content-wrapper")) {
+                        modal.style.display = "none";
+                    }
+                }
+            }
+            
+            // --- DYNAMIC GALLERY POPULATION & MODAL LISTENERS ---
+            function populateGallery(galleryId, config) {
+                const galleryElement = document.getElementById(galleryId);
+                if (!galleryElement || !config || !config.files) return;
+
+                config.files.forEach(file => {
+                    const galleryItem = document.createElement("div");
+                    galleryItem.className = "gallery-item";
+                    
+                    const img = document.createElement("img");
+                    img.src = config.basePath + file;
+                    img.alt = file.replace(/\.[^/.]+$/, ""); // Filename without extension as alt
+                    img.dataset.fullsrc = config.basePath + file;
+                    
+                    img.addEventListener("click", function() {
+                        openImageModal(this);
+                    });
+
+                    galleryItem.appendChild(img);
+                    
+                    const filenameDiv = document.createElement("div");
+                    filenameDiv.className = "filename";
+                    filenameDiv.textContent = file;
+                    galleryItem.appendChild(filenameDiv);
+                    
+                    galleryElement.appendChild(galleryItem);
+                });
+            }
+
+            for (const galleryId in galleriesConfig) {
+                populateGallery(galleryId, galleriesConfig[galleryId]);
+            }
+
+            // --- INITIAL PAGE LOAD --- 
+            const hash = window.location.hash.substring(1);
+            const defaultSectionId = hash && document.getElementById(hash) ? hash : "irland";
+            showSection(defaultSectionId);
+            // Ensure the correct nav link is highlighted if loaded with a hash
+            navLinks.forEach(link => {
+                if (link.getAttribute("href") === "#" + defaultSectionId) {
+                    link.classList.add("active-nav-link");
                 }
             });
+
         });
-
-function initializeBilderSchottlandGalleryModal() {
-    const modal = document.getElementById("imageModalBilderSchottland");
-    const modalImg = document.getElementById("modalImageBilderSchottland");
-    const captionText = document.getElementById("modalCaptionBilderSchottland");
-    const galleryItems = document.querySelectorAll("#bilderSchottlandGalleryContainer .gallery-item");
-    const closeModalSpan = document.getElementById("closeBilderSchottlandModal");
-
-    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
-        // console.error("Bilder Schottland gallery modal elements not found or no items.");
-        return;
-    }
-
-    galleryItems.forEach(item => {
-        if (!item.dataset.listenerAttached) {
-            item.addEventListener("click", function() {
-                modal.style.display = "block";
-                const imgElement = this.querySelector("img");
-                modalImg.src = imgElement.getAttribute("data-fullsrc");
-                captionText.innerHTML = this.querySelector(".filename").textContent;
-            });
-            item.dataset.listenerAttached = "true";
-        }
-    });
-
-    if (!closeModalSpan.dataset.listenerAttached) {
-        closeModalSpan.onclick = function() {
-            modal.style.display = "none";
-        }
-        closeModalSpan.dataset.listenerAttached = "true";
-    }
-
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-
-
-
-
-function initializeFortWilliamSubGalleryModal() {
-    const modal = document.getElementById("imageModalFortWilliamSub");
-    const modalImg = document.getElementById("modalImageFortWilliamSub");
-    const captionText = document.getElementById("modalCaptionFortWilliamSub");
-    const galleryItems = document.querySelectorAll("#fortWilliamSubGalleryContainer .gallery-item");
-    const closeModalSpan = document.getElementById("closeFortWilliamSubModal");
-
-    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
-        // console.error("Fort William Sub-Gallery modal elements not found or no items.");
-        return;
-    }
-
-    galleryItems.forEach(item => {
-        if (!item.dataset.fwSubListenerAttached) { 
-            item.addEventListener("click", function() {
-                modal.style.display = "block";
-                const imgElement = this.querySelector("img");
-                modalImg.src = imgElement.getAttribute("data-fullsrc");
-                captionText.innerHTML = this.querySelector(".filename").textContent;
-            });
-            item.dataset.fwSubListenerAttached = "true";
-        }
-    });
-
-    if (!closeModalSpan.dataset.fwSubListenerAttached) { 
-        closeModalSpan.onclick = function() {
-            modal.style.display = "none";
-        }
-        closeModalSpan.dataset.fwSubListenerAttached = "true";
-    }
-    
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-
-
-
-
-function initializeFortWilliamSubGalleryModal() {
-    const modal = document.getElementById("imageModalFortWilliamSub");
-    const modalImg = document.getElementById("modalImageFortWilliamSub");
-    const captionText = document.getElementById("modalCaptionFortWilliamSub");
-    const galleryItems = document.querySelectorAll("#fortWilliamSubGalleryContainer .gallery-item");
-    const closeModalSpan = document.getElementById("closeFortWilliamSubModal");
-
-    if (!modal || !modalImg || !captionText || !closeModalSpan || galleryItems.length === 0) {
-        return;
-    }
-
-    galleryItems.forEach(item => {
-        if (!item.dataset.fwSubListenerAttached) { 
-            item.addEventListener("click", function() {
-                modal.style.display = "block";
-                const imgElement = this.querySelector("img");
-                modalImg.src = imgElement.getAttribute("data-fullsrc");
-                captionText.innerHTML = this.querySelector(".filename").textContent;
-            });
-            item.dataset.fwSubListenerAttached = "true";
-        }
-    });
-
-    if (!closeModalSpan.dataset.fwSubListenerAttached) { 
-        closeModalSpan.onclick = function() {
-            modal.style.display = "none";
-        }
-        closeModalSpan.dataset.fwSubListenerAttached = "true";
-    }
-    
-    window.addEventListener("click", function(event) {
-        if (event.target == modal) {
-            modal.style.display = "none";
-        }
-    });
-}
-
-
-
-function initializeFortWilliamAccordion() {
-    const toggleButton = document.getElementById("fortWilliamAccordionToggle");
-    const contentDiv = document.getElementById("fortWilliamAccordionContent");
-
-    if (!toggleButton || !contentDiv) {
-        // console.error("Accordion elements for Fort William not found.");
-        return;
-    }
-
-    toggleButton.addEventListener("click", function() {
-        this.classList.toggle("active");
-        if (contentDiv.style.display === "block" || contentDiv.style.display === "flex") {
-            contentDiv.style.display = "none";
-        } else {
-            contentDiv.style.display = "block"; // Or "flex" if your gallery uses flex directly
-            // Initialize or re-initialize gallery modal if needed when content becomes visible
-            // This ensures listeners are attached if they weren't or if content was re-rendered.
-        }
-    });
-}
-
-
-function initializeHebridenAccordion() {
-    const toggle = document.getElementById("hebridenAccordionToggle");
-    const content = document.getElementById("hebridenAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeIsleofLewisAccordion() {
-    const toggle = document.getElementById("isleoflewisAccordionToggle");
-    const content = document.getElementById("isleoflewisAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeIsleofHarrisAccordion() {
-    const toggle = document.getElementById("isleofharrisAccordionToggle");
-    const content = document.getElementById("isleofharrisAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeOrkneysAccordion() {
-    const toggle = document.getElementById("orkneysAccordionToggle");
-    const content = document.getElementById("orkneysAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeShetlandsAccordion() {
-    const toggle = document.getElementById("shetlandsAccordionToggle");
-    const content = document.getElementById("shetlandsAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeEdinburghAccordion() {
-    const toggle = document.getElementById("edinburghAccordionToggle");
-    const content = document.getElementById("edinburghAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function initializeInvernessAccordion() {
-    const toggle = document.getElementById("invernessAccordionToggle");
-    const content = document.getElementById("invernessAccordionContent");
-    if (!toggle || !content) return;
-    toggle.addEventListener("click", function() {
-        this.classList.toggle("active");
-        content.style.display = (content.style.display === "block") ? "none" : "block";
-    });
-}
-
-function toggleAccordion(contentId, headerElement) {
-    const content = document.getElementById(contentId);
-    if (!content) return;
-    const isVisible = content.style.display === "block";
-    content.style.display = isVisible ? "none" : "block";
-    headerElement.classList.toggle("active", !isVisible);
-}
-
-</script>
+    </script>
 
 </body>
 </html>
