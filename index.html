@@ -550,12 +550,9 @@
 
     <nav>
         <ul>
-            <li><a href="#irland" onclick="showSection('irland')">Irland</a></li>
-            <li><a href="#schottland" onclick="showSection('schottland')">Schottland</a></li>
-            <li><a href="#buecher" onclick="showSection('buecher')">Meine Bücher</a></li>
-            <li><a href="#bilder-irland" onclick="showSection('bilder-irland')">Bilder Irland</a></li>
-            <li><a href="#bilder-schottland" onclick="showSection('bilder-schottland')">Bilder Schottland</a></li>
-        </ul>
+          <li><a href="#irland">Irland</a></li>
+           <li><a href="#schottland">Schottland</a></li>          <li><a href="#buecher">Meine Bücher</a></li>
+           <li><a href="#bilder-irland">Bilder Irland</a></li>           <li><a href="#bilder-schottland">Bilder Schottland</a></li>        </ul>
     </nav>
 
     <main>
@@ -799,11 +796,104 @@
             }
         }
 
+        // Modal functionality
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("caption");
+
+        function openModal(src, alt) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            captionText.innerHTML = alt;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.accordion-arrow');
+                const isOpen = content.classList.contains('open');
+
+                if (isOpen) {
+                    content.style.maxHeight = null;
+                    content.style.opacity = 0;
+                    // content.style.padding = '0 20px'; // Keep padding for smoother transition if desired
+                    if (arrow) arrow.textContent = '▼';
+                    content.classList.remove('open');
+                    header.classList.remove('active');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.opacity = 1;
+                    // content.style.padding = '20px'; // Keep padding for smoother transition if desired
+                    if (arrow) arrow.textContent = '▲';
+                    content.classList.add('open');
+                    header.classList.add('active');
+                }
+            });
+        });
+
+        // Navigation and section display
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        function showSection(sectionId) {
+            contentSections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active-nav-link');
+                } else {
+                    link.classList.remove('active-nav-link');
+                }
+            });
+        }
+
         // Set initial active section based on URL hash or default to 'irland'
+        // and add event listeners to nav links
         document.addEventListener('DOMContentLoaded', () => {
+            navLinks.forEach(link => {
+                link.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href').substring(1);
+                    showSection(targetId);
+                    // Optional: Scroll to section
+                    const targetElement = document.getElementById(targetId);
+                    if (targetElement) {
+                        // window.scrollTo({
+                        // top: targetElement.offsetTop - 70, // Adjust 70 based on your nav height
+                        // behavior: 'smooth'
+                        // });
+                    }
+                });
+            });
+
             const hash = window.location.hash.substring(1);
             const initialSection = hash || 'irland';
             showSection(initialSection);
+            
             // Populate galleries after DOM is ready
             for (const galleryId in galleriesConfig) {
                 populateGallery(galleryId, galleriesConfig[galleryId]);
