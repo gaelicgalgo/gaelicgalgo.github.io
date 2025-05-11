@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Gaelic Galgo - Irland & Schottland in Bildern und Geschichten</title>
-    <meta name="description" content="Reiseimpressionen, Fotos und Bücher aus Irland & Schottland. Gaelic Galgo - Natur, Kultur und persönliche Eindrücke einer besonderen Reise.">
     <style>
         /* General Body Styles */
         body {
@@ -73,7 +72,7 @@
             width: 70px;
             height: 70px;
             border-radius: 50%;
-            border: 2px solid #B0C4B1;
+            /* border: 2px solid #B0C4B1; */ 
         }
 
         /* Navigation Styles */
@@ -118,23 +117,20 @@
             padding: 25px;
             max-width: 1300px;
             margin: 30px auto;
-            background-color: rgba(0, 0, 0, 0.65); /* Darker, more transparent */
+            background-color: rgba(0, 0, 0, 0.3); /* Increased transparency */
             box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             border-radius: 10px;
             color: #FFFFFF; /* White text for main content */
         }
 
         .content-section {
-            display: none;
             padding: 25px;
-            border-top: 1px solid rgba(255,255,255,0.2);
             animation: fadeIn 0.6s ease-in-out;
         }
-
-        .content-section:first-of-type {
-            border-top: none;
+        
+        .content-section:not(.active) {
+            display: none;
         }
-
         .content-section.active {
             display: block;
         }
@@ -161,7 +157,6 @@
             text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
         }
         
-        /* Ensure paragraphs within main content are also white if not inheriting */
         main p {
             color: #F0F0F0; /* Slightly off-white for paragraphs if needed */
         }
@@ -172,11 +167,11 @@
             border: 1px solid rgba(255,255,255,0.3);
             border-radius: 6px;
             overflow: hidden;
-            background-color: rgba(25, 50, 35, 0.6); /* Dark green, semi-transparent for item itself */
+            background-color: rgba(25, 50, 35, 0.3); /* Adjusted transparency */
         }
 
         .accordion-header {
-            background-color: rgba(74, 124, 89, 0.7); /* Green accent, semi-transparent */
+            background-color: rgba(74, 124, 89, 0.5); /* Adjusted transparency */
             color: #FFFFFF; /* White text for header */
             cursor: pointer;
             padding: 18px 22px;
@@ -194,11 +189,11 @@
         }
 
         .accordion-header:hover {
-            background-color: rgba(74, 124, 89, 0.9); /* Darker green on hover */
+            background-color: rgba(74, 124, 89, 0.7);
         }
 
         .accordion-header.active {
-            background-color: rgba(90, 150, 110, 0.8); /* Slightly lighter green when active */
+            background-color: rgba(90, 150, 110, 0.6); 
         }
 
         .accordion-arrow {
@@ -212,14 +207,14 @@
         }
 
         .accordion-content {
-            padding: 0; 
-            background-color: rgba(0, 0, 0, 0.5); /* Darker, more transparent for content area */
+            padding: 0;
+            background-color: rgba(0, 0, 0, 0.2); /* Adjusted transparency */
             border-top: 1px solid rgba(255,255,255,0.2);
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: max-height 0.45s ease-out, opacity 0.3s ease-out 0.1s, padding-top 0.45s ease-out, padding-bottom 0.45s ease-out;
-            color: #E0E0E0; /* Light text for accordion content */
+            color: #E0E0E0; 
         }
 
         .accordion-content.open {
@@ -229,7 +224,7 @@
         }
         
         .accordion-content p {
-             color: #E0E0E0; /* Ensure paragraphs in accordion are light */
+             color: #E0E0E0; 
         }
 
         /* Gallery Styles */
@@ -244,7 +239,7 @@
             width: calc(20% - 10px); 
             border: 1px solid rgba(255,255,255,0.25);
             padding: 6px;
-            background-color: rgba(255,255,255,0.05); /* Very subtle background for items */
+            background-color: rgba(255,255,255,0.05); 
             text-align: center;
             box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
             border-radius: 5px;
@@ -253,9 +248,8 @@
         }
 
         .gallery-item:hover {
-            transform: translateY(-3px) scale(1.03);
+            transform: translateY(-3px);
             box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
-            background-color: rgba(255,255,255,0.1);
         }
 
         .gallery-item img {
@@ -271,12 +265,12 @@
 
         .gallery-item .filename {
             font-size: 0.85em;
-            color: #CCCCCC; /* Lighter filename text */
+            color: #CCCCCC; 
             word-wrap: break-word;
             padding: 0 3px;
         }
 
-        /* Modal Styles (already dark, should be fine) */
+        /* Modal Styles */
         .modal {
             display: none;
             position: fixed;
@@ -305,7 +299,7 @@
             padding: 20px;
         }
 
-        .modal-content {
+        .modal-image {
             display: block;
             max-width: 90%;
             max-height: 80vh;
@@ -383,6 +377,49 @@
             color: #E0E0E0; /* Ensure text under book covers is light */
             margin-top: 8px;
             font-size: 0.9em;
+        }
+
+        /* Contact Section Styles */
+        .contact-section {
+            margin-top: 30px;
+            padding: 20px;
+            background-color: rgba(0, 0, 0, 0.3); /* Consistent with main transparency */
+            border-radius: 8px;
+            color: #FFFFFF; /* White text */
+            text-align: center; /* Center align the contact information */
+        }
+
+        .contact-section h3 {
+            color: #FFFFFF;
+            border-bottom: 1px solid #4A7C59;
+            padding-bottom: 8px;
+            margin-bottom: 10px;
+            font-size: 1.5em; /* Adjusted for consistency */
+        }
+
+        .contact-section p {
+            color: #F0F0F0;
+            margin-bottom: 5px;
+            font-size: 1em; /* Adjusted for consistency */
+        }
+
+        .contact-section a {
+            color: #B0C4B1; /* Light green-gray, consistent with subtitle */
+            text-decoration: none;
+        }
+
+        .contact-section a:hover {
+            text-decoration: underline;
+        }
+
+        /* Footer Styles */
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: rgba(0,0,0,0.8);
+            color: #A0A0A0;
+            font-size: 0.9em;
+            margin-top: 30px;
         }
 
         /* Responsive Design */
@@ -513,16 +550,16 @@
 
     <nav>
         <ul>
-            <li><a href="#irland">Irland</a></li>
-            <li><a href="#schottland">Schottland</a></li>
-            <li><a href="#buecher">Meine Bücher</a></li>
-            <li><a href="#bilder-irland">Bilder Irland</a></li>
-            <li><a href="#bilder-schottland">Bilder Schottland</a></li>
+            <li><a href="#irland" onclick="showSection('irland')">Irland</a></li>
+            <li><a href="#schottland" onclick="showSection('schottland')">Schottland</a></li>
+            <li><a href="#buecher" onclick="showSection('buecher')">Meine Bücher</a></li>
+            <li><a href="#bilder-irland" onclick="showSection('bilder-irland')">Bilder Irland</a></li>
+            <li><a href="#bilder-schottland" onclick="showSection('bilder-schottland')">Bilder Schottland</a></li>
         </ul>
     </nav>
 
     <main>
-        <section class="content-section" id="irland">
+        <section class="content-section active" id="irland">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
             <p>Hier finden Sie Eindrücke von der grünen Insel, von den majestätischen Cliffs of Moher bis zu den stillen Seen Connemaras, von den lebhaften Straßen Dublins bis zu den verborgenen Schätzen des Ring of Kerry. Jedes Bild und jede Geschichte erzählt von der tiefen Verbundenheit mit diesem Land, seiner reichen Kultur und den warmherzigen Menschen.</p>
@@ -530,327 +567,366 @@
 
         <section class="content-section" id="schottland">
             <h2>Schottland</h2>
-            <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
-            <p>Entdecken Sie die raue Schönheit der schottischen Highlands, die mystischen Lochs und die historischen Städte wie Edinburgh und Glasgow. Die Bildergalerien fangen die einzigartige Atmosphäre dieses Landes ein, von den einsamen Weiten der Isle of Skye bis zu den geschichtsträchtigen Schlachtfeldern.</p>
+            <p>Von den mystischen Highlands bis zu den pulsierenden Städten – Schottland ist ein Land der Kontraste und unvergesslichen Erlebnisse. Entdecken Sie die raue Schönheit der Isle of Skye, die geheimnisvollen Tiefen von Loch Ness und die reiche Geschichte von Edinburgh.</p>
+            <p>Diese Sektion ist eine Hommage an die schottische Landschaft, ihre Burgen und Legenden. Lassen Sie sich von den Bildern und Geschichten verzaubern und vielleicht zu Ihrer eigenen Reise inspirieren.</p>
         </section>
 
         <section class="content-section" id="buecher">
             <h2>Meine Bücher</h2>
             <div class="book-covers">
                 <div class="book-cover-item">
-                    <img src="ire-cover-1.jpg" alt="Buchcover Mein Leben als Ire" class="clickable-book-cover">
-                    <p>Mein Leben als Ire</p>
+                    <img src="buch_irland_cover.jpg" alt="Buch Irland" onclick="openModal(this.src, this.alt)">
+                    <p>Mein Irland – Reiseerzählungen und Fotografien</p>
                 </div>
                 <div class="book-cover-item">
-                    <img src="strasse-cover-3.jpg" alt="Buchcover Unter den Strassen Dublins" class="clickable-book-cover">
-                    <p>Unter den Strassen Dublins</p>
+                    <img src="buch_schottland_cover.jpg" alt="Buch Schottland" onclick="openModal(this.src, this.alt)">
+                    <p>Schottische Impressionen – Eine Bilderreise</p>
                 </div>
                 <div class="book-cover-item">
-                    <img src="arch-cover-2.jpg" alt="Buchcover Reise zu den archäologischen Stätten Irlands" class="clickable-book-cover">
-                    <p>Reise zu den archäologischen Stätten Irlands</p>
+                    <img src="buch_gaelic_cover.jpg" alt="Buch Gälisch" onclick="openModal(this.src, this.alt)">
+                    <p>Gälische Legenden und Mythen neu erzählt</p>
                 </div>
             </div>
-            <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern und Bestellmöglichkeiten folgen in Kürze...</p>
+            <p style="text-align: center; margin-top: 20px;">Weitere Informationen zu meinen Büchern und Bestellmöglichkeiten folgen in Kürze...</p>
         </section>
 
         <section class="content-section" id="bilder-irland">
             <h2>Bilder Irland</h2>
-            <p>Eine Auswahl meiner schönsten Irland-Fotografien, unterteilt in Galerien.</p>
-
-            <div class="accordion-item">
-                <button class="accordion-header" type="button">
-                    Skellig Michael & Little Skellig
-                    <span class="accordion-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="gallery" id="skelligGallery">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Skellig Michael & Little Skellig
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-skellig">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Irland Counties
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Hier könnten Bilder und Beschreibungen der irischen Counties stehen.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Irland Inseln (außer Skellig)
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <p>Hier könnten Bilder und Beschreibungen weiterer irischer Inseln stehen.</p>
                     </div>
                 </div>
             </div>
-
-            <div class="accordion-item">
-                <button class="accordion-header" type="button">
-                    Irland Counties
-                    <span class="accordion-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="gallery" id="irlandCountiesGallery">
-                         <p style="color: #CCCCCC; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
-                    </div>
-                </div>
-            </div>
-            
-            <div class="accordion-item">
-                <button class="accordion-header" type="button">
-                    Irland Inseln (außer Skellig)
-                    <span class="accordion-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="gallery" id="irlandInselnGallery">
-                        <p style="color: #CCCCCC; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
-                    </div>
-                </div>
-            </div>
-
         </section>
 
         <section class="content-section" id="bilder-schottland">
             <h2>Bilder Schottland</h2>
-            <p>Eine Auswahl meiner schönsten Schottland-Fotografien, unterteilt in Galerien.</p>
-
-            <div class="accordion-item">
-                <button class="accordion-header" type="button">
-                    Corpach
-                    <span class="accordion-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="gallery" id="corpachGallery">
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Corpach
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-corpach">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Fort William & Umgebung
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-fortwilliam">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                 <div class="accordion-item">
+                    <button class="accordion-header">
+                        Glen-Etive
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-glenetive">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Glencoe
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-glencoe">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Glencoe Monument
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-glencoemonument">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header">
+                        Kilchurn Castle
+                        <span class="accordion-arrow">▼</span>
+                    </button>
+                    <div class="accordion-content">
+                        <div class="gallery" id="gallery-kilchurncastle">
+                            <!-- Images will be populated by JavaScript -->
+                        </div>
                     </div>
                 </div>
             </div>
+        </section>
 
-            <div class="accordion-item">
-                <button class="accordion-header" type="button">
-                    Fort William & Umgebung
-                    <span class="accordion-arrow">▼</span>
-                </button>
-                <div class="accordion-content">
-                    <div class="gallery" id="fortWilliamGallery">
-                    </div>
-                </div>
-            </div>
-
+        <section class="content-section" id="contact">
+            <h3>Kontakt</h3>
+            <p>Email: <a href="mailto:galgo51@gmx.de">galgo51@gmx.de</a></p>
+            <p>Email: <a href="mailto:carlowatz@gmail.com">carlowatz@gmail.com</a></p>
         </section>
     </main>
 
+    <footer>
+        <p>&copy; 2024 Gaelic Galgo. Alle Rechte vorbehalten.</p>
+    </footer>
+
+    <!-- Modal for Image Viewing -->
     <div id="imageModal" class="modal">
-        <span class="close-modal-button">&times;</span>
+        <span class="close-modal-button" onclick="closeModal()">&times;</span>
         <div class="modal-content-wrapper">
-            <img class="modal-content" id="modalImage" src="#" alt="Großansicht Bild">
+            <img class="modal-image" id="modalImage">
             <div id="caption"></div>
         </div>
     </div>
 
     <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            const galleriesConfig = {
-                "skelligGallery": {
-                    basePath: "", 
-                    files: [
-                        "Skellig 01.jpg", "Skellig 02.jpg", "Skellig 03.jpg", "Skellig 04.jpg", "Skellig 05.jpg",
-                        "Skellig 06.jpg", "Skellig 07.jpg", "Skellig 08.jpg", "Skellig 09.jpg", "Skellig 10.jpg",
-                        "Skellig 11.jpg", "Skellig 12.jpg", "Skellig 13.jpg", "Skellig 14.jpg", "Skellig 15.jpg",
-                        "Skellig 16.jpg", "Skellig 17.jpg", "Skellig 18.jpg", "Skellig 19.jpg", "Skellig 20.jpg",
-                        "Skellig 21.jpg", "Skellig 22.jpg"
-                    ]
-                },
-                "corpachGallery": {
-                    basePath: "",
-                    files: [
-                        "Corpach 1.jpg", "Corpach 2.jpg", "Corpach 3.jpg", "Corpach 4.jpg", "Corpach 5.jpg",
-                        "Corpach 6.jpg", "Corpach 7.jpg", "Corpach 8.jpg", "Corpach 9.jpg", "Corpach 10.jpg",
-                        "Corpach 11.jpg", "Corpach 12.jpg", "Corpach 13.jpg", "Corpach 14.jpg", "Corpach 15.jpg",
-                        "Corpach 16.jpg", "Corpach 17.jpg", "Corpach 18.jpg", "Corpach 19.jpg", "Corpach 20.jpg",
-                        "Corpach 21.jpg", "Corpach 22.jpg", "Corpach 23.jpg", "Corpach 24.jpg", "Corpach 25.jpg",
-                        "Corpach 26.jpg", "Corpach 27.jpg", "Corpach 28.jpg", "Corpach 29.jpg", "Corpach 30.jpg",
-                        "Corpach 31.jpg", "Corpach 32.jpg", "Corpach 33.jpg", "Corpach 34.jpg", "Corpach 35.jpg",
-                        "Corpach 36.jpg", "Corpach 37.jpg", "Corpach 38.jpg", "Corpach 39.jpg", "Corpach 40.jpg",
-                        "Corpach 41.jpg", "Corpach 42.jpg", "Corpach 43.jpg", "Corpach 44.jpg", "Corpach 45.jpg",
-                        "Corpach 46.jpg", "Corpach 47.jpg", "Corpach 48.jpg", "Corpach 49.jpg", "Corpach 50.jpg",
-                        "Corpach 51.jpg", "Corpach 52.jpg", "Corpach 53.jpg", "Corpach 54.jpg", "Corpach 55.jpg",
-                        "Corpach 56.jpg", "Corpach 57.jpg", "Corpach 58.jpg", "Corpach 59.jpg", "Corpach 60.jpg",
-                        "Corpach 61.jpg", "Corpach 62.jpg", "Corpach 63.jpg", "Corpach 64.jpg", "Corpach 65.jpg",
-                        "Corpach 66.jpg", "Corpach 67.jpg", "Corpach 68.jpg", "Corpach 69.jpg", "Corpach 70.jpg",
-                        "Corpach 71.jpg", "Corpach 72.jpg", "Corpach 73.jpg", "Corpach 74.jpg", "Corpach 75.jpg",
-                        "Corpach 76.jpg", "Corpach 77.jpg", "Corpach 78.jpg", "Corpach 79.jpg", "Corpach 80.jpg",
-                        "Corpach 81.jpg", "Corpach 82.jpg", "Corpach 83.jpg", "Corpach 84.jpg", "Corpach 85.jpg",
-                        "Corpach 86.jpg", "Corpach 87.jpg", "Corpach 88.jpg", "Corpach 89.jpg", "Corpach 90.jpg",
-                        "Corpach 91.jpg", "Corpach 2.jpg", "Corpach 93.jpg", "Corpach 94.jpg", "Corpach 95.jpg",
-                        "Corpach 96.jpg", "Corpach 97.jpg", "Corpach 98.jpg", "Corpach 99.jpg"
-                    ]
-                },
-                "fortWilliamGallery": {
-                    basePath: "",
-                    files: [
-                        "Fort William 1.jpg", "Fort William 2.jpg", "Fort William 3.jpg", "Fort William 4.jpg", "Fort William 5.jpg",
-                        "Fort William 6.jpg", "Fort William 7.jpg", "Fort William 8.jpg", "Fort William 9.jpg", "Fort William 10.jpg",
-                        "Fort William 11.jpg", "Fort William 12.jpg", "Fort William 13.jpg", "Fort William 14.jpg", "Fort William 15.jpg",
-                        "Fort William 16.jpg", "Fort William 17.jpg", "Fort William 18.jpg", "Fort William 19.jpg", "Fort William 20.jpg",
-                        "Fort William 21.jpg", "Fort William 22.jpg", "Fort William 23.jpg", "Fort William 24.jpg", "Fort William 25.jpg",
-                        "Fort William 26.jpg", "Fort William 27.jpg", "Fort William 28.jpg", "Fort William 29.jpg", "Fort William 30.jpg",
-                        "Fort William 31.jpg", "Fort William 32.jpg", "Fort William 33.jpg", "Fort William 34.jpg", "Fort William 35.jpg",
-                        "Fort William 36.jpg", "Fort William 37.jpg", "Fort William 38.jpg", "Fort William 39.jpg", "Fort William 40.jpg",
-                        "Fort William 41.jpg", "Fort William 42.jpg", "Fort William 43.jpg", "Fort William 44.jpg", "Fort William 45.jpg",
-                        "Fort William 46.jpg", "Fort William 47.jpg", "Fort William 48.jpg", "Fort William 49.jpg", "Fort William 50.jpg",
-                        "Fort William 51.jpg", "Fort William 52.jpg", "Fort William 53.jpg", "Fort William 54.jpg", "Fort William 55.jpg",
-                        "Fort William 56.jpg", "Fort William 57.jpg", "Fort William 58.jpg", "Fort William 59.jpg", "Fort William 60.jpg",
-                        "Fort William 61.jpg", "Fort William 62.jpg", "Fort William 63.jpg", "Fort William 64.jpg", "Fort William 65.jpg",
-                        "Fort William 66.jpg", "Fort William 67.jpg", "Fort William 68.jpg", "Fort William 69.jpg", "Fort William 70.jpg",
-                        "Fort William 71.jpg", "Fort William 72.jpg", "Fort William 73.jpg", "Fort William 74.jpg", "Fort William 75.jpg",
-                        "Fort William 76.jpg", "Fort William 77.jpg", "Fort William 78.jpg", "Fort William 79.jpg", "Fort William 80.jpg",
-                        "Fort William 81.jpg", "Fort William 82.jpg", "Fort William 83.jpg", "Fort William 84.jpg", "Fort William 85.jpg",
-                        "Fort William 86.jpg", "Fort William 87.jpg", "Fort William 88.jpg", "Fort William 89.jpg", "Fort William 90.jpg",
-                        "Fort William 91.jpg", "Fort William 92.jpg", "Fort William 93.jpg", "Fort William 94.jpg", "Fort William 95.jpg",
-                        "Fort William 96.jpg", "Fort William 97.jpg", "Fort William 98.jpg", "Fort William 99.jpg"
-                    ]
-                }
-            };
-
-            const navLinks = document.querySelectorAll("nav ul li a");
-            const sections = document.querySelectorAll(".content-section");
-            const mainElement = document.querySelector("main");
-            const navElement = document.querySelector("nav");
-
-            function showSection(sectionId, setActiveLink = true) {
-                sections.forEach(section => {
-                    section.classList.remove("active");
-                });
-                const activeSection = document.getElementById(sectionId);
-                if (activeSection) {
-                    activeSection.classList.add("active");
-                }
-
-                if (setActiveLink) {
-                    navLinks.forEach(link => {
-                        link.classList.remove("active-nav-link");
-                        if (link.getAttribute("href") === "#" + sectionId) {
-                            link.classList.add("active-nav-link");
-                        }
-                    });
-                }
-                if (mainElement && navElement) {
-                     window.scrollTo({
-                        top: mainElement.offsetTop - navElement.offsetHeight - 10, 
-                        behavior: "smooth"
-                    });
-                }
+        // Configuration for galleries
+        const galleriesConfig = {
+            "gallery-skellig": {
+                baseName: "Skellig ",
+                count: 22, // As per previous setup
+                leadingZero: true
+            },
+            "gallery-corpach": {
+                baseName: "Corpach ",
+                count: 5, // User confirmed 5 images
+                leadingZero: false
+            },
+            "gallery-fortwilliam": {
+                baseName: "Fort William ",
+                count: 4, // User confirmed 4 images
+                leadingZero: false
+            },
+            "gallery-glenetive": {
+                baseName: "Glen-Etive ",
+                count: 1, // User confirmed 1 image
+                leadingZero: false
+            },
+            "gallery-glencoe": {
+                baseName: "Glencoe ",
+                count: 9, // User confirmed 9 images
+                leadingZero: false
+            },
+            "gallery-glencoemonument": {
+                baseName: "Glencoe Monument ",
+                count: 4, // User confirmed 4 images
+                leadingZero: false
+            },
+            "gallery-kilchurncastle": {
+                baseName: "Kilchurn Castle ",
+                count: 1, // User confirmed 1 image
+                leadingZero: false
             }
+        };
 
-            navLinks.forEach(link => {
-                link.addEventListener("click", function(event) {
-                    event.preventDefault();
-                    const sectionId = this.getAttribute("href").substring(1);
-                    showSection(sectionId);
-                    window.location.hash = sectionId; 
-                });
-            });
+        // Function to populate galleries
+        function populateGallery(galleryId, config) {
+            const galleryDiv = document.getElementById(galleryId);
+            if (!galleryDiv) return;
 
-            const accordionHeaders = document.querySelectorAll(".accordion-header");
-            accordionHeaders.forEach(header => {
-                header.addEventListener("click", function() {
-                    const content = this.nextElementSibling;
-                    const arrow = this.querySelector(".accordion-arrow");
-                    
-                    content.classList.toggle("open");
-                    this.classList.toggle("active");
-
-                    if (arrow) {
-                         arrow.style.transform = content.classList.contains("open") ? "rotate(180deg)" : "rotate(0deg)";
-                    }
-                });
-            });
-
-            const modal = document.getElementById("imageModal");
-            const modalImg = document.getElementById("modalImage");
-            const captionText = document.getElementById("caption");
-            const closeModalButton = document.querySelector(".close-modal-button");
-
-            function openImageModal(imgElement) {
-                if (modal && modalImg && captionText) {
-                    modal.style.display = "block";
-                    modalImg.src = imgElement.dataset.fullsrc || imgElement.src;
-                    captionText.innerHTML = imgElement.alt;
+            for (let i = 1; i <= config.count; i++) {
+                let filename;
+                if (config.leadingZero && i < 10) {
+                    filename = config.baseName + "0" + i + ".jpg";
+                } else {
+                    filename = config.baseName + i + ".jpg";
                 }
+                
+                const galleryItem = document.createElement('div');
+                galleryItem.className = 'gallery-item';
+                
+                const img = document.createElement('img');
+                img.src = filename;
+                img.alt = filename;
+                img.onclick = function() { openModal(this.src, this.alt); };
+                
+                const p = document.createElement('p');
+                p.className = 'filename';
+                p.textContent = filename;
+                
+                galleryItem.appendChild(img);
+                galleryItem.appendChild(p);
+                galleryDiv.appendChild(galleryItem);
+
+                // Error handling for images
+                img.onerror = function() {
+                    this.style.display = 'none'; // Hide broken image icon
+                    const errorText = document.createElement('p');
+                    errorText.textContent = `Bild nicht gefunden: ${filename}`;
+                    errorText.style.color = '#FFCCCC'; // Light red for error
+                    errorText.style.fontSize = '0.8em';
+                    galleryItem.insertBefore(errorText, this.nextSibling); // Insert error before filename p
+                };
             }
+        }
 
-            if (closeModalButton) {
-                closeModalButton.onclick = function() {
-                    if (modal) modal.style.display = "none";
-                }
-            }
-
-            if (modal) {
-                modal.onclick = function(event) { 
-                    if (event.target === modal || event.target === document.querySelector(".modal-content-wrapper")) {
-                        modal.style.display = "none";
-                    }
-                }
-            }
-            
-            function populateGallery(galleryId, config) {
-                const galleryElement = document.getElementById(galleryId);
-                if (!galleryElement || !config || !config.files) return;
-
-                galleryElement.innerHTML = ''; // Clear previous items
-
-                config.files.forEach(file => {
-                    const galleryItem = document.createElement("div");
-                    galleryItem.className = "gallery-item";
-                    
-                    const img = document.createElement("img");
-                    img.src = config.basePath + file;
-                    img.alt = file.replace(/\.[^/.]+$/, ""); 
-                    img.dataset.fullsrc = config.basePath + file;
-                    
-                    img.onerror = function() { // Handle missing images
-                        this.alt = "Bild nicht gefunden: " + file;
-                        this.src = ""; // Or a placeholder image URL
-                        this.style.border = "1px dashed #888";
-                        this.style.display = "flex";
-                        this.style.alignItems = "center";
-                        this.style.justifyContent = "center";
-                        this.style.height = "100px"; // Adjust placeholder size
-                        this.style.color = "#AAA";
-                        this.parentElement.style.textAlign = "center";
-                        // Add text node for filename if image fails to load
-                        const errorText = document.createTextNode(file);
-                        const errorP = document.createElement("p");
-                        errorP.style.fontSize = "0.8em";
-                        errorP.style.color = "#AAA";
-                        errorP.appendChild(errorText);
-                        this.parentElement.insertBefore(errorP, this.nextSibling);
-                        this.remove(); // Remove the broken image icon itself
-                    };
-
-                    img.addEventListener("click", function() {
-                        openImageModal(this);
-                    });
-
-                    galleryItem.appendChild(img);
-                    
-                    const filenameDiv = document.createElement("div");
-                    filenameDiv.className = "filename";
-                    filenameDiv.textContent = file;
-                    galleryItem.appendChild(filenameDiv);
-                    
-                    galleryElement.appendChild(galleryItem);
-                });
-            }
-
+        // Populate all galleries on page load
+        document.addEventListener('DOMContentLoaded', () => {
             for (const galleryId in galleriesConfig) {
                 populateGallery(galleryId, galleriesConfig[galleryId]);
             }
+            showSection('irland'); // Show default section
+        });
 
-            // Add event listeners for clickable book covers
-            const bookCoverImages = document.querySelectorAll(".clickable-book-cover");
-            bookCoverImages.forEach(img => {
-                img.addEventListener("click", function() {
-                    openImageModal(this);
-                });
-            });
+        // Modal functionality
+        const modal = document.getElementById("imageModal");
+        const modalImg = document.getElementById("modalImage");
+        const captionText = document.getElementById("caption");
 
-            const hash = window.location.hash.substring(1);
-            const defaultSectionId = hash && document.getElementById(hash) ? hash : "irland";
-            showSection(defaultSectionId);
-            navLinks.forEach(link => {
-                if (link.getAttribute("href") === "#" + defaultSectionId) {
-                    link.classList.add("active-nav-link");
+        function openModal(src, alt) {
+            modal.style.display = "block";
+            modalImg.src = src;
+            captionText.innerHTML = alt;
+        }
+
+        function closeModal() {
+            modal.style.display = "none";
+        }
+
+        // Close modal when clicking outside the image
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+        // Close modal with Escape key
+        document.addEventListener('keydown', function(event) {
+            if (event.key === "Escape") {
+                closeModal();
+            }
+        });
+
+        // Accordion functionality
+        const accordionHeaders = document.querySelectorAll('.accordion-header');
+        accordionHeaders.forEach(header => {
+            header.addEventListener('click', () => {
+                const content = header.nextElementSibling;
+                const arrow = header.querySelector('.accordion-arrow');
+                const isOpen = content.style.maxHeight;
+
+                // Close all other accordions in the same parent accordion container (optional, if needed)
+                // const parentAccordion = header.closest('.accordion');
+                // if (parentAccordion) {
+                //     parentAccordion.querySelectorAll('.accordion-content.open').forEach(openContent => {
+                //         if (openContent !== content) {
+                //             openContent.style.maxHeight = null;
+                //             openContent.style.opacity = 0;
+                //             openContent.style.padding = '0 20px'; // Adjust padding for closed state
+                //             const prevArrow = openContent.previousElementSibling.querySelector('.accordion-arrow');
+                //             if (prevArrow) prevArrow.textContent = '▼';
+                //             openContent.classList.remove('open');
+                //         }
+                //     });
+                // }
+
+                if (isOpen) {
+                    content.style.maxHeight = null;
+                    content.style.opacity = 0;
+                    content.style.padding = '0 20px'; // Adjust padding for closed state
+                    if (arrow) arrow.textContent = '▼';
+                    content.classList.remove('open');
+                } else {
+                    content.style.maxHeight = content.scrollHeight + "px";
+                    content.style.opacity = 1;
+                    content.style.padding = '20px'; // Padding for open state
+                    if (arrow) arrow.textContent = '▲';
+                    content.classList.add('open');
                 }
             });
-
         });
-    </script>
 
+        // Navigation and section display
+        const navLinks = document.querySelectorAll('nav ul li a');
+        const contentSections = document.querySelectorAll('.content-section');
+
+        function showSection(sectionId) {
+            contentSections.forEach(section => {
+                if (section.id === sectionId) {
+                    section.classList.add('active');
+                } else {
+                    section.classList.remove('active');
+                }
+            });
+            navLinks.forEach(link => {
+                if (link.getAttribute('href') === `#${sectionId}`) {
+                    link.classList.add('active-nav-link');
+                } else {
+                    link.classList.remove('active-nav-link');
+                }
+            });
+             // Scroll to the top of the section if it's not the initial load
+            if (document.getElementById(sectionId) && document.getElementById(sectionId).offsetTop > 0) {
+                 // window.scrollTo({ top: document.getElementById(sectionId).offsetTop - 70, behavior: 'smooth' }); // 70 is approx nav height
+            }
+        }
+
+        // Initial setup for navigation links
+        navLinks.forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href').substring(1);
+                showSection(targetId);
+                // Scroll to the section after showing it
+                const targetElement = document.getElementById(targetId);
+                if (targetElement) {
+                     window.scrollTo({
+                        top: targetElement.offsetTop - 70, // Adjust 70 based on your nav height
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set initial active section based on URL hash or default to 'irland'
+        document.addEventListener('DOMContentLoaded', () => {
+            const hash = window.location.hash.substring(1);
+            const initialSection = hash || 'irland';
+            showSection(initialSection);
+            // Populate galleries after DOM is ready
+            for (const galleryId in galleriesConfig) {
+                populateGallery(galleryId, galleriesConfig[galleryId]);
+            }
+        });
+
+    </script>
 </body>
 </html>
 
