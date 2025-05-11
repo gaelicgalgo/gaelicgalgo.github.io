@@ -697,7 +697,7 @@
             </div>
         </section>
 
-        <section class="content-section" id="contact">
+        <section id="contact" class="contact-section">
             <h3>Kontakt</h3>
             <p>Email: <a href="mailto:galgo51@gmx.de">galgo51@gmx.de</a></p>
             <p>Email: <a href="mailto:carlowatz@gmail.com">carlowatz@gmail.com</a></p>
@@ -761,6 +761,7 @@
         function populateGallery(galleryId, config) {
             const galleryDiv = document.getElementById(galleryId);
             if (!galleryDiv) return;
+            galleryDiv.innerHTML = ''; // Clear previous content
 
             for (let i = 1; i <= config.count; i++) {
                 let filename;
@@ -797,123 +798,6 @@
                 };
             }
         }
-
-        // Populate all galleries on page load
-        document.addEventListener('DOMContentLoaded', () => {
-            for (const galleryId in galleriesConfig) {
-                populateGallery(galleryId, galleriesConfig[galleryId]);
-            }
-            showSection('irland'); // Show default section
-        });
-
-        // Modal functionality
-        const modal = document.getElementById("imageModal");
-        const modalImg = document.getElementById("modalImage");
-        const captionText = document.getElementById("caption");
-
-        function openModal(src, alt) {
-            modal.style.display = "block";
-            modalImg.src = src;
-            captionText.innerHTML = alt;
-        }
-
-        function closeModal() {
-            modal.style.display = "none";
-        }
-
-        // Close modal when clicking outside the image
-        window.onclick = function(event) {
-            if (event.target == modal) {
-                closeModal();
-            }
-        }
-        // Close modal with Escape key
-        document.addEventListener('keydown', function(event) {
-            if (event.key === "Escape") {
-                closeModal();
-            }
-        });
-
-        // Accordion functionality
-        const accordionHeaders = document.querySelectorAll('.accordion-header');
-        accordionHeaders.forEach(header => {
-            header.addEventListener('click', () => {
-                const content = header.nextElementSibling;
-                const arrow = header.querySelector('.accordion-arrow');
-                const isOpen = content.style.maxHeight;
-
-                // Close all other accordions in the same parent accordion container (optional, if needed)
-                // const parentAccordion = header.closest('.accordion');
-                // if (parentAccordion) {
-                //     parentAccordion.querySelectorAll('.accordion-content.open').forEach(openContent => {
-                //         if (openContent !== content) {
-                //             openContent.style.maxHeight = null;
-                //             openContent.style.opacity = 0;
-                //             openContent.style.padding = '0 20px'; // Adjust padding for closed state
-                //             const prevArrow = openContent.previousElementSibling.querySelector('.accordion-arrow');
-                //             if (prevArrow) prevArrow.textContent = '▼';
-                //             openContent.classList.remove('open');
-                //         }
-                //     });
-                // }
-
-                if (isOpen) {
-                    content.style.maxHeight = null;
-                    content.style.opacity = 0;
-                    content.style.padding = '0 20px'; // Adjust padding for closed state
-                    if (arrow) arrow.textContent = '▼';
-                    content.classList.remove('open');
-                } else {
-                    content.style.maxHeight = content.scrollHeight + "px";
-                    content.style.opacity = 1;
-                    content.style.padding = '20px'; // Padding for open state
-                    if (arrow) arrow.textContent = '▲';
-                    content.classList.add('open');
-                }
-            });
-        });
-
-        // Navigation and section display
-        const navLinks = document.querySelectorAll('nav ul li a');
-        const contentSections = document.querySelectorAll('.content-section');
-
-        function showSection(sectionId) {
-            contentSections.forEach(section => {
-                if (section.id === sectionId) {
-                    section.classList.add('active');
-                } else {
-                    section.classList.remove('active');
-                }
-            });
-            navLinks.forEach(link => {
-                if (link.getAttribute('href') === `#${sectionId}`) {
-                    link.classList.add('active-nav-link');
-                } else {
-                    link.classList.remove('active-nav-link');
-                }
-            });
-             // Scroll to the top of the section if it's not the initial load
-            if (document.getElementById(sectionId) && document.getElementById(sectionId).offsetTop > 0) {
-                 // window.scrollTo({ top: document.getElementById(sectionId).offsetTop - 70, behavior: 'smooth' }); // 70 is approx nav height
-            }
-        }
-
-        // Initial setup for navigation links
-        navLinks.forEach(link => {
-            link.addEventListener('click', function(e) {
-                e.preventDefault();
-                const targetId = this.getAttribute('href').substring(1);
-                showSection(targetId);
-                // Scroll to the section after showing it
-                const targetElement = document.getElementById(targetId);
-                if (targetElement) {
-                     window.scrollTo({
-                        top: targetElement.offsetTop - 70, // Adjust 70 based on your nav height
-                        behavior: 'smooth'
-                    });
-                }
-            });
-        });
 
         // Set initial active section based on URL hash or default to 'irland'
         document.addEventListener('DOMContentLoaded', () => {
