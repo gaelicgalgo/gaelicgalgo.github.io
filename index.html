@@ -22,14 +22,14 @@
 
         /* Header Styles */
         header {
-            background-color: rgba(25, 50, 35, 0.85);
+            background-color: rgba(25, 50, 35, 0.85); /* Dark green, semi-transparent */
             color: #E0E0E0;
             padding: 25px 40px;
             display: flex;
             justify-content: space-between;
             align-items: center;
             flex-wrap: wrap;
-            border-bottom: 3px solid #4A7C59;
+            border-bottom: 3px solid #4A7C59; /* Slightly lighter green border */
         }
 
         header .title-container h1 {
@@ -44,7 +44,7 @@
             margin: 5px 0 0 0;
             font-size: 1.1em;
             font-style: italic;
-            color: #B0C4B1;
+            color: #B0C4B1; /* Light green-gray */
             text-shadow: 1px 1px 1px rgba(0,0,0,0.5);
         }
         
@@ -66,7 +66,7 @@
         }
 
         .author-box p {
-            margin: 0 15px 0 0; /* Abstand rechts vom Text zum Bild */
+            margin: 0 15px 0 0; 
         }
 
         .author-image {
@@ -78,13 +78,13 @@
 
         /* Navigation Styles */
         nav {
-            background-color: rgba(0,0,0,0.6);
+            background-color: rgba(0,0,0,0.7); /* Darker semi-transparent */
             padding: 12px 0;
             text-align: center;
             position: sticky;
             top: 0;
             z-index: 999;
-            border-bottom: 1px solid rgba(255,255,255,0.2);
+            border-bottom: 1px solid rgba(255,255,255,0.3);
         }
 
         nav ul {
@@ -109,7 +109,7 @@
 
         nav ul li a:hover,
         nav ul li a.active-nav-link {
-            background-color: #4A7C59;
+            background-color: #4A7C59; /* Green accent */
             color: #FFFFFF;
         }
 
@@ -118,16 +118,16 @@
             padding: 25px;
             max-width: 1300px;
             margin: 30px auto;
-            background-color: rgba(255, 255, 255, 0.95); /* Leicht transparenter weißer Hintergrund */
-            box-shadow: 0 5px 20px rgba(0,0,0,0.2);
+            background-color: rgba(0, 0, 0, 0.65); /* Darker, more transparent */
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
             border-radius: 10px;
-            color: #333333; /* Dunklerer Text für besseren Kontrast auf hellem Grund */
+            color: #FFFFFF; /* White text for main content */
         }
 
         .content-section {
             display: none;
             padding: 25px;
-            border-top: 1px solid #DDDDDD;
+            border-top: 1px solid rgba(255,255,255,0.2);
             animation: fadeIn 0.6s ease-in-out;
         }
 
@@ -145,32 +145,39 @@
         }
 
         h2 {
-            color: #2F4F4F; /* Dunkles Schiefergrau */
-            border-bottom: 2px solid #4A7C59;
+            color: #FFFFFF; /* White headings */
+            border-bottom: 2px solid #4A7C59; /* Green accent */
             padding-bottom: 12px;
             margin-top: 0;
             font-size: 2em;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
         }
         
         h3 {
-            color: #2F4F4F; 
+            color: #E0E0E0; /* Lighter white/gray for sub-headings */
             margin-top: 20px;
             margin-bottom: 10px;
             font-size: 1.5em;
+            text-shadow: 1px 1px 1px rgba(0,0,0,0.4);
+        }
+        
+        /* Ensure paragraphs within main content are also white if not inheriting */
+        main p {
+            color: #F0F0F0; /* Slightly off-white for paragraphs if needed */
         }
 
         /* Accordion Styles */
         .accordion-item {
             margin-bottom: 18px;
-            border: 1px solid #CCCCCC;
+            border: 1px solid rgba(255,255,255,0.3);
             border-radius: 6px;
             overflow: hidden;
-            background-color: #F8F8F8;
+            background-color: rgba(25, 50, 35, 0.6); /* Dark green, semi-transparent for item itself */
         }
 
         .accordion-header {
-            background-color: #E0E0E0;
-            color: #2F4F4F;
+            background-color: rgba(74, 124, 89, 0.7); /* Green accent, semi-transparent */
+            color: #FFFFFF; /* White text for header */
             cursor: pointer;
             padding: 18px 22px;
             width: 100%;
@@ -183,19 +190,21 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
+            border-bottom: 1px solid rgba(255,255,255,0.2); /* Separator for active state */
         }
 
         .accordion-header:hover {
-            background-color: #D0D0D0;
+            background-color: rgba(74, 124, 89, 0.9); /* Darker green on hover */
         }
 
         .accordion-header.active {
-            background-color: #C0C0C0;
+            background-color: rgba(90, 150, 110, 0.8); /* Slightly lighter green when active */
         }
 
         .accordion-arrow {
             font-size: 0.9em;
             transition: transform 0.35s ease;
+            color: #FFFFFF;
         }
 
         .accordion-header.active .accordion-arrow {
@@ -204,18 +213,23 @@
 
         .accordion-content {
             padding: 0; 
-            background-color: #FFFFFF;
-            border-top: 1px solid #CCCCCC;
+            background-color: rgba(0, 0, 0, 0.5); /* Darker, more transparent for content area */
+            border-top: 1px solid rgba(255,255,255,0.2);
             max-height: 0;
             opacity: 0;
             overflow: hidden;
             transition: max-height 0.45s ease-out, opacity 0.3s ease-out 0.1s, padding-top 0.45s ease-out, padding-bottom 0.45s ease-out;
+            color: #E0E0E0; /* Light text for accordion content */
         }
 
         .accordion-content.open {
             padding: 20px;
-            max-height: 5000px; /* Adjust if content is larger */
+            max-height: 5000px; 
             opacity: 1;
+        }
+        
+        .accordion-content p {
+             color: #E0E0E0; /* Ensure paragraphs in accordion are light */
         }
 
         /* Gallery Styles */
@@ -223,16 +237,16 @@
             display: flex;
             flex-wrap: wrap;
             gap: 12px;
-            justify-content: flex-start; /* Align items to the start */
+            justify-content: flex-start; 
         }
 
         .gallery-item {
-            width: calc(20% - 10px); /* 5 items per row, considering gap */
-            border: 1px solid #D0D0D0;
+            width: calc(20% - 10px); 
+            border: 1px solid rgba(255,255,255,0.25);
             padding: 6px;
-            background-color: #FDFDFD;
+            background-color: rgba(255,255,255,0.05); /* Very subtle background for items */
             text-align: center;
-            box-shadow: 2px 2px 6px rgba(0,0,0,0.08);
+            box-shadow: 2px 2px 6px rgba(0,0,0,0.2);
             border-radius: 5px;
             transition: transform 0.25s ease, box-shadow 0.25s ease;
             overflow: hidden; 
@@ -240,7 +254,8 @@
 
         .gallery-item:hover {
             transform: translateY(-3px) scale(1.03);
-            box-shadow: 4px 4px 10px rgba(0,0,0,0.12);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.3);
+            background-color: rgba(255,255,255,0.1);
         }
 
         .gallery-item img {
@@ -256,12 +271,12 @@
 
         .gallery-item .filename {
             font-size: 0.85em;
-            color: #505050;
+            color: #CCCCCC; /* Lighter filename text */
             word-wrap: break-word;
             padding: 0 3px;
         }
 
-        /* Modal Styles */
+        /* Modal Styles (already dark, should be fine) */
         .modal {
             display: none;
             position: fixed;
@@ -353,20 +368,27 @@
         .book-cover-item img {
             max-width: 100%;
             height: auto;
-            border: 1px solid #C0C0C0;
-            box-shadow: 4px 4px 10px rgba(0,0,0,0.18);
+            border: 1px solid rgba(255,255,255,0.3);
+            box-shadow: 4px 4px 10px rgba(0,0,0,0.25);
             border-radius: 5px;
             transition: transform 0.3s ease;
+            cursor: pointer; /* Add cursor pointer for clickable book covers */
         }
 
         .book-cover-item img:hover {
             transform: scale(1.05);
         }
+        
+        .book-cover-item p {
+            color: #E0E0E0; /* Ensure text under book covers is light */
+            margin-top: 8px;
+            font-size: 0.9em;
+        }
 
         /* Responsive Design */
         @media (max-width: 1200px) {
             .gallery-item {
-                width: calc(25% - 10px); /* 4 items */
+                width: calc(25% - 10px); 
             }
         }
         
@@ -382,7 +404,7 @@
                 font-size: 1em;
             }
             .gallery-item {
-                width: calc(33.333% - 9px); /* 3 items */
+                width: calc(33.333% - 9px); 
             }
             .book-cover-item {
                 width: calc(50% - 15px);
@@ -391,9 +413,6 @@
         }
 
         @media (max-width: 768px) {
-            body {
-                /* background-image: none; Consider removing for performance on mobile */
-            }
             header {
                 flex-direction: column;
                 text-align: center;
@@ -434,7 +453,7 @@
                 padding: 15px;
             }
             .gallery-item {
-                width: calc(50% - 7px); /* 2 items */
+                width: calc(50% - 7px); 
             }
             .modal-content {
                 max-width: 95%;
@@ -461,7 +480,7 @@
                 border-radius: 0;
             }
             .gallery-item {
-                width: 100%; /* 1 item */
+                width: 100%; 
             }
             .book-cover-item {
                 width: 80%;
@@ -487,7 +506,6 @@
         <div class="author-container">
             <div class="author-box">
                 <p>Karl Ramspott<br>geb. 1951<br>Irland- & Schottlandreisender</p>
-                <!-- Assuming karl_portrait_round.png is in the root -->
                 <img src="karl_portrait_round.png" alt="Karl Ramspott" class="author-image">
             </div>
         </div>
@@ -504,44 +522,41 @@
     </nav>
 
     <main>
-        <!-- Irland Section -->
         <section class="content-section" id="irland">
             <h2>Irland</h2>
             <p>Reiseberichte, Landschaften und Momente voller Geschichte. Wilde Küsten, alte Steine und das Gefühl von Freiheit. Irland ist kein Ziel – es ist eine Rückkehr zum Ursprung.</p>
             <p>Hier finden Sie Eindrücke von der grünen Insel, von den majestätischen Cliffs of Moher bis zu den stillen Seen Connemaras, von den lebhaften Straßen Dublins bis zu den verborgenen Schätzen des Ring of Kerry. Jedes Bild und jede Geschichte erzählt von der tiefen Verbundenheit mit diesem Land, seiner reichen Kultur und den warmherzigen Menschen.</p>
         </section>
 
-        <!-- Schottland Section -->
         <section class="content-section" id="schottland">
             <h2>Schottland</h2>
             <p>Nebel, Highlands, Burgen – Geschichten aus einem Land zwischen Vergangenheit und Gegenwart. Schottland trägt den Wind in der Stimme und das Feuer im Herzen.</p>
             <p>Entdecken Sie die raue Schönheit der schottischen Highlands, die mystischen Lochs und die historischen Städte wie Edinburgh und Glasgow. Die Bildergalerien fangen die einzigartige Atmosphäre dieses Landes ein, von den einsamen Weiten der Isle of Skye bis zu den geschichtsträchtigen Schlachtfeldern.</p>
         </section>
 
-        <!-- Bücher Section -->
         <section class="content-section" id="buecher">
             <h2>Meine Bücher</h2>
             <div class="book-covers">
                 <div class="book-cover-item">
-                    <!-- Assuming book cover images are in the root -->
-                    <img src="ire-cover-1.jpg" alt="Buchcover Mein Leben als Ire">
+                    <img src="ire-cover-1.jpg" alt="Buchcover Mein Leben als Ire" class="clickable-book-cover">
+                    <p>Mein Leben als Ire</p>
                 </div>
                 <div class="book-cover-item">
-                    <img src="strasse-cover-3.jpg" alt="Buchcover Unter den Strassen Dublins">
+                    <img src="strasse-cover-3.jpg" alt="Buchcover Unter den Strassen Dublins" class="clickable-book-cover">
+                    <p>Unter den Strassen Dublins</p>
                 </div>
                 <div class="book-cover-item">
-                    <img src="arch-cover-2.jpg" alt="Buchcover Reise zu den archäologischen Stätten Irlands">
+                    <img src="arch-cover-2.jpg" alt="Buchcover Reise zu den archäologischen Stätten Irlands" class="clickable-book-cover">
+                    <p>Reise zu den archäologischen Stätten Irlands</p>
                 </div>
             </div>
             <p style="margin-top: 30px; text-align: center;">Weitere Informationen zu meinen Büchern und Bestellmöglichkeiten folgen in Kürze...</p>
         </section>
 
-        <!-- Bilder Irland Section -->
         <section class="content-section" id="bilder-irland">
             <h2>Bilder Irland</h2>
             <p>Eine Auswahl meiner schönsten Irland-Fotografien, unterteilt in Galerien.</p>
 
-            <!-- Skellig Gallery -->
             <div class="accordion-item">
                 <button class="accordion-header" type="button">
                     Skellig Michael & Little Skellig
@@ -549,12 +564,10 @@
                 </button>
                 <div class="accordion-content">
                     <div class="gallery" id="skelligGallery">
-                        <!-- Images will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
 
-            <!-- Irland Counties Gallery -->
             <div class="accordion-item">
                 <button class="accordion-header" type="button">
                     Irland Counties
@@ -562,12 +575,11 @@
                 </button>
                 <div class="accordion-content">
                     <div class="gallery" id="irlandCountiesGallery">
-                         <p style="color: #777; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
+                         <p style="color: #CCCCCC; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
                     </div>
                 </div>
             </div>
             
-            <!-- Irland Inseln Gallery -->
             <div class="accordion-item">
                 <button class="accordion-header" type="button">
                     Irland Inseln (außer Skellig)
@@ -575,32 +587,28 @@
                 </button>
                 <div class="accordion-content">
                     <div class="gallery" id="irlandInselnGallery">
-                        <p style="color: #777; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
+                        <p style="color: #CCCCCC; text-align: center; width: 100%;">Fotos folgen in Kürze...</p>
                     </div>
                 </div>
             </div>
 
         </section>
 
-        <!-- Bilder Schottland Section -->
         <section class="content-section" id="bilder-schottland">
             <h2>Bilder Schottland</h2>
             <p>Eine Auswahl meiner schönsten Schottland-Fotografien, unterteilt in Galerien.</p>
 
-            <!-- Corpach Gallery -->
             <div class="accordion-item">
                 <button class="accordion-header" type="button">
-                    Corpach Wreck & Ben Nevis
+                    Corpach
                     <span class="accordion-arrow">▼</span>
                 </button>
                 <div class="accordion-content">
                     <div class="gallery" id="corpachGallery">
-                        <!-- Images will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
 
-            <!-- Fort William Gallery -->
             <div class="accordion-item">
                 <button class="accordion-header" type="button">
                     Fort William & Umgebung
@@ -608,7 +616,6 @@
                 </button>
                 <div class="accordion-content">
                     <div class="gallery" id="fortWilliamGallery">
-                        <!-- Images will be populated by JavaScript -->
                     </div>
                 </div>
             </div>
@@ -616,7 +623,6 @@
         </section>
     </main>
 
-    <!-- The Modal -->
     <div id="imageModal" class="modal">
         <span class="close-modal-button">&times;</span>
         <div class="modal-content-wrapper">
@@ -627,10 +633,9 @@
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
-            // --- CONFIGURATION FOR GALLERIES ---
             const galleriesConfig = {
                 "skelligGallery": {
-                    basePath: "", // Assuming images are in the root
+                    basePath: "", 
                     files: [
                         "Skellig 01.jpg", "Skellig 02.jpg", "Skellig 03.jpg", "Skellig 04.jpg", "Skellig 05.jpg",
                         "Skellig 06.jpg", "Skellig 07.jpg", "Skellig 08.jpg", "Skellig 09.jpg", "Skellig 10.jpg",
@@ -660,7 +665,7 @@
                         "Corpach 76.jpg", "Corpach 77.jpg", "Corpach 78.jpg", "Corpach 79.jpg", "Corpach 80.jpg",
                         "Corpach 81.jpg", "Corpach 82.jpg", "Corpach 83.jpg", "Corpach 84.jpg", "Corpach 85.jpg",
                         "Corpach 86.jpg", "Corpach 87.jpg", "Corpach 88.jpg", "Corpach 89.jpg", "Corpach 90.jpg",
-                        "Corpach 91.jpg", "Corpach 92.jpg", "Corpach 93.jpg", "Corpach 94.jpg", "Corpach 95.jpg",
+                        "Corpach 91.jpg", "Corpach 2.jpg", "Corpach 93.jpg", "Corpach 94.jpg", "Corpach 95.jpg",
                         "Corpach 96.jpg", "Corpach 97.jpg", "Corpach 98.jpg", "Corpach 99.jpg"
                     ]
                 },
@@ -691,7 +696,6 @@
                 }
             };
 
-            // --- NAVIGATION --- 
             const navLinks = document.querySelectorAll("nav ul li a");
             const sections = document.querySelectorAll(".content-section");
             const mainElement = document.querySelector("main");
@@ -727,18 +731,16 @@
                     event.preventDefault();
                     const sectionId = this.getAttribute("href").substring(1);
                     showSection(sectionId);
-                    window.location.hash = sectionId; // Update URL hash
+                    window.location.hash = sectionId; 
                 });
             });
 
-            // --- ACCORDION --- 
             const accordionHeaders = document.querySelectorAll(".accordion-header");
             accordionHeaders.forEach(header => {
                 header.addEventListener("click", function() {
                     const content = this.nextElementSibling;
                     const arrow = this.querySelector(".accordion-arrow");
-                    const isActive = this.classList.contains("active");
-
+                    
                     content.classList.toggle("open");
                     this.classList.toggle("active");
 
@@ -748,7 +750,6 @@
                 });
             });
 
-            // --- MODAL --- 
             const modal = document.getElementById("imageModal");
             const modalImg = document.getElementById("modalImage");
             const captionText = document.getElementById("caption");
@@ -769,17 +770,18 @@
             }
 
             if (modal) {
-                modal.onclick = function(event) { // Click on background to close
+                modal.onclick = function(event) { 
                     if (event.target === modal || event.target === document.querySelector(".modal-content-wrapper")) {
                         modal.style.display = "none";
                     }
                 }
             }
             
-            // --- DYNAMIC GALLERY POPULATION & MODAL LISTENERS ---
             function populateGallery(galleryId, config) {
                 const galleryElement = document.getElementById(galleryId);
                 if (!galleryElement || !config || !config.files) return;
+
+                galleryElement.innerHTML = ''; // Clear previous items
 
                 config.files.forEach(file => {
                     const galleryItem = document.createElement("div");
@@ -787,9 +789,29 @@
                     
                     const img = document.createElement("img");
                     img.src = config.basePath + file;
-                    img.alt = file.replace(/\.[^/.]+$/, ""); // Filename without extension as alt
+                    img.alt = file.replace(/\.[^/.]+$/, ""); 
                     img.dataset.fullsrc = config.basePath + file;
                     
+                    img.onerror = function() { // Handle missing images
+                        this.alt = "Bild nicht gefunden: " + file;
+                        this.src = ""; // Or a placeholder image URL
+                        this.style.border = "1px dashed #888";
+                        this.style.display = "flex";
+                        this.style.alignItems = "center";
+                        this.style.justifyContent = "center";
+                        this.style.height = "100px"; // Adjust placeholder size
+                        this.style.color = "#AAA";
+                        this.parentElement.style.textAlign = "center";
+                        // Add text node for filename if image fails to load
+                        const errorText = document.createTextNode(file);
+                        const errorP = document.createElement("p");
+                        errorP.style.fontSize = "0.8em";
+                        errorP.style.color = "#AAA";
+                        errorP.appendChild(errorText);
+                        this.parentElement.insertBefore(errorP, this.nextSibling);
+                        this.remove(); // Remove the broken image icon itself
+                    };
+
                     img.addEventListener("click", function() {
                         openImageModal(this);
                     });
@@ -809,11 +831,17 @@
                 populateGallery(galleryId, galleriesConfig[galleryId]);
             }
 
-            // --- INITIAL PAGE LOAD --- 
+            // Add event listeners for clickable book covers
+            const bookCoverImages = document.querySelectorAll(".clickable-book-cover");
+            bookCoverImages.forEach(img => {
+                img.addEventListener("click", function() {
+                    openImageModal(this);
+                });
+            });
+
             const hash = window.location.hash.substring(1);
             const defaultSectionId = hash && document.getElementById(hash) ? hash : "irland";
             showSection(defaultSectionId);
-            // Ensure the correct nav link is highlighted if loaded with a hash
             navLinks.forEach(link => {
                 if (link.getAttribute("href") === "#" + defaultSectionId) {
                     link.classList.add("active-nav-link");
